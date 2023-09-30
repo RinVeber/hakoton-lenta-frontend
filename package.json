@@ -13,8 +13,10 @@
     "@reduxjs/toolkit": "^1.9.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.46.2",
     "react-redux": "^8.1.2",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "proxy": "http://95.163.233.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
