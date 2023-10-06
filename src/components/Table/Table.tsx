@@ -90,19 +90,17 @@ export default function Table({ mokColumns }: TableProps) {
         {sortList.map((item) => {
           return (
             <div key={item.key} className={styles.table__row}>
+         
+
               <div className={styles.table__rowCell}>{item.name}</div>
               <div className={styles.table__rowCell}>{item.group}</div>
               <div className={styles.table__rowCell}>{item.category}</div>
               <div className={styles.table__rowCell}>{item.podcategory}</div>
               <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
-              <div className={styles.table__rowCell}>{item.sku}</div>
+              <div className={styles.table__rowCell}>10</div>
+              <div className={styles.table__rowCell}>10</div>
+              
+    
             </div>
           );
         })}

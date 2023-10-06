@@ -4,7 +4,7 @@ export let regexp = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
 export const URL = "http://127.0.0.1:8000/v1/auth/token/login/";
 export const baseURL = 'http://95.163.233.5/v1/';
-export const urlScales = baseURL + 'api/sales/';
+export const urlSales = baseURL + 'api/sales/';
 export const urlForcast = baseURL + '/api/forecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
 
@@ -85,15 +85,63 @@ export const mokColumnsTable = [
   },
 ];
 
+export const mokColumnsTableGrid = [
+  {
+    headerName: "TK",
+    field: "tk",
+    key: "tk",
+    width: 168,
+  },
+  {
+    headerName: "Группа",
+    field: "group",
+    key: "group",
+    width: 168,
+  },
+  {
+    headerName: "Категория",
+    field: "category",
+    key: "category",
+    width: 168,
+  },
+  {
+    headerName: "Подкатеогрия",
+    field: "podcategory",
+    key: "podcategory",
+    width: 168,
+  },
+  {
+    headerName: "SKU",
+    field: "sku",
+    key: "sku",
+    width: 168,
+  },
+];
+
 [...Array(14).keys()].forEach((item) => {
   const day = new Date();
   day.setDate(day.getDate() + item);
 
   mokColumnsTable.push({
     title: day.toLocaleDateString(),
-    dataIndex: "date",
+    dataIndex: "date" + item,
     key: "date" + item,
   });
+
+});
+
+
+[...Array(14).keys()].forEach((item) => {
+  const day = new Date();
+  day.setDate(day.getDate() + item);
+
+  mokColumnsTableGrid.push({
+    headerName: day.toLocaleDateString(),
+    field: "date",
+    key: "date" + item,
+    width: 168,
+  })
+
 });
 
 console.log(mokColumnsTable);
@@ -153,6 +201,98 @@ export const mokColumnsForcast = [
 ];
 
 export const mokDataSource = [
+  {
+    key: "1",
+    name: "Лента1",
+    group: "Напитки",
+    category: "Напиток ",
+    podcategory: "Холодный ",
+    sku: "Напиток Холодный ",
+  },
+  {
+    key: "2",
+    name: "Лента3",
+    group: "Хлеб",
+    category: "Хлеб ",
+    podcategory: "Пшеничный ",
+    sku: "Хлеб пшеничный ",
+  },
+  {
+    key: "3",
+    name: "Лента2",
+    group: "Шаколадки",
+    category: "Шаколад",
+    podcategory: "Горький",
+    sku: "Шаколад горький ",
+  },
+  {
+    key: "4",
+    name: "Лента4",
+    group: "Коктели",
+    category: "Молочные",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "5",
+    name: "TK",
+    group: "Коктели",
+    category: "Молочные",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "6",
+    name: "Лента7",
+    group: "Коктели",
+    category: "Молочные",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "7",
+    name: "Аркадий",
+    group: "Коктели",
+    category: "Молочные",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "8",
+    name: "Лента122",
+    group: "Коктели",
+    category: "Выпечка",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "9",
+    name: "Лента1ff22",
+    group: "Коктели",
+    category: "Выпечка",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+  {
+    key: "10",
+    name: "Лента1sasa22",
+    group: "Коктели",
+    category: "Выпечка",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+
+  {
+    key: "11",
+    name: "Лента1asas22",
+    group: "Коктели",
+    category: "Выпечка",
+    podcategory: "Вкусные",
+    sku: "Молочный вкусный коктель ",
+  },
+];
+
+export const mokDataSourceGrid = [
   {
     key: "1",
     name: "Лента1",

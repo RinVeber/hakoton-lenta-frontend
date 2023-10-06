@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlScales } from '../../utils/constant';
+import { urlSales } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],
@@ -21,15 +21,20 @@ const initialState: DataTypeState = {
   error: undefined,
 };
 
+const token = localStorage.getItem('token') as string;
+console.log(token);
+
 export const getDataSales = createAsyncThunk(
   "dataSales/getDataSales",
   async () => {
     try {
-      const response = await fetch(urlScales, {
+      console.log(token);
+      const response = await fetch(urlSales, {
         method: "GET",
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
-          "Content-type": "application/json",
+          Authorization: 'Token ' + token,
+            'Content-Type': 'application/json',
         },
       });
       if (response.ok) {
@@ -42,8 +47,8 @@ export const getDataSales = createAsyncThunk(
   }
 );
 
-const dataScalesSlice = createSlice({
-  name: 'scales',
+const dataSalesSlice = createSlice({
+  name: 'sales',
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
@@ -67,5 +72,5 @@ const dataScalesSlice = createSlice({
   },
 });
 
-export const { reducer: dataScalesReducer, actions: dataScalesActions } = dataScalesSlice;
+export const { reducer: dataSalesReducer, actions: dataSalesActions } = dataSalesSlice;
 

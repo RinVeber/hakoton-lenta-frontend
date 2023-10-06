@@ -27,7 +27,6 @@ export const getDataForcast = createAsyncThunk(
     try {
       const response = await fetch(urlForcast, {
         method: "GET",
-        mode: 'no-cors',
         headers: {
           "Content-type": "application/json",
         },

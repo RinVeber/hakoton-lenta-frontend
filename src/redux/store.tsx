@@ -1,12 +1,12 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import { dataScalesReducer } from "./slices/dataScalesSlice";
+import { dataSalesReducer } from "./slices/dataSalesSlice";
 import { dataForcastReducer } from "./slices/dataForcastSlice";
 import formSlice from "./slices/formSlice";
 
 const store = configureStore({
   reducer: {
-    scales: dataScalesReducer,
+    sales: dataSalesReducer,
     form: formSlice,
     forcast: dataForcastReducer
   },
