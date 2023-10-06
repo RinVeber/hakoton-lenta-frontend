@@ -5,6 +5,14 @@
     overflow: scroll;
     scrollbar-width: thin;  
 }
+
+.table__content {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    min-width: 700px;
+}
 .table::-webkit-scrollbar {
     width: 8px;
 }
@@ -24,32 +32,37 @@
     background-color: #ECECEC;
 }
 
-
+.table__head {
+    display: flex;
+    position: "sticky";
+    top: 0;
+    background-color: "white";
+    border-bottom: '1px solid #B6B6B6';
+}
 
 .table__columnField {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-
-}
-.table__columnContainer {
-    width: 164px;
+    width: 132px;
     padding: 16px;
     height: 76px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     gap: 8px;
+    font-size: 16px;
+    border-bottom: '1px solid #B6B6B6'
+
 }
-.table__columnContainer:nth-child(1) {
-    width: 116px;
+.table__columnField:nth-child(1) {
+    width: 84px;
  }
-.table__columnContainer:nth-child(n+6) {
-    width: 146px;
+
+.table__columnField:nth-child(n+6) {
+    width: 114px;
     display: flex;
     justify-content: center;
  }
+
 .table__columnName {
     font-size: 16px;
     font-weight: 700;
@@ -91,27 +104,31 @@
 .table__row:nth-child(even) {
     background-color: white;
 }
-.table__row:nth-child(even) {
-    background-color: white;
-}
 .table__row:last-child {
   margin-bottom: 60px;
 }
 
 .table__rowCell {
     padding: 16px;
-    width: 164px;
+    width: 132px;
     height: 76px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #2C2A29;
 }
 .table__rowCell:nth-child(1) {
-    width: 116px;
+    width: 84px;
+ }
+ .table__rowCell:nth-child(5) {
+    display: flex;
+    justify-content: center;
  }
 
 .table__rowCell:nth-child(n+6) {
-    width: 146px;
+    width: 114px;
     display: flex;
     justify-content: center;
  }

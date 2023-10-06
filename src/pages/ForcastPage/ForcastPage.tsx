@@ -4,6 +4,8 @@ import Table from "../../components/Table/Table";
 import styles from "./ForcastPage.module.css";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
 import { mokColumnsForcast } from "../../utils/constant";
+import TableMUI from "../../components/Table/Table";
+
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -14,7 +16,8 @@ export default function ForcastPage() {
   return (
     <section className={styles.forcastPage}>
       <Tabs handleOpenModal={handleOpenModal} />
-      <Table mokColumns = {mokColumnsForcast}/>
+      {/* <Table mokColumns = {mokColumnsForcast}/> */}
+      <TableMUI mokColumns={mokColumnsForcast}/>
       <ButtonExcel />
     </section>
   );

@@ -123,7 +123,7 @@ export const mokColumnsTableGrid = [
   day.setDate(day.getDate() + item);
 
   mokColumnsTable.push({
-    title: day.toLocaleDateString(),
+    title: day.toLocaleDateString() + ' ' + 'шт',
     dataIndex: "date" + item,
     key: "date" + item,
   });
@@ -178,17 +178,17 @@ export const mokColumnsForcast = [
     key: "weekday",
   },
   {
-    title: "Продажи",
+    title: "Продажи шт",
     dataIndex: "sales",
     key: "sales",
   },
   {
-    title: "Прогноз",
+    title: "Прогноз шт",
     dataIndex: "forcast",
     key: "forcast",
   },
   {
-    title: "Разница",
+    title: "Разница (факт/план)",
     dataIndex: "difference",
     key: "difference",
   },
