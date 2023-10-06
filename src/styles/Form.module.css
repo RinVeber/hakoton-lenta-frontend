@@ -76,7 +76,16 @@
     align-items: center;
     gap: 10px;
     border-radius: 52px;
-    background: var(--COLOR_BUTTON_ACTIV);
+    background: var(--COLOR_BLUE);
+}
+
+.buttonAuth_valid:hover {
+    background: var(--COLOR_BUTTON_HOVER);
+    transition: 0.2s;
+}
+
+.buttonAuth_valid:focus {
+    background: var(--COLOR_BUTTON_FOCUS);
 }
 
 .buttonSpan_valid {

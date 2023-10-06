@@ -12,11 +12,12 @@ body {
     --COLOR_INPUT_BORDER: rgba(180, 200, 255, 1);
     --COLOR_BUTTON_DISABLED: rgba(246, 246, 246, 1);
     --COLOR_NOT-VALID: rgba(226, 54, 73, 1);
-    --COLOR_BUTTON_ACTIV: rgba(0, 30, 100, 1);
+    --COLOR_BUTTON_FOCUS: rgba(0, 30, 100, 1);
     --COLOR_WHITE: rgba(255, 255, 255, 1);
     --COLOR_GREEN: rgb(0, 128, 0);
-
-    --COLOR_LIGHT_BLUE: rgba(236, 243, 255, 1)
+    --COLOR_BUTTON_HOVER: rgba(2, 97, 240, 1);
+    --COLOR_LIGHT_BLUE: rgba(236, 243, 255, 1);
+    --COLOR_BUTTON_FOCUS: rgba(0, 30, 100, 1);
 
     margin: 0;
     padding: 0;

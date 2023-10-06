@@ -8,7 +8,7 @@ const store = configureStore({
   reducer: {
     sales: dataSalesReducer,
     form: formSlice,
-    forcast: dataForcastReducer
+    forcast: dataForcastReducer,
   },
 });
 
