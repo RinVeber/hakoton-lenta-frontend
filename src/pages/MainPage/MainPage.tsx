@@ -31,8 +31,9 @@ export default function MainPage() {
     <section className={styles.MainPage}>
       <ModalFilter isActive={isActive} handleOpenModal={handleOpenModal} />
       <Tabs handleOpenModal={handleOpenModal} />
-      <Table mokColumns={mokColumnsTable}/>
-      {/* <TableMUI /> */}
+      {/* <Table mokColumns={mokColumnsTable}/> */}
+      
+      <TableMUI />
       <ButtonExcel />
     </section>
   );

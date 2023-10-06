@@ -11,7 +11,6 @@ import upActive from "../../assets/filter-up-active.svg";
 import { mokDataSource, mokColumnsTable } from "../../utils/constant";
 
 export default function () {
-
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
