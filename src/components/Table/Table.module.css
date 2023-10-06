@@ -79,7 +79,7 @@
     background-color: white;
 }
 .table__row:last-child {
-  padding-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .table__rowCell {
