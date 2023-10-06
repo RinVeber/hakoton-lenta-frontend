@@ -11,12 +11,14 @@ const initialState: FormType = {
 
 export const getToken = createAsyncThunk(
   "form/getToken",
-  async (email, password) => {
+async (email, password) => {
     try {
-      const response = await fetch("/admin/", {
+      const response = await fetch("http://95.163.233.5/v1/api/auth/token/login/", {
         method: "POST",
+        mode: 'no-cors',
         headers: {
-          "Content-type": "applicatio/json",
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
       });
