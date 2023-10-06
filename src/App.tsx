@@ -1,9 +1,9 @@
 import "../src/index.css";
-import { Route, Outlet, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Auth from "./components/Auth/Auth";
-import MainPage from "./pages/MainPage/MainPage";
 import styles from './styles/App.module.css';
 import ForcastPage from "./pages/ForcastPage/ForcastPage";
+import MainPage from "./pages/MainPage/MainPage";
 
 const App = () => {
 

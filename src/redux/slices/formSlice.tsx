@@ -1,7 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import FormType from "../../types/types";
 import { baseURL } from "../../utils/constant";
-import { UserLoginRequestType } from "./tokenSlice";
+
+export type UserLoginRequestType = {
+  email: string;
+  password?: string;
+};
 
 const initialState: FormType = {
   email: "",
