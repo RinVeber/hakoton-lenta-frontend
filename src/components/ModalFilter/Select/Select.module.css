@@ -1,0 +1,26 @@
+.select {
+  background-color: white;
+  width: 400px;
+  max-height: 200px;
+  height: 100%;
+  padding: 10px 10px;
+ border-radius: 16px;
+visibility: visible;
+}
+.select_hide {
+
+ display: none;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option {
+  height: 20px;
+  transition: all ease 0.3s;
+}
+.option:hover {
+  background-color: gainsboro;
+}

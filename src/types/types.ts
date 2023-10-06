@@ -6,3 +6,9 @@ type FormType = {
 };
 
 export default FormType
+
+export type columnsTable = {
+key: string,
+dataIndex: string,
+title: string
+}
