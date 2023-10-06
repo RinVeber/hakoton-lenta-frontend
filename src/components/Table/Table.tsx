@@ -4,7 +4,7 @@ import up from "../../assets/filter-up.svg";
 import down from "../../assets/filter-down.svg";
 import downActive from "../../assets/filter-down-active.svg";
 import upActive from "../../assets/filter-up-active.svg";
-import { mokDataSource, mokColumnsTable } from "../../utils/constant";
+import { mokDataSource} from "../../utils/constant";
 import { columnsTable } from "../../types/types";
 
 interface TableProps {
@@ -12,6 +12,7 @@ interface TableProps {
 }
 export default function Table({ mokColumns }: TableProps) {
   const [sortList, setSortList] = React.useState(mokDataSource);
+  const [sortType, setSortType] = React.useState('');
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
   const tableRef = React.useRef<HTMLDivElement>(null);
@@ -58,18 +59,17 @@ export default function Table({ mokColumns }: TableProps) {
         <div className={styles.table__head}>
           {mokColumns.map((item) => {
             return (
-              <div key={item.key} className={styles.table__columnField}>
+              <div key={item.key} className={styles.table__columnField}  onClick={() => {
+                setSortType(sortType == 'add' ? 'decrease': 'add');
+                setlastSortTitle(sortType == 'add' ? item.title + "down" : item.title + "up" );
+                handlerSort(item.title, sortType);
+              }}>
                 <div className={styles.table__columnName}>{item.title}</div>
-                <div className={styles.table__columnFilter}>
+                <div className={styles.table__columnFilter} >
                   <img
                     src={lastSortTitle == item.title + "up" ? upActive : up}
                     className={styles.table__columnFilter_icon}
                     alt="иконка"
-                    onClick={() => {
-                      const typeAdd = "add";
-                      setlastSortTitle(item.title + "up");
-                      handlerSort(item.title, typeAdd);
-                    }}
                   />
                   <img
                     src={
@@ -77,11 +77,6 @@ export default function Table({ mokColumns }: TableProps) {
                     }
                     className={styles.table__columnFilter_icon}
                     alt="иконка"
-                    onClick={() => {
-                      const typeDecrase = "decrease";
-                      setlastSortTitle(item.title + "down");
-                      handlerSort(item.title, typeDecrase);
-                    }}
                   />
                 </div>
               </div>
