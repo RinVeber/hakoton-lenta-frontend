@@ -36,21 +36,25 @@ const Form: FC = () => {
     setIsValid(e.target.closest("form")?.checkValidity()!);
   };
 
+  const hadleSubmit = (e) => {
+    e.preventDefault();
+
+    dispatch(getToken({ password, email }))
+      .then((token: string) => {
+        console.log(token);
+      })
+      .catch((err: string) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <form
         name="form-auth"
         autoComplete="off"
         className={styles.formAuth}
-        onSubmit={() =>
-          dispatch(getToken())
-            .then((token: string) => {
-              console.log(token);
-            })
-            .catch((err: string) => {
-              console.log(err);
-            })
-        }
+        onSubmit={hadleSubmit}
         noValidate
       >
         <h2 className={styles.formTitle}>Вход</h2>
@@ -65,6 +69,7 @@ const Form: FC = () => {
             onChange={(e) => {
               changeEmail(e);
             }}
+            // value="frontend@lenta.com"
             value={email}
             minLength={1}
             pattern={regex.reg.source}
@@ -93,6 +98,7 @@ const Form: FC = () => {
             id="password"
             name="password"
             value={password}
+            // value="836406YWGV" 061020YWGV
           />
           {password ? (
             <button
@@ -113,7 +119,7 @@ const Form: FC = () => {
       <button
         type="submit"
         className={valid ? styles.buttonAuth_valid : styles.buttonAuth_disabled}
-        onClick={() => dispatch(getToken())}
+        onClick={hadleSubmit}
         disabled={!valid}
       >
         <span

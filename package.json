@@ -16,7 +16,7 @@
     "react-hook-form": "^7.46.2",
     "react-redux": "^8.1.2",
     "scss": "^0.2.4",
-    "proxy": "http://95.163.233.5"
+    "proxy": "http://localhost:5173/"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

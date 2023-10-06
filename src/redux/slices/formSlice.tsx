@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import FormType from "../../types/types";
-// import { URL } from "../../utils/constant";
+import { URL } from "../../utils/constant";
 
 const initialState: FormType = {
   email: "",
@@ -11,16 +11,18 @@ const initialState: FormType = {
 
 export const getToken = createAsyncThunk(
   "form/getToken",
-  async (email, password) => {
+  async ({ password, email }) => {
     try {
-      const response = await fetch("/admin/", {
+      const response = await fetch(URL + "/api/auth/token/login", {
+        // mode: "no-cors",
         method: "POST",
         headers: {
-          "Content-type": "applicatio/json",
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ password, email }),
       });
       if (response.ok) {
+        console.log(response);
         const token = response.json();
         return token;
       }
