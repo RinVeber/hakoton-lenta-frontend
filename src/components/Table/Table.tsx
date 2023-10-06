@@ -8,10 +8,9 @@ import { mokDataSource, mokColumnsTable } from "../../utils/constant";
 import { columnsTable } from "../../types/types";
 
 interface TableProps {
-    mokColumns: columnsTable[];
-  }
+  mokColumns: columnsTable[];
+}
 export default function Table({ mokColumns }: TableProps) {
-
   const [sortList, setSortList] = React.useState(mokDataSource);
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
@@ -55,71 +54,68 @@ export default function Table({ mokColumns }: TableProps) {
 
   return (
     <section className={styles.table} ref={tableRef}>
-      <table className={styles.table__content}>
-        <thead className={styles.table__head} >
-  
+      <div className={styles.table__content}>
+        <div className={styles.table__head}>
           {mokColumns.map((item) => {
             return (
-              <tr key={item.key} className={styles.table__columnField}>
-              
-                  <th className={styles.table__columnName}>{item.title}</th>
-                  <td className={styles.table__columnFilter}>
-                    <img
-                      src={lastSortTitle == item.title + "up" ? upActive : up}
-                      className={styles.table__columnFilter_icon}
-                      alt="иконка"
-                      onClick={() => {
-                        const typeAdd = "add";
-                        setlastSortTitle(item.title + "up");
-                        handlerSort(item.title, typeAdd);
-                      }}
-                    />
-                    <img
-                      src={
-                        lastSortTitle == item.title + "down" ? downActive : down
-                      }
-                      className={styles.table__columnFilter_icon}
-                      alt="иконка"
-                      onClick={() => {
-                        const typeDecrase = "decrease";
-                        setlastSortTitle(item.title + "down");
-                        handlerSort(item.title, typeDecrase);
-                      }}
-                    />
-                  </td>
-              </tr>
+              <div key={item.key} className={styles.table__columnField}>
+                <div className={styles.table__columnName}>{item.title}</div>
+                <div className={styles.table__columnFilter}>
+                  <img
+                    src={lastSortTitle == item.title + "up" ? upActive : up}
+                    className={styles.table__columnFilter_icon}
+                    alt="иконка"
+                    onClick={() => {
+                      const typeAdd = "add";
+                      setlastSortTitle(item.title + "up");
+                      handlerSort(item.title, typeAdd);
+                    }}
+                  />
+                  <img
+                    src={
+                      lastSortTitle == item.title + "down" ? downActive : down
+                    }
+                    className={styles.table__columnFilter_icon}
+                    alt="иконка"
+                    onClick={() => {
+                      const typeDecrase = "decrease";
+                      setlastSortTitle(item.title + "down");
+                      handlerSort(item.title, typeDecrase);
+                    }}
+                  />
+                </div>
+              </div>
             );
           })}
-
-        </thead>
-        <tbody> 
+        </div>
+        <div>
           {sortList.map((item) => {
             return (
-              <tr key={item.key} className={styles.table__row}>
-                <td className={styles.table__rowCell}>{item.name}</td>
-                <td className={styles.table__rowCell}>{item.group}</td>
-                <td className={styles.table__rowCell}>{item.category}</td>
-                <td className={styles.table__rowCell}>{item.podcategory}</td>
-                <td className={styles.table__rowCell}>{item.sku}</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-                <td className={styles.table__rowCell}>10</td>
-              </tr>
+              <div key={item.key} className={styles.table__row}>
+                <div className={styles.table__rowCell}>{item.name}</div>
+                <div className={styles.table__rowCell}>{item.group}</div>
+                <div className={styles.table__rowCell}>{item.category}</div>
+                <div className={styles.table__rowCell}>{item.podcategory}</div>
+                <div className={styles.table__rowCell}>{item.sku}</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+                <div className={styles.table__rowCell}>10</div>
+              </div>
             );
           })}
-        </tbody>
-      </table>
+        </div>
+      </div>
     </section>
   );
 }

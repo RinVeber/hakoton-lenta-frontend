@@ -11,7 +11,6 @@
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    min-width: 700px;
 }
 .table::-webkit-scrollbar {
     width: 8px;
