@@ -1,0 +1,114 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: -100%;
+    transition: all ease 0.5s;
+}
+.modal_active {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      left: 0;
+      transition: all ease 0.5s;
+      width: 480px;
+      height: 100%;
+      z-index: 100;
+      
+    }
+    .modal__close {
+        width: 15px;
+        height: 15px;
+        background-image: url('../../assets/close.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: all ease .3s;
+        cursor: pointer;
+    }
+    .modal__close:hover {
+        opacity: 0.7;
+    }
+
+    .modal__header {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+       padding: 10px 32px;
+       background-color: rgba(236, 243, 255, 1);
+       width: 500px;
+    }
+    .modal__title {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    .modal__content {
+        padding: 15px 32px;
+        background-color: rgba(236, 243, 255, 1);
+        width: 500px;
+        height: 100vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
+    .modal__selectContent {
+        display: flex;
+        flex-flow: column;
+        gap: 15px;
+    }
+
+    .modal__container {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal__wrap {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .modal__select {
+        display: flex;
+        flex-direction: row;
+        gap: 6px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .iconSelect {
+        width: 11px;
+        height: 6px;
+        cursor: pointer;
+    }
+
+    .modal__btnСontainer {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .modal__submit {
+        width: 320px;
+        height: 56px;
+        display: flex;
+        border-radius: 52px;
+        color: rgba(255, 255, 255, 1);
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        background-color: rgba(0, 60, 150, 1);
+    }
+
+    .modal__cancel {
+        width: 169px;
+        height: 56px;
+        background: transparent;
+        border-radius: 52px;
+        border: 2px solid #003C96
+    }

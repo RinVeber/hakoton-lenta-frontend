@@ -11,9 +11,11 @@ import {
 import remove from "../../images/close.svg.svg";
 import visual from "../../images/eyeInvisible.svg";
 import { regexp } from "../../utils/constant";
+import { useNavigate } from "react-router-dom";
 
 const Form: FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const email = useSelector((state: RootState) => state.form.email);
   const password = useSelector((state: RootState) => state.form.password);
   const visualBtn = useSelector((state: RootState) => state.form.visual);
@@ -36,12 +38,16 @@ const Form: FC = () => {
     setIsValid(e.target.closest("form")?.checkValidity()!);
   };
 
-  const hadleSubmit = (e) => {
+  const hadleSubmit = (e: React.SubmitEvent<HTMLInputElement>) => {
     e.preventDefault();
 
     dispatch(getToken({ password, email }))
       .then((token: string) => {
-        console.log(token);
+        let jwt: string = token.payload.auth_token;
+        if (jwt) {
+          localStorage.setItem("jwt", jwt);
+          navigate("/");
+        }
       })
       .catch((err: string) => {
         console.log(err);
@@ -98,7 +104,7 @@ const Form: FC = () => {
             id="password"
             name="password"
             value={password}
-            // value="836406YWGV" 061020YWGV
+            // 061020YWGV
           />
           {password ? (
             <button

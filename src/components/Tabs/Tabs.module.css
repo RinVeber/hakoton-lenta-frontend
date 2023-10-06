@@ -1,0 +1,86 @@
+.Tabs__menu {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.Tabs__container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.Tabs__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 450px;
+}
+.Tabs__tabs {
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   justify-content: center;
+   align-self: center;
+   justify-self: center;
+    border-radius: 52px;
+    /* background-color: var(--COLOR_LIGHT_BLUE); */
+    background-color: rgba(236, 243, 255, 1);
+}
+
+.Tabs__tabLink {
+    margin: 0 5px;
+    width: 230px;
+    height: 48px;
+    border-radius: 52px;
+    transition: all ease .5s;
+    color: black;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.Tabs__tabLink:hover {
+    opacity: 0.6;
+}
+.Tabs__tabLink_noActive {
+    margin: 0 5px;
+    width: 230px;
+    height: 48px;
+    color: black;
+    transition: all ease .5s;
+    border-radius: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Tabs__tabLink_noActive:hover {
+    opacity: 0.6;
+}
+
+.Tabs__button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #003C96;
+    background-color: #FFFFFF;
+    transition: all ease 0.3s;
+}
+.Tabs__button:hover {
+    opacity: 0.5;
+}
+.Tabs__buttonIcon {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../assets/filter.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Tabs__button_hide {
+    display: none;
+}
