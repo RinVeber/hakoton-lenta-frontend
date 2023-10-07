@@ -21,25 +21,23 @@ const initialState: DataTypeState = {
   error: undefined,
 };
 
-const token = localStorage.getItem('token') as string;
-console.log(token);
+ const token = localStorage.getItem('jwt') as string;
 
 export const getDataSales = createAsyncThunk(
   "dataSales/getDataSales",
   async () => {
     try {
-      console.log(token);
       const response = await fetch(urlSales, {
-        method: "GET",
-        mode: 'cors',
+        method: 'GET',
         headers: {
           Authorization: 'Token ' + token,
             'Content-Type': 'application/json',
         },
       });
+
       if (response.ok) {
-        const token = response.json();
-        return token;
+        const data = response.json();
+        return data;
       }
     } catch (error) {
       throw new Error("Ошибка!" + error);

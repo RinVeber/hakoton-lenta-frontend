@@ -49,20 +49,7 @@ export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
       title: "Samara",
     },
   ];
-  const tk = [
-    {
-      id: 1,
-      title: "tk-1",
-    },
-    {
-      id: 2,
-      title: "tk-2",
-    },
-    {
-      id: 3,
-      title: "tk-3",
-    },
-  ];
+
   return (
     <section className={isActive ? styles.modal_active : styles.modal}>
       <div className={styles.modal__header}>

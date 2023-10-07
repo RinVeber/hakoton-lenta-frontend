@@ -4,13 +4,15 @@ import up from "../../assets/filter-up.svg";
 import down from "../../assets/filter-down.svg";
 import downActive from "../../assets/filter-down-active.svg";
 import upActive from "../../assets/filter-up-active.svg";
-import { mokDataSource} from "../../utils/constant";
-import { columnsTable } from "../../types/types";
+import { columnsTable, dataSourceTableSales } from "../../types/types";
+
+
 
 interface TableProps {
   mokColumns: columnsTable[];
+  mokDataSource: dataSourceTableSales[]
 }
-export default function Table({ mokColumns }: TableProps) {
+export default function Table({ mokColumns, mokDataSource }: TableProps) {
   const [sortList, setSortList] = React.useState(mokDataSource);
   const [sortType, setSortType] = React.useState('');
   const [lastSortTitle, setlastSortTitle] = React.useState("");

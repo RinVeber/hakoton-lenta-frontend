@@ -21,6 +21,8 @@ const initialState: DataTypeState = {
   error: '',
 };
 
+const token = localStorage.getItem('jwt') as string;
+
 export const getDataForcast = createAsyncThunk(
   "dataSales/getDataForcast",
   async () => {
@@ -28,12 +30,13 @@ export const getDataForcast = createAsyncThunk(
       const response = await fetch(urlForcast, {
         method: "GET",
         headers: {
-          "Content-type": "application/json",
+          Authorization: 'Token ' + token,
+          'Content-Type': 'application/json',
         },
       });
       if (response.ok) {
-        const token = response.json();
-        return token;
+        const data = response.json();
+        return data;
       }
     } catch (error) {
       throw new Error("Ошибка!" + error);

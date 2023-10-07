@@ -12,3 +12,12 @@ key: string,
 dataIndex: string,
 title: string
 }
+
+export type dataSourceTableSales = {
+  key: string,
+  name: string,
+  group: string,
+  category: string,
+  podcategory: string,
+  sku: string,
+}
