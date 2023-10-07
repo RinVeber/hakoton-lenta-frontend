@@ -6,15 +6,13 @@ import downActive from "../../assets/filter-down-active.svg";
 import upActive from "../../assets/filter-up-active.svg";
 import { columnsTable, dataSourceTableSales } from "../../types/types";
 
-
-
 interface TableProps {
   mokColumns: columnsTable[];
-  mokDataSource: dataSourceTableSales[]
+  mokDataSource: dataSourceTableSales[];
 }
 export default function Table({ mokColumns, mokDataSource }: TableProps) {
   const [sortList, setSortList] = React.useState(mokDataSource);
-  const [sortType, setSortType] = React.useState('');
+  const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
   const tableRef = React.useRef<HTMLDivElement>(null);
@@ -59,33 +57,43 @@ export default function Table({ mokColumns, mokDataSource }: TableProps) {
     <section className={styles.table} ref={tableRef}>
       <div className={styles.table__content}>
         <div className={styles.table__head}>
-          {mokColumns.map((item) => {
-            return (
-              <div key={item.key} className={styles.table__columnField}  onClick={() => {
-                setSortType(sortType == 'add' ? 'decrease': 'add');
-                setlastSortTitle(sortType == 'add' ? item.title + "down" : item.title + "up" );
-                handlerSort(item.title, sortType);
-              }}>
-                <div className={styles.table__columnName}>{item.title}</div>
-                <div className={styles.table__columnFilter} >
-                  <img
-                    src={lastSortTitle == item.title + "up" ? upActive : up}
-                    className={styles.table__columnFilter_icon}
-                    alt="иконка"
-                  />
-                  <img
-                    src={
-                      lastSortTitle == item.title + "down" ? downActive : down
-                    }
-                    className={styles.table__columnFilter_icon}
-                    alt="иконка"
-                  />
+          <div className={styles.table__rowHead}>
+            {mokColumns.map((item) => {
+              return (
+                <div
+                  key={item.key}
+                  className={styles.table__columnField}
+                  onClick={() => {
+                    setSortType(sortType == "add" ? "decrease" : "add");
+                    setlastSortTitle(
+                      sortType == "add"
+                        ? item.title + "down"
+                        : item.title + "up"
+                    );
+                    handlerSort(item.title, sortType);
+                  }}
+                >
+                  <div className={styles.table__columnName}>{item.title}</div>
+                  <div className={styles.table__columnFilter}>
+                    <img
+                      src={lastSortTitle == item.title + "up" ? upActive : up}
+                      className={styles.table__columnFilter_icon}
+                      alt="иконка"
+                    />
+                    <img
+                      src={
+                        lastSortTitle == item.title + "down" ? downActive : down
+                      }
+                      className={styles.table__columnFilter_icon}
+                      alt="иконка"
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-        <div>
+   
           {sortList.map((item) => {
             return (
               <div key={item.key} className={styles.table__row}>
@@ -112,7 +120,7 @@ export default function Table({ mokColumns, mokDataSource }: TableProps) {
             );
           })}
         </div>
-      </div>
+   
     </section>
   );
 }

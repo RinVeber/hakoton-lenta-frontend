@@ -1,4 +1,5 @@
 .forcastPage {
+    margin: 0 15px;
     display: flex;
     flex-direction: column;
     position: relative;

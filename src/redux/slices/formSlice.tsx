@@ -20,7 +20,7 @@ export const getToken = createAsyncThunk(
     try {
       const response = await fetch(baseURL + "/api/auth/token/login/", {
         method: "POST",
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
