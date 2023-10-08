@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./MainPage.module.css";
 import Tabs from "../../components/Tabs/Tabs";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
-import ModalFilter from "../../components/ModalFilter/ModalFilter";
 import { mokColumnsTable } from "../../utils/constant";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataSales } from "../../redux/slices/dataSalesSlice";
@@ -28,6 +27,9 @@ export default function MainPage() {
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
+
+  const tableSales = useAppSelector((state) => state.sales.data);
+  console.log('tablesales', tableSales);
 
   return (
     <section className={styles.MainPage}>

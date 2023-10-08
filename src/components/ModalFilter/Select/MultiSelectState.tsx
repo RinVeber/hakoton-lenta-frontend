@@ -39,11 +39,16 @@ export default function MultiSelectState({
     }
   }, [selectOptions]);
 
+  function selectAll() {
+    setFormDataByType(type, selectOptions);
+  }
+
   if (!isLoading) {
     return null;
   } else {
     return (
       <div className={isSelect ? styles.select : styles.select_hide}>
+        <div className={styles.selectAll} onClick={() => selectAll()}>Выбрать все</div>
         <ul className={styles.options}>
           {selectOptions.map((item) => {
             return (

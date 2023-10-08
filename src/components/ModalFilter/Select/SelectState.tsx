@@ -27,7 +27,6 @@ export default function SelectState({
 
     } else {
       setFormDataByType(type, item);
-      openSelect();
     }
   }
   React.useEffect(() => {

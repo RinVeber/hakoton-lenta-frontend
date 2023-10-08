@@ -4,7 +4,7 @@ import Table from "../../components/Table/Table";
 import styles from "./ForcastPage.module.css";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
 import { mokColumnsForcast, mokDataSource } from "../../utils/constant";
-import { useAppDispatch } from "../../redux/store";
+import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 
 
@@ -23,6 +23,10 @@ export default function ForcastPage() {
     dispatch(getDataForcast());
     //dispatch(getShops());
   }, [dispatch]);
+
+  const tableForcast = useAppSelector((state) => state.forcast.data);
+  console.log('tableForcast', tableForcast);
+
   
   return (
     <section className={styles.forcastPage}>

@@ -25,8 +25,8 @@ export default function ModalFilterState({
   const [isSelectCategory, setIsSelectCategory] = React.useState(false);
   const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
   const [isSelectSKU, setIsSelectSKU] = React.useState(false);
-  const [isHideTK, setIsHideTK] = React.useState(true);
-  const [isHideGroup, setIsHideGroup] = React.useState(true);
+  const [isHideTK, setIsHideTK] = React.useState(false);
+  const [isHideGroup, setIsHideGroup] = React.useState(false);
   const [isHideCategory, setIsHideCategory] = React.useState(true);
   const [isHidePodcategory, setIsHidePodcategory] = React.useState(true);
   const [isHideSKU, setIsHideSKU] = React.useState(true);
@@ -43,44 +43,85 @@ export default function ModalFilterState({
     subcategory: null,
     sku: null,
   });
-  console.log(formData);
 
   function setFormDataByType(
     type: string,
     searchData: SelectOption | SelectOption[] | null
   ) {
     //let newFormData = formData;
-
     //(newFormData as any)[type] = searchData;
 
-    setFormData({...formData, [type]:searchData});
+    setFormData({ ...formData, [type]: searchData });
   }
 
   React.useEffect(() => {
-    if (formData.city != null) {
-      setIsHideTK(false);
-      if (formData.store != null) {
-        setIsHideGroup(false);
-        if (formData.group != null) {
-          setIsHideCategory(false);
-          if (formData.category != null) {
-            setIsHidePodcategory(false);
-            if (formData.subcategory != null) {
-              setIsHideSKU(false);
-            } else {
-              setIsHideSKU(true);
-            }
-          } else {
-            setIsHidePodcategory(true);
-          }
-        } else {
-          setIsHideCategory(true);
-        }
-      } else {
-        setIsHideGroup(true);
-      }
+    // city
+    // if (formData.city != null) {
+    //   setIsHideTK(false);
+    // } else {
+    //   setIsHideTK(true);
+    //   if (formData.store != null) {
+    //     setFormData({
+    //       ...formData,
+    //       store: null,
+    //       group: null,
+    //       category: null,
+    //       subcategory: null,
+    //       sku: null,
+    //     });
+    //   }
+    // }
+
+    // // store
+    // if (formData.store != null) {
+    //   setIsHideGroup(false);
+    // } else {
+    //   setIsHideGroup(true);
+    //   if (formData.group != null) {
+    //     setFormData({
+    //       ...formData,
+    //       group: null,
+    //       category: null,
+    //       subcategory: null,
+    //       sku: null,
+    //     });
+    //   }
+    // }
+
+    // group
+    if (formData.group != null) {
+      setIsHideCategory(false);
     } else {
-      setIsHideTK(true);
+      setIsHideCategory(true);
+      if (formData.category != null) {
+        setFormData({
+          ...formData,
+          group: null,
+          category: null,
+          subcategory: null,
+          sku: null,
+        });
+      }
+    }
+
+    // category
+    if (formData.category != null) {
+      setIsHidePodcategory(false);
+    } else {
+      setIsHidePodcategory(true);
+      if (formData.subcategory != null) {
+        setFormData({ ...formData, subcategory: null, sku: null });
+      }
+    }
+
+    // subcategory || podcategory
+    if (formData.subcategory != null) {
+      setIsHideSKU(false);
+    } else {
+      setIsHideSKU(true);
+      if (formData.sku != null) {
+        setFormData({ ...formData, sku: null });
+      }
     }
   }, [formData]);
 
@@ -102,6 +143,22 @@ export default function ModalFilterState({
   function openSelectSKU() {
     setIsSelectSKU(!isSelectSKU);
   }
+
+  const handleSumbit = (event: any) => {
+    event.preventDefault();
+    console.log(formData);
+  };
+  const handleReset = (event: any) => {
+    event.preventDefault();
+    setFormData({
+      city: null,
+      store: null,
+      group: null,
+      category: null,
+      subcategory: null,
+      sku: null,
+    });
+  };
   return (
     <form className={isActive ? styles.modal_active : styles.modal}>
       <div className={styles.modal__header}>
@@ -120,14 +177,18 @@ export default function ModalFilterState({
                   alt="иконка"
                 />
               </div>
-              <ChipsState type={"city"}   setFormDataByType={setFormDataByType} chip={formData.city}/>
+              <ChipsState
+                type={"city"}
+                setFormDataByType={setFormDataByType}
+                chip={formData.city}
+              />
             </div>
             <SelectState
               openSelect={openSelectCity}
               isSelect={isSelectCity}
               selectOptions={listSelectShop.st_city_id}
               selectedOptions={formData.city}
-              type={'city'}
+              type={"city"}
               setFormDataByType={setFormDataByType}
             />
           </div>
@@ -144,7 +205,11 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <ChipsState type={"store"} setFormDataByType={setFormDataByType} chip={formData.store}/>
+                <ChipsState
+                  type={"store"}
+                  setFormDataByType={setFormDataByType}
+                  chip={formData.store}
+                />
               </div>
               <SelectState
                 openSelect={openSelectTK}
@@ -170,7 +235,11 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <ChipsState type={"group"} setFormDataByType={setFormDataByType} chip={formData.group}/>
+                <ChipsState
+                  type={"group"}
+                  setFormDataByType={setFormDataByType}
+                  chip={formData.group}
+                />
               </div>
               <SelectState
                 openSelect={openSelectGroup}
@@ -196,7 +265,11 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <ChipsState type={"category"} setFormDataByType={setFormDataByType} chip={formData.category}/>
+                <ChipsState
+                  type={"category"}
+                  setFormDataByType={setFormDataByType}
+                  chip={formData.category}
+                />
               </div>
               <SelectState
                 openSelect={openSelectCategory}
@@ -222,7 +295,11 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <ChipsState type={"subcategory"} setFormDataByType={setFormDataByType} chip={formData.subcategory}/>
+                <ChipsState
+                  type={"subcategory"}
+                  setFormDataByType={setFormDataByType}
+                  chip={formData.subcategory}
+                />
               </div>
               <SelectState
                 openSelect={openSelectPodcategory}
@@ -246,7 +323,10 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <MultiChipsState chips={formData.sku} setFormDataByType={setFormDataByType}/>
+                <MultiChipsState
+                  chips={formData.sku}
+                  setFormDataByType={setFormDataByType}
+                />
               </div>
               <MultiSelectState
                 openSelect={openSelectSKU}
@@ -260,10 +340,19 @@ export default function ModalFilterState({
           )}
         </div>
         <div className={styles.modal__btnСontainer}>
-          <button type="submit" className={styles.modal__submit}>
+          <button
+            type="submit"
+            className={styles.modal__submit}
+            onClick={(e) => handleSumbit(e)}
+          >
             Показать
           </button>
-          <button className={styles.modal__cancel}>Сбросить</button>
+          <button
+            className={styles.modal__cancel}
+            onClick={(evt) => handleReset(evt)}
+          >
+            Сбросить
+          </button>
         </div>
       </div>
     </form>

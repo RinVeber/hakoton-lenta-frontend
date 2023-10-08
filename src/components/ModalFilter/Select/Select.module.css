@@ -1,11 +1,12 @@
 .select {
   background-color: white;
   width: 100%;
-  max-height: 400px;
+  max-height: 300px;
   height: 100%;
   border-radius: 16px;
   visibility: visible;
   overflow-y: scroll;
+  padding: 16px 8px;
 }
 
 .select::-webkit-scrollbar {
@@ -31,7 +32,6 @@
   display: none;
 }
 .options {
-  padding: 16px 8px;
   display: flex;
   max-height: 472px;
   flex-direction: column;
@@ -73,4 +73,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: #2C2A29;
+}
+
+.selectAll {
+  display: flex;
+  align-items: center;
+  padding: 8px 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(0, 60, 150, 1);
+  height: 24px;
 }
