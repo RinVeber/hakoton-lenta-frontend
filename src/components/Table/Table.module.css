@@ -6,6 +6,16 @@
   scrollbar-width: thin;
   margin-bottom: 30px;
 }
+.tableSales {
+  display: flex;
+  flex-direction: column;
+  height: 768px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  margin-bottom: 30px;
+}
+
+
 .table::-webkit-scrollbar {
   width: 8px;
 }
@@ -20,6 +30,20 @@
 }
 
 .table::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #ececec;
+}
+.tableSales::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+.tableSales::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  width: 8px;
+  border-radius: 10px;
+}
+
+.tableSales::-webkit-scrollbar-track {
   -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
   background-color: #ececec;
 }
@@ -137,15 +161,15 @@
 }
 
 .table__rowCellText {
-    width: 80px;
-    font-size: 14px;
-    font-weight: 400;
-    color: #2c2a29;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-  }
-  
+  width: 80px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2c2a29;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
 .table__rowCellDiff {
   width: 55px;
   height: 24px;

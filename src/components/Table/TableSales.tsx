@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Table.module.css";
+import styles from './TableSales.module.css';
 import up from "../../assets/filter-up.svg";
 import down from "../../assets/filter-down.svg";
 import downActive from "../../assets/filter-down-active.svg";
@@ -66,7 +66,7 @@ export default function TableSales({ columns, tableSales }: TableProps) {
   };
 
   return (
-    <section className={styles.table} ref={tableRef}>
+    <section className={styles.tableSales} ref={tableRef}>
       <div className={styles.table__content}>
         <div className={styles.table__head}>
           <div className={styles.table__rowHead}>
