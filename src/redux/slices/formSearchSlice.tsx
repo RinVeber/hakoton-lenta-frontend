@@ -1,5 +1,4 @@
 import {createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { SelectOption } from "../../components/ModalFilter/Select/Select";
 
 
 export type UserLoginRequestType = {
@@ -10,6 +9,11 @@ export type UserLoginRequestType = {
 const initialState = {
 
  city: null,
+ store: null,
+ group: null,
+ category: null,
+ subcategory: null,
+ sku: null,
  
 };
 
@@ -20,32 +24,32 @@ const formSearchSlice = createSlice({
   initialState,
   reducers: {
     handleChangeCity: (state, action) => {
-      state.email = action.payload;
+      state.city = action.payload;
     },
     handleChangeTK: (state, action) => {
-      state.password = action.payload;
+      state.store = action.payload;
     },
     handleChangeGroup: (state, action) => {
-      state.visual = action.payload;
+      state.group = action.payload;
     },
     handleCategory: (state, action) => {
-        state.visual = action.payload;
+        state.category = action.payload;
       },
       handleSubcategory: (state, action) => {
-        state.visual = action.payload;
+        state.subcategory = action.payload;
       },
       handleSKU: (state, action) => {
-        state.visual = action.payload;
+        state.sku = action.payload;
       },
   },
-  extraReducers: (builder) => {
-    builder.addCase(
-      getToken.fulfilled,
-      (state, action: PayloadAction<string>) => {
-        state.token = action.payload;
-      }
-    );
-  },
+  // // extraReducers: (builder) => {
+  // //   builder.addCase(
+  // //     getResultSearch.fulfilled,
+  // //     (state, action: PayloadAction<string>) => {
+  // //       state.data = action.payload;
+  // //     }
+  // //   );
+  // },
 });
 
 export const { handleChangeCity, handleChangeTK, handleChangeGroup, handleCategory, handleSubcategory, handleSKU } =
