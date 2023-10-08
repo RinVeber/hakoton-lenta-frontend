@@ -1,31 +1,29 @@
 import React from "react";
-import styles from "./Table.module.css";
-import up from "../../assets/filter-up.svg";
-import down from "../../assets/filter-down.svg";
-import downActive from "../../assets/filter-down-active.svg";
-import upActive from "../../assets/filter-up-active.svg"
-import { columnsTable, dataSourceTableSales } from "../../types/types";
+import styles from "../Table.module.css";
+import up from "../../../assets/filter-up.svg";
+import down from "../../../assets/filter-down.svg";
+import downActive from "../../../assets/filter-down-active.svg";
+import upActive from "../../../assets/filter-up-active.svg";
+import { columnsTable, dataSourceTableSales } from "../../../types/types";
 
 type forcastTable = {
-  store: string,
-      group: string,
-      category: string,
-      subcategory: string,
-      sku: string,
-      forecast: 
-        {
-          date: string,
-          sales_units: string,
-        }[],
-}
+  store: string;
+  group: string;
+  category: string;
+  subcategory: string;
+  sku: string;
+  forecast: {
+    date: string;
+    sales_units: string;
+  }[];
+};
 
 interface TableProps {
-  mokColumns: columnsTable[];
-  mokDataSource: dataSourceTableSales[];
-  tableForcast?: forcastTable[]
+  columns: columnsTable[];
+  tableForcast: forcastTable[];
 }
-export default function Table({ mokColumns, mokDataSource }: TableProps) {
-  const [sortList, setSortList] = React.useState(mokDataSource);
+export default function TableForcast({ columns, tableForcast }: TableProps) {
+  const [sortList, setSortList] = React.useState(tableForcast);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
@@ -66,12 +64,14 @@ export default function Table({ mokColumns, mokDataSource }: TableProps) {
     }
   };
 
+  console.log("tableForcast", tableForcast);
+
   return (
     <section className={styles.table} ref={tableRef}>
       <div className={styles.table__content}>
         <div className={styles.table__head}>
           <div className={styles.table__rowHead}>
-            {mokColumns.map((item) => {
+            {columns.map((item) => {
               return (
                 <div
                   key={item.key}
@@ -106,34 +106,59 @@ export default function Table({ mokColumns, mokDataSource }: TableProps) {
             })}
           </div>
         </div>
-   
-          {sortList.map((item) => {
-            return (
-              <div key={item.key} className={styles.table__row}>
-                <div className={styles.table__rowCell}>{item.name}</div>
-                <div className={styles.table__rowCell}>{item.group}</div>
-                <div className={styles.table__rowCell}>{item.category}</div>
-                <div className={styles.table__rowCell}>{item.podcategory}</div>
-                <div className={styles.table__rowCell}>{item.sku}</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
-                <div className={styles.table__rowCell}>10</div>
+
+        {sortList.map((item, index) => {
+          return (
+            <div key={index} className={styles.table__row}>
+              <div className={styles.table__rowCell}>
+                <div className={styles.table__rowCellText}>
+                  {item.store.length > 32
+                    ? item.store.slice(0, 29) + "..."
+                    : item.store}
+                </div>
               </div>
-            );
-          })}
-        </div>
-   
+              <div className={styles.table__rowCell}>
+                <div className={styles.table__rowCellText}>
+                  {item.group.length > 32
+                    ? item.group.slice(0, 29) + "..."
+                    : item.group}
+                </div>
+              </div>
+              <div className={styles.table__rowCell}>
+                <div className={styles.table__rowCellText}>
+                  {item.category.length > 32
+                    ? item.category.slice(0, 29) + "..."
+                    : item.category}
+                </div>
+              </div>
+              <div className={styles.table__rowCell}>
+                <div className={styles.table__rowCellText}>
+                  {item.subcategory.length > 32
+                    ? item.subcategory.slice(0, 29) + "..."
+                    : item.subcategory}
+                </div>
+              </div>
+              <div className={styles.table__rowCell}>
+                <div className={styles.table__rowCellText}>
+                  {item.subcategory.length > 32
+                    ? item.sku.slice(0, 29) + "..."
+                    : item.sku}
+                </div>
+              </div>
+              {item.forecast.slice(0, 14).map((forcast, index) => {
+                return (
+                  <div key={index} className={styles.table__rowCell}>
+                  <div className={styles.table__rowCellText}>
+                    {forcast.sales_units}
+                  </div>
+                </div>
+                )
+              })}
+            
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }
