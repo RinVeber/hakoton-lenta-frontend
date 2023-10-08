@@ -16,16 +16,7 @@ import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
 
-  function handleOpenModal() {
-    dispatch(getCategory());
-    dispatch(getShops());
-    setIsActive(!isActive);
-  }
   const dispatch = useAppDispatch();
-
-  function closeModal() {
-    setIsActive(false);
-  }
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff());
@@ -34,7 +25,15 @@ export default function MainPage() {
   }, [dispatch]);
 
   const tableSales = useAppSelector((state) => state.salesDiff.data);
-  console.log("tablesales", tableSales);
+
+  function handleOpenModal() {
+    dispatch(getCategory());
+    dispatch(getShops());
+    setIsActive(!isActive);
+  }
+  function closeModal() {
+    setIsActive(false);
+  }
 
   return (
     <>

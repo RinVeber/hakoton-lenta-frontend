@@ -3,12 +3,13 @@ import styles from "./ModalFilter.module.css";
 import MultiSelectState from "./Select/MultiSelectState";
 import up from "../../assets/arrow-up.svg";
 import down from "../../assets/arrow-down.svg";
-import { useAppSelector } from "../../redux/store";
+import { useAppSelector, useAppDispatch } from "../../redux/store";
 import { getBy } from "../../utils/helperFunction";
 import SelectState from "./Select/SelectState";
 import ChipsState from "./Chips/ChipsState";
 import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
+import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
 
 interface ModalProps {
   isActive: boolean;
@@ -34,6 +35,7 @@ export default function ModalFilterState({
   const shops = useAppSelector((state) => state.shop.data);
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
+  const dispatch = useAppDispatch();
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
@@ -147,6 +149,7 @@ export default function ModalFilterState({
   const handleSumbit = (event: any) => {
     event.preventDefault();
     console.log(formData);
+    dispatch(getDataForcastSearch(formData));
   };
   const handleReset = (event: any) => {
     event.preventDefault();

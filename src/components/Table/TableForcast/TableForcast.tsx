@@ -64,7 +64,6 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
     }
   };
 
-  console.log("tableForcast", tableForcast);
 
   return (
     <section className={styles.table} ref={tableRef}>
