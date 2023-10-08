@@ -1,5 +1,4 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlForcast } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],
@@ -18,22 +17,25 @@ const initialState: DataTypeState = {
   size: 1,
   pages: 0,
   status: 'init',
-  error: '',
+  error: undefined,
 };
 
-const token = localStorage.getItem('jwt') as string;
+ const token = localStorage.getItem('jwt') as string;
 
-export const getDataForcast = createAsyncThunk(
-  "dataSales/getDataForcast",
+ const urlShops = 'http://95.163.233.5/v1/api/shops/'
+
+export const getShops = createAsyncThunk(
+  "shops/getShops",
   async () => {
     try {
-      const response = await fetch(urlForcast, {
-        method: "GET",
+      const response = await fetch(urlShops, {
+        method: 'GET',
         headers: {
-          Authorization: 'Token ' + token,
-          'Content-Type': 'application/json',
+            Authorization: 'Token ' + token,
+            'Content-Type': 'application/json',
         },
       });
+
       if (response.ok) {
         const data = response.json();
         return data;
@@ -44,30 +46,30 @@ export const getDataForcast = createAsyncThunk(
   }
 );
 
-const dataForcastSlice = createSlice({
-  name: 'forcast',
+const shopSlice = createSlice({
+  name: 'shop',
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
-      .addCase(getDataForcast.fulfilled, (state, action) => {
+      .addCase(getShops.fulfilled, (state, action) => {
         state.status = 'success';
         state.data = action.payload.results;
-        state.total = action.payload.total;
+        state.total = action.payload.count;
         state.page = action.payload.page;
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       })
-      .addCase(getDataForcast.pending, (state) => {
+      .addCase(getShops.pending, (state) => {
         state.status = 'loading';
         state.error = 'loading';
       })
-      .addCase(getDataForcast.rejected, (state) => {
+      .addCase(getShops.rejected, (state) => {
         state.status = 'error';
         state.error = 'error'
       });
   },
 });
 
-export const { reducer: dataForcastReducer, actions: dataForcastActions } = dataForcastSlice;
+export const { reducer: shopReducer, actions: shopActions } = shopSlice;
 

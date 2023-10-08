@@ -104,7 +104,7 @@ const Form: FC = () => {
             id="password"
             name="password"
             value={password}
-            // 061020YWGV
+            // value={"061020YWGV"}
           />
           {password ? (
             <button

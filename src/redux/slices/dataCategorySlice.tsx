@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlScales } from '../../utils/constant';
+import { urlSales } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],
@@ -21,20 +21,25 @@ const initialState: DataTypeState = {
   error: undefined,
 };
 
-export const getDataSales = createAsyncThunk(
-  "dataSales/getDataSales",
+ const token = localStorage.getItem('jwt') as string;
+
+ const urlCategory ='http://95.163.233.5/v1/api/categories/'
+
+export const getCategory = createAsyncThunk(
+  "category/getCategory",
   async () => {
     try {
-      const response = await fetch(urlScales, {
-        method: "GET",
-        mode: 'no-cors',
+      const response = await fetch(urlCategory, {
+        method: 'GET',
         headers: {
-          "Content-type": "application/json",
+            Authorization: 'Token ' + token,
+            'Content-Type': 'application/json',
         },
       });
+
       if (response.ok) {
-        const token = response.json();
-        return token;
+        const data = response.json();
+        return data;
       }
     } catch (error) {
       throw new Error("Ошибка!" + error);
@@ -42,30 +47,32 @@ export const getDataSales = createAsyncThunk(
   }
 );
 
-const dataScalesSlice = createSlice({
-  name: 'scales',
+const categorySlice = createSlice({
+  name: 'shop',
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
-      .addCase(getDataSales.fulfilled, (state, action) => {
+      .addCase(getCategory.fulfilled, (state, action) => {
         state.status = 'success';
         state.data = action.payload.results;
-        state.total = action.payload.total;
+        state.total = action.payload.count;
         state.page = action.payload.page;
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       })
-      .addCase(getDataSales.pending, (state) => {
+      .addCase(getCategory.pending, (state) => {
         state.status = 'loading';
         state.error = 'loading';
       })
-      .addCase(getDataSales.rejected, (state) => {
+      .addCase(getCategory.rejected, (state) => {
         state.status = 'error';
         state.error = 'error'
       });
   },
 });
 
-export const { reducer: dataScalesReducer, actions: dataScalesActions } = dataScalesSlice;
+export const { reducer: categoryReducer, actions: categoryActions } = categorySlice;
 

@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ButtonExce.module.css";
 import upload from "../../assets/Upload.svg";
 

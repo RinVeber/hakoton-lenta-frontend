@@ -2,28 +2,31 @@ import Item from "antd/es/list/Item";
 
 export let regexp = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
+export const URL = "http://127.0.0.1:8000/v1/auth/token/login/";
 export const baseURL = 'http://95.163.233.5/v1/';
-export const urlScales = baseURL + 'api/sales/';
-export const urlForcast = baseURL + '/api/forecast/';
+export const urlSales = baseURL + 'api/sales/';
+export const urlForcast = baseURL + 'api/forecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
 
 export const navLinks = [
   {
+
+
     id: 1,
     name: "Обзор",
-    link: "/",
+    link: "/review",
     isActive: true,
   },
   {
     id: 2,
     name: "Прогноз спроса",
-    link: "/forcast",
+    link: "/",
     isActive: true,
   },
   {
     id: 3,
     name: "Статистика",
-    link: "/obzor",
+    link: "/forcast",
     isActive: true,
   },
 ];
@@ -84,16 +87,19 @@ export const mokColumnsTable = [
   },
 ];
 
+
 [...Array(14).keys()].forEach((item) => {
   const day = new Date();
   day.setDate(day.getDate() + item);
 
   mokColumnsTable.push({
-    title: day.toLocaleDateString(),
-    dataIndex: "date",
+    title: day.toLocaleDateString() + ' ' + 'шт',
+    dataIndex: "date" + item,
     key: "date" + item,
   });
+
 });
+
 
 export const mokColumnsForcast = [
   {
@@ -127,17 +133,17 @@ export const mokColumnsForcast = [
     key: "weekday",
   },
   {
-    title: "Продажи",
+    title: "Продажи шт",
     dataIndex: "sales",
     key: "sales",
   },
   {
-    title: "Прогноз",
+    title: "Прогноз шт",
     dataIndex: "forcast",
     key: "forcast",
   },
   {
-    title: "Разница",
+    title: "Разница (факт/план)",
     dataIndex: "difference",
     key: "difference",
   },
