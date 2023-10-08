@@ -16,11 +16,15 @@ export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   function handleOpenModal() {
-     dispatch(getCategory());
-     dispatch(getShops());
+    dispatch(getCategory());
+    dispatch(getShops());
     setIsActive(!isActive);
   }
   const dispatch = useAppDispatch();
+
+  function closeModal() {
+    setIsActive(false);
+  }
 
   React.useEffect(() => {
     dispatch(getDataSales());
@@ -29,14 +33,20 @@ export default function MainPage() {
   }, [dispatch]);
 
   const tableSales = useAppSelector((state) => state.sales.data);
-  console.log('tablesales', tableSales);
+  console.log("tablesales", tableSales);
 
   return (
-    <section className={styles.MainPage}>
-      <ModalFilterState isActive={isActive} handleOpenModal={handleOpenModal} />
-      <Tabs handleOpenModal={handleOpenModal} />
-      <Table mokColumns={mokColumnsTable} mokDataSource={mokDataSource}/>
-      <ButtonExcel />
-    </section>
+    <>
+      <div className={isActive ? styles.noBlur + ' '+ styles.blur : styles.noBlur} onClick={() => closeModal()}></div>
+      <section className={styles.MainPage} >
+        <ModalFilterState
+          isActive={isActive}
+          handleOpenModal={handleOpenModal}
+        />
+        <Tabs handleOpenModal={handleOpenModal} />
+        <Table mokColumns={mokColumnsTable} mokDataSource={mokDataSource} />
+        <ButtonExcel />
+      </section>
+    </>
   );
 }

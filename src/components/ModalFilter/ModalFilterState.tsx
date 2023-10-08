@@ -161,6 +161,7 @@ export default function ModalFilterState({
   };
   return (
     <form className={isActive ? styles.modal_active : styles.modal}>
+
       <div className={styles.modal__header}>
         <div className={styles.modal__title}>Выбор торгового комплекса</div>
         <div className={styles.modal__close} onClick={handleOpenModal} />
