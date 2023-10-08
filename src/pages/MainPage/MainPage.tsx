@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataSales } from "../../redux/slices/dataSalesSlice";
 import { getDataSalesDiff } from "../../redux/slices/dataSalesDiffSlice";
 import { mokDataSource } from "../../utils/constant";
-import TableSales from "../../components/Table/TableSales";
+import TableSales from "../../components/Table/TableSales/TableSales";
 import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
