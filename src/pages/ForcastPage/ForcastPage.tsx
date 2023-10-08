@@ -1,6 +1,6 @@
 import React from "react";
 import Tabs from "../../components/Tabs/Tabs";
-import Table from "../../components/Table/Table";
+import Table from "../../components/Table/TableSales";
 import styles from "./ForcastPage.module.css";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
 import { mokColumnsStatic, mokDataSource, mokColumnsTable } from "../../utils/constant";

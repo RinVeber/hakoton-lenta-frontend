@@ -7,6 +7,7 @@ export const baseURL = 'http://95.163.233.5/v1/';
 export const urlSales = baseURL + 'api/sales/';
 export const urlForcast = baseURL + 'api/forecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
+export const urlSalesDiff = baseURL + 'api/salesdiff/';
 
 export const navLinks = [
   {

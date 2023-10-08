@@ -5,8 +5,9 @@ import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
 import { mokColumnsTable, mokColumnsStatic } from "../../utils/constant";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataSales } from "../../redux/slices/dataSalesSlice";
+import { getDataSalesDiff } from "../../redux/slices/dataSalesDiffSlice";
 import { mokDataSource } from "../../utils/constant";
-import Table from "../../components/Table/Table";
+import TableSales from "../../components/Table/TableSales";
 import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
@@ -27,12 +28,12 @@ export default function MainPage() {
   }
 
   React.useEffect(() => {
-    dispatch(getDataSales());
+    dispatch(getDataSalesDiff());
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
 
-  const tableSales = useAppSelector((state) => state.sales.data);
+  const tableSales = useAppSelector((state) => state.salesDiff.data);
   console.log("tablesales", tableSales);
 
   return (
@@ -44,7 +45,7 @@ export default function MainPage() {
           handleOpenModal={handleOpenModal}
         />
         <Tabs handleOpenModal={handleOpenModal} />
-        <Table mokColumns={mokColumnsStatic} mokDataSource={mokDataSource} />
+        <TableSales columns={mokColumnsStatic} tableSales={tableSales} />
         <ButtonExcel />
       </section>
     </>

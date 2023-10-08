@@ -1,6 +1,5 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlForcast } from '../../utils/constant';
-import mockForecast from '../../utils/mokForecast.json';
+import { urlSalesDiff } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],
@@ -19,57 +18,58 @@ const initialState: DataTypeState = {
   size: 1,
   pages: 0,
   status: 'init',
-  error: '',
+  error: undefined,
 };
 
-const token = localStorage.getItem('jwt') as string;
+ const token = localStorage.getItem('jwt') as string;
 
-export const getDataForcast = createAsyncThunk(
-  "dataSales/getDataForcast",
+export const getDataSalesDiff = createAsyncThunk(
+  "dataSales/getDataSalesDiff",
   async () => {
     try {
-      const response = await fetch(urlForcast, {
-        method: "GET",
+      const response = await fetch(urlSalesDiff, {
+        method: 'GET',
         headers: {
           Authorization: 'Token ' + token,
-          'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
       });
+
       if (response.ok) {
         const data = response.json();
         return data;
       }
     } catch (error) {
-      // return mockForecast;   // мок из json
       throw new Error("Ошибка!" + error);
     }
   }
 );
 
-const dataForcastSlice = createSlice({
-  name: 'forcast',
+
+const dataSalesDiffSlice = createSlice({
+  name: 'salesDiff',
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
-      .addCase(getDataForcast.fulfilled, (state, action) => {
+      .addCase(getDataSalesDiff.fulfilled, (state, action) => {
         state.status = 'success';
-        state.data = action.payload.results;
-        state.total = action.payload.total;
-        state.page = action.payload.page;
-        state.size = action.payload.size;
-        state.pages = action.payload.pages;
+        state.data = action.payload;
+        // state.total = action.payload.total;
+        // state.page = action.payload.page;
+        // state.size = action.payload.size;
+        // state.pages = action.payload.pages;
       })
-      .addCase(getDataForcast.pending, (state) => {
+      .addCase(getDataSalesDiff.pending, (state) => {
         state.status = 'loading';
         state.error = 'loading';
       })
-      .addCase(getDataForcast.rejected, (state) => {
+      .addCase(getDataSalesDiff.rejected, (state) => {
         state.status = 'error';
         state.error = 'error'
       });
   },
 });
 
-export const { reducer: dataForcastReducer, actions: dataForcastActions } = dataForcastSlice;
+export const { reducer: dataSalesDiffReducer, actions: dataSalesDiffActions } = dataSalesDiffSlice;
 
