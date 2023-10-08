@@ -53,15 +53,15 @@ export default function TableSales({ columns, tableSales }: TableProps) {
   };
   const handlerSort = (sortType: string, type: string) => {
     if (sortType === "TK") {
-      setSortList([...sortList.sort(customSort("name", type))]);
+      setSortList([...Array.from(sortList).sort(customSort("store", type))]);
     } else if (sortType === "Группа") {
-      setSortList([...sortList.sort(customSort("group", type))]);
+      setSortList([...Array.from(sortList).sort(customSort("group", type))]);
     } else if (sortType === "Категория") {
-      setSortList([...sortList.sort(customSort("category", type))]);
+      setSortList([...Array.from(sortList).sort(customSort("category", type))]);
     } else if (sortType === "Подкатегория") {
-      setSortList([...sortList.sort(customSort("podcategory", type))]);
+      setSortList([...Array.from(sortList).sort(customSort("subcategory", type))]);
     } else if (sortType === "SKU") {
-      setSortList([...sortList.sort(customSort("sku", type))]);
+      setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
   };
 
