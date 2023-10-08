@@ -17,14 +17,14 @@ export default function MainPage() {
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-dispatch(getDataSales());
-  })
+    dispatch(getDataSales());
+  });
 
   return (
     <section className={styles.MainPage}>
-      <ModalFilter isActive={isActive} handleOpenModal={handleOpenModal}/>
+      <ModalFilter isActive={isActive} handleOpenModal={handleOpenModal} />
       <Tabs handleOpenModal={handleOpenModal} />
-      <Table mokColumns={mokColumnsTable}/>
+      <Table mokColumns={mokColumnsTable} />
       <ButtonExcel />
     </section>
   );

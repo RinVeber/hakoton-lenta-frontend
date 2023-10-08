@@ -1,6 +1,6 @@
-import { FC, useState } from "react";
+import { FC, useState, ChangeEvent, FormEvent } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../redux/store";
+import { AppDispatch, RootState } from "../../redux/store";
 import styles from "../../styles/Form.module.css";
 import {
   getToken,
@@ -14,7 +14,7 @@ import { regexp } from "../../utils/constant";
 import { useNavigate } from "react-router-dom";
 
 const Form: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const email = useSelector((state: RootState) => state.form.email);
   const password = useSelector((state: RootState) => state.form.password);
@@ -28,22 +28,22 @@ const Form: FC = () => {
     },
   };
 
-  const changeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const changeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(handleChangeEmail(e.target.value));
     setIsValid(e.target.closest("form")?.checkValidity()!);
   };
 
-  const changePass = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const changePass = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(handleChangePassword(e.target.value));
     setIsValid(e.target.closest("form")?.checkValidity()!);
   };
 
-  const hadleSubmit = (e: React.SubmitEvent<HTMLInputElement>) => {
+  const hadleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
     dispatch(getToken({ password, email }))
-      .then((token: string) => {
-        let jwt: string = token.payload.auth_token;
+      .then((token) => {
+        let jwt = token.payload.auth_token;
         if (jwt) {
           localStorage.setItem("jwt", jwt);
           navigate("/");

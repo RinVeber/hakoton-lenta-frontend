@@ -17,7 +17,6 @@ body {
     --COLOR_GREEN: rgb(0, 128, 0);
     --COLOR_BUTTON_HOVER: rgba(2, 97, 240, 1);
     --COLOR_LIGHT_BLUE: rgba(236, 243, 255, 1);
-    --COLOR_BUTTON_FOCUS: rgba(0, 30, 100, 1);
 
     margin: 0;
     padding: 0;

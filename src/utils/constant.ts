@@ -10,19 +10,19 @@ export const urlToken = baseURL + '/api/auth/token/login/';
 export const navLinks = [
   {
     id: 1,
-    name: "Прогноз спроса",
+    name: "Обзор",
     link: "/",
     isActive: true,
   },
   {
     id: 2,
-    name: "Качество товара",
+    name: "Прогноз спроса",
     link: "/forcast",
     isActive: true,
   },
   {
     id: 3,
-    name: "Обзор",
+    name: "Статистика",
     link: "/obzor",
     isActive: true,
   },

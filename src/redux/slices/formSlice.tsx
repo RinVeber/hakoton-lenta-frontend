@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import FormType from "../../types/types";
 import { baseURL } from "../../utils/constant";
-import { UserLoginRequestType } from "./tokenSlice";
 
 const initialState: FormType = {
   email: "",
@@ -12,7 +11,7 @@ const initialState: FormType = {
 
 export const getToken = createAsyncThunk(
   "authorization/login",
-  async (data: UserLoginRequestType, thunkAPI) => {
+  async ({ password, email }, thunkAPI) => {
     try {
       const response = await fetch(baseURL + "/api/auth/token/login/", {
         method: "POST",
@@ -20,7 +19,7 @@ export const getToken = createAsyncThunk(
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ password, email }),
       });
       const res = await response.json();
       return res;

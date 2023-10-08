@@ -1,8 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./ModalFilter.module.css";
-import Select from "./Select/Select";
-import up from "../../assets/arrow-up.svg";
-import down from "../../assets/arrow-down.svg";
+// import Select from "./Select/Select";
+// import up from "../../assets/arrow-up.svg";
+// import down from "../../assets/arrow-down.svg";
+import ModalFilterDate from "./ModalFilterDate";
 
 interface ModalProps {
   isActive: boolean;
@@ -10,31 +11,32 @@ interface ModalProps {
 }
 
 export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
-  const [isSelectCity, setIsSelectCity] = React.useState(false);
-  const [isSelectTK, setIsSelectTK] = React.useState(false);
-  const [isSelectGroup, setIsSelectGroup] = React.useState(false);
-  const [isSelectCategory, setIsSelectCategory] = React.useState(false);
-  const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
-  const [isSelectSKU, setIsSelectSKU] = React.useState(false);
+  const path = window.location.pathname;
+  // const [isSelectCity, setIsSelectCity] = React.useState(false);
+  // const [isSelectTK, setIsSelectTK] = React.useState(false);
+  // const [isSelectGroup, setIsSelectGroup] = React.useState(false);
+  // const [isSelectCategory, setIsSelectCategory] = React.useState(false);
+  // const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
+  // const [isSelectSKU, setIsSelectSKU] = React.useState(false);
 
-  function openSelectCity() {
-    setIsSelectCity(!isSelectCity);
-  }
-  function openSelectTK() {
-    setIsSelectTK(!isSelectTK);
-  }
-  function openSelectGroup() {
-    setIsSelectGroup(!isSelectGroup);
-  }
-  function openSelectCategory() {
-    setIsSelectCategory(!isSelectCategory);
-  }
-  function openSelectPodcategory() {
-    setIsSelectPodcategory(!isSelectPodcategory);
-  }
-  function openSelectSKU() {
-    setIsSelectSKU(!isSelectSKU);
-  }
+  // function openSelectCity() {
+  //   setIsSelectCity(!isSelectCity);
+  // }
+  // function openSelectTK() {
+  //   setIsSelectTK(!isSelectTK);
+  // }
+  // function openSelectGroup() {
+  //   setIsSelectGroup(!isSelectGroup);
+  // }
+  // function openSelectCategory() {
+  //   setIsSelectCategory(!isSelectCategory);
+  // }
+  // function openSelectPodcategory() {
+  //   setIsSelectPodcategory(!isSelectPodcategory);
+  // }
+  // function openSelectSKU() {
+  //   setIsSelectSKU(!isSelectSKU);
+  // }
   const city = [
     {
       id: 1,
@@ -63,15 +65,18 @@ export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
       title: "tk-3",
     },
   ];
+
   return (
     <section className={isActive ? styles.modal_active : styles.modal}>
       <div className={styles.modal__header}>
-        <div className={styles.modal__title}>Выбор торгового комплекса</div>
+        <div className={styles.modal__title}>
+          {path == "/obzor" ? "Выбор периода" : "Выбор торгового комплекса"}
+        </div>
         <div className={styles.modal__close} onClick={handleOpenModal} />
       </div>
 
       <div className={styles.modal__content}>
-        <div className={styles.modal__selectContent}>
+        {/* <div className={styles.modal__selectContent}>
           <div className={styles.modal__container}>
             <div className={styles.modal__wrap}>
               <div className={styles.modal__select} onClick={openSelectCity}>
@@ -190,11 +195,13 @@ export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
               selectOptions={city}
             />
           </div>
-        </div>
+        </div> */}
         <div className={styles.modal__btnСontainer}>
-        <button type="submit" className={styles.modal__submit}>Показать</button>
-        <button className={styles.modal__cancel}>Сбросить</button>
-      </div>
+          <button type="submit" className={styles.modal__submit}>
+            Показать
+          </button>
+          <button className={styles.modal__cancel}>Сбросить</button>
+        </div>
       </div>
     </section>
   );

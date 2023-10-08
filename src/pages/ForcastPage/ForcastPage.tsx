@@ -14,7 +14,7 @@ export default function ForcastPage() {
   return (
     <section className={styles.forcastPage}>
       <Tabs handleOpenModal={handleOpenModal} />
-      <Table mokColumns = {mokColumnsForcast}/>
+      <Table mokColumns={mokColumnsForcast} />
       <ButtonExcel />
     </section>
   );
