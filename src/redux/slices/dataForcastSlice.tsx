@@ -7,19 +7,39 @@ import { urlForcast } from "../../utils/constant";
 import mockForecast from "../../utils/mokForecast.json";
 import { SearchForm } from "../../components/ModalFilter/types/types";
 
+type SearcDataState = {
+category: string,
+forecast: []
+group: string
+sku: string
+store: string
+subcategory: string
+}
+
 type DataTypeState = {
   data: [];
+  searchData: SearcDataState[],
   total: number;
   page: number;
   size: number;
   pages: number;
+  isExistSearch: boolean,
   status: "init" | "loading" | "success" | "error";
   error: string | undefined;
 };
 
 const initialState: DataTypeState = {
   data: [],
+  searchData: [
+{    category: 'initial',
+    forecast: [],
+    group: 'string',
+    sku: 'string',
+    store: 'string',
+    subcategory: 'string',}
+  ],
   total: 0,
+  isExistSearch: false,
   page: 1,
   size: 1,
   pages: 0,
@@ -56,12 +76,12 @@ export const getDataForcastSearch = createAsyncThunk(
   async (formData: SearchForm) => {
     try {
       const data = {
-        city: formData.city?.title,
-        store: formData.store?.title,
-        sku: formData.store?.title,
-        group: formData.group?.title,
-        category: formData.category?.title,
-        subcategory: formData.subcategory?.title,
+        city: formData.city?.title == null ? '' : formData.city?.title ,
+        store: formData.store?.title == null ? '' : formData.store?.title ,
+        sku: '',
+        group: formData.group?.title == null ? '' : formData.group?.title ,
+        category: formData.category?.title == null ? '' : formData.category?.title ,
+        subcategory: formData.subcategory?.title == null ? '' : formData.subcategory?.title ,
       };
       const response = await fetch(
         `${urlForcast}?city=${data.city}&store=${data.store}&sku=${data.sku}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
@@ -93,8 +113,9 @@ const dataForcastSlice = createSlice({
       .addCase(getDataForcastSearch.fulfilled, (state, action) => {
         state.status = "success";
         debugger;
-        state.data = action.payload.results;
+        state.searchData = action.payload.results;
         state.total = action.payload.count;
+        state.isExistSearch = true;
         state.page = action.payload.page;
         state.size = action.payload.size;
         state.pages = action.payload.pages;

@@ -148,8 +148,8 @@ export default function ModalFilterState({
 
   const handleSumbit = (event: any) => {
     event.preventDefault();
-    console.log(formData);
     dispatch(getDataForcastSearch(formData));
+    handleOpenModal();
   };
   const handleReset = (event: any) => {
     event.preventDefault();
