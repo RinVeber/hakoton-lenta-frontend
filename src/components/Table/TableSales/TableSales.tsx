@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './TableSales.module.css';
-import up from "../../assets/filter-up.svg";
-import down from "../../assets/filter-down.svg";
-import downActive from "../../assets/filter-down-active.svg";
-import upActive from "../../assets/filter-up-active.svg";
-import { columnsTable, dataSourceTableSales } from "../../../types/types";
+import up from "../../../assets/filter-up.svg"
+import down from "../../../assets/filter-down.svg";
+import downActive from "../../../assets/filter-down-active.svg";
+import upActive from "../../../assets/filter-up-active.svg";
+import { columnsTable } from "../../../types/types";
 
 type TableSales = {
   store: string;
