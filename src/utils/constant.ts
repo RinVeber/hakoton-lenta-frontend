@@ -20,13 +20,13 @@ export const navLinks = [
   {
     id: 2,
     name: "Прогноз спроса",
-    link: "/",
+    link: "/forcast",
     isActive: true,
   },
   {
     id: 3,
     name: "Статистика",
-    link: "/forcast",
+    link: "/",
     isActive: true,
   },
 ];
@@ -101,7 +101,7 @@ export const mokColumnsTable = [
 });
 
 
-export const mokColumnsForcast = [
+export const mokColumnsStatic = [
   {
     title: "TK",
     dataIndex: "tk",

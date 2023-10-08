@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./MainPage.module.css";
 import Tabs from "../../components/Tabs/Tabs";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
-import { mokColumnsTable } from "../../utils/constant";
+import { mokColumnsTable, mokColumnsStatic } from "../../utils/constant";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataSales } from "../../redux/slices/dataSalesSlice";
 import { mokDataSource } from "../../utils/constant";
@@ -44,7 +44,7 @@ export default function MainPage() {
           handleOpenModal={handleOpenModal}
         />
         <Tabs handleOpenModal={handleOpenModal} />
-        <Table mokColumns={mokColumnsTable} mokDataSource={mokDataSource} />
+        <Table mokColumns={mokColumnsStatic} mokDataSource={mokDataSource} />
         <ButtonExcel />
       </section>
     </>

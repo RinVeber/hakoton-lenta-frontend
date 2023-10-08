@@ -6,9 +6,23 @@ import downActive from "../../assets/filter-down-active.svg";
 import upActive from "../../assets/filter-up-active.svg";
 import { columnsTable, dataSourceTableSales } from "../../types/types";
 
+type forcastTable = {
+  store: string,
+      group: string,
+      category: string,
+      subcategory: string,
+      sku: string,
+      forecast: 
+        {
+          date: string,
+          sales_units: string,
+        }[],
+}
+
 interface TableProps {
   mokColumns: columnsTable[];
   mokDataSource: dataSourceTableSales[];
+  tableForcast?: forcastTable[]
 }
 export default function Table({ mokColumns, mokDataSource }: TableProps) {
   const [sortList, setSortList] = React.useState(mokDataSource);
