@@ -3,12 +3,16 @@ import { configureStore } from "@reduxjs/toolkit";
 import { dataSalesReducer } from "./slices/dataSalesSlice";
 import { dataForcastReducer } from "./slices/dataForcastSlice";
 import formSlice from "./slices/formSlice";
+import { shopReducer } from "./slices/shopSlice";
+import { categoryReducer } from "./slices/dataCategorySlice";
 
 const store = configureStore({
   reducer: {
     sales: dataSalesReducer,
     form: formSlice,
     forcast: dataForcastReducer,
+    shop: shopReducer,
+    category: categoryReducer
   },
 });
 

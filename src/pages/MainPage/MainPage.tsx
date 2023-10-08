@@ -9,31 +9,29 @@ import { getDataSales } from "../../redux/slices/dataSalesSlice";
 import { mokDataSource } from "../../utils/constant";
 import Table from "../../components/Table/Table";
 import { getDataForcast } from "../../redux/slices/dataForcastSlice";
+import { getShops } from "../../redux/slices/shopSlice";
+import { getCategory } from "../../redux/slices/dataCategorySlice";
+import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   function handleOpenModal() {
+     dispatch(getCategory());
+     dispatch(getShops());
     setIsActive(!isActive);
   }
   const dispatch = useAppDispatch();
-  const data = {
-    email: "front@lenta.com",
-    password: '392750YBST'
-  }
 
   React.useEffect(() => {
     dispatch(getDataSales());
-    dispatch(getDataForcast());
-  }, []);
-
-  const {token} = useAppSelector((state) => state.form);
-console.log(token);
-
+    //dispatch(getShops());
+    //dispatch(getCategory());
+  }, [dispatch]);
 
   return (
     <section className={styles.MainPage}>
-      <ModalFilter isActive={isActive} handleOpenModal={handleOpenModal} />
+      <ModalFilterState isActive={isActive} handleOpenModal={handleOpenModal} />
       <Tabs handleOpenModal={handleOpenModal} />
       <Table mokColumns={mokColumnsTable} mokDataSource={mokDataSource}/>
       <ButtonExcel />

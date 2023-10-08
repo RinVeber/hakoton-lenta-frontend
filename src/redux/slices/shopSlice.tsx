@@ -1,5 +1,4 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlSales } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],
@@ -23,14 +22,16 @@ const initialState: DataTypeState = {
 
  const token = localStorage.getItem('jwt') as string;
 
-export const getDataSales = createAsyncThunk(
-  "dataSales/getDataSales",
+ const urlShops = 'http://95.163.233.5/v1/api/shops/'
+
+export const getShops = createAsyncThunk(
+  "shops/getShops",
   async () => {
     try {
-      const response = await fetch(urlSales, {
+      const response = await fetch(urlShops, {
         method: 'GET',
         headers: {
-          Authorization: 'Token ' + token,
+            Authorization: 'Token ' + token,
             'Content-Type': 'application/json',
         },
       });
@@ -45,31 +46,30 @@ export const getDataSales = createAsyncThunk(
   }
 );
 
-
-const dataSalesSlice = createSlice({
-  name: 'sales',
+const shopSlice = createSlice({
+  name: 'shop',
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
-      .addCase(getDataSales.fulfilled, (state, action) => {
+      .addCase(getShops.fulfilled, (state, action) => {
         state.status = 'success';
         state.data = action.payload.results;
-        state.total = action.payload.total;
+        state.total = action.payload.count;
         state.page = action.payload.page;
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       })
-      .addCase(getDataSales.pending, (state) => {
+      .addCase(getShops.pending, (state) => {
         state.status = 'loading';
         state.error = 'loading';
       })
-      .addCase(getDataSales.rejected, (state) => {
+      .addCase(getShops.rejected, (state) => {
         state.status = 'error';
         state.error = 'error'
       });
   },
 });
 
-export const { reducer: dataSalesReducer, actions: dataSalesActions } = dataSalesSlice;
+export const { reducer: shopReducer, actions: shopActions } = shopSlice;
 

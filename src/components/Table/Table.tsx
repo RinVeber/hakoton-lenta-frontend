@@ -39,7 +39,6 @@ export default function Table({ mokColumns, mokDataSource }: TableProps) {
     };
   };
   const handlerSort = (sortType: string, type: string) => {
-    console.log(sortType);
     if (sortType === "TK") {
       setSortList([...sortList.sort(customSort("name", type))]);
     } else if (sortType === "Группа") {

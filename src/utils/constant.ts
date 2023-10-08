@@ -5,26 +5,28 @@ export let regexp = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 export const URL = "http://127.0.0.1:8000/v1/auth/token/login/";
 export const baseURL = 'http://95.163.233.5/v1/';
 export const urlSales = baseURL + 'api/sales/';
-export const urlForcast = baseURL + '/api/forecast/';
+export const urlForcast = baseURL + 'api/forecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
 
 export const navLinks = [
   {
+
+
     id: 1,
+    name: "Обзор",
+    link: "/review",
+    isActive: true,
+  },
+  {
+    id: 2,
     name: "Прогноз спроса",
     link: "/",
     isActive: true,
   },
   {
-    id: 2,
-    name: "Качество товара",
-    link: "/forcast",
-    isActive: true,
-  },
-  {
     id: 3,
-    name: "Обзор",
-    link: "/obzor",
+    name: "Статистика",
+    link: "/forcast",
     isActive: true,
   },
 ];
@@ -85,38 +87,6 @@ export const mokColumnsTable = [
   },
 ];
 
-export const mokColumnsTableGrid = [
-  {
-    headerName: "TK",
-    field: "tk",
-    key: "tk",
-    width: 168,
-  },
-  {
-    headerName: "Группа",
-    field: "group",
-    key: "group",
-    width: 168,
-  },
-  {
-    headerName: "Категория",
-    field: "category",
-    key: "category",
-    width: 168,
-  },
-  {
-    headerName: "Подкатеогрия",
-    field: "podcategory",
-    key: "podcategory",
-    width: 168,
-  },
-  {
-    headerName: "SKU",
-    field: "sku",
-    key: "sku",
-    width: 168,
-  },
-];
 
 [...Array(14).keys()].forEach((item) => {
   const day = new Date();
@@ -130,21 +100,6 @@ export const mokColumnsTableGrid = [
 
 });
 
-
-[...Array(14).keys()].forEach((item) => {
-  const day = new Date();
-  day.setDate(day.getDate() + item);
-
-  mokColumnsTableGrid.push({
-    headerName: day.toLocaleDateString(),
-    field: "date",
-    key: "date" + item,
-    width: 168,
-  })
-
-});
-
-console.log(mokColumnsTable);
 
 export const mokColumnsForcast = [
   {
