@@ -16,7 +16,7 @@ export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const { data: tableForcast } = useAppSelector((state) => state.forcast);
+  const { dataForcast: tableForcast } = useAppSelector((state) => state.forcast);
   const tableForcastSearch = useAppSelector(
     (state) => state.forcast.searchData
   );
@@ -65,13 +65,6 @@ export default function ForcastPage() {
           handleOpenModal={handleOpenModal}
         />
         <Tabs handleOpenModal={handleOpenModal} />
-
-        <div style={{ outline: "2px solid red" }}>
-          <div>{nextPage}</div>
-          <button onClick={() => getNextPage()}>NEXT</button>
-          <div>{previousPage}</div>
-          <button onClick={() => getPreviousPage()}>PREVIOUS</button>
-        </div>
 
         {status != "success" ? (
           <section className={styles.loader}>

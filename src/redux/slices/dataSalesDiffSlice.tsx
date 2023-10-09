@@ -7,7 +7,7 @@ import { urlSalesDiff } from "../../utils/constant";
 import { DataState } from "./dataForcastSlice";
 
 type DataTypeState = {
-  data: any[];
+  dataSalesDiff: any[];
   total: number;
   page: number;
   size: number;
@@ -19,12 +19,12 @@ type DataTypeState = {
 };
 
 const initialState: DataTypeState = {
-  data: [],
+  dataSalesDiff: [],
   total: 0,
   page: 1,
   size: 1,
-  nextPage: '',
-  previousPage: '',
+  nextPage: "",
+  previousPage: "",
   pages: 0,
   status: "init",
   error: undefined,
@@ -62,7 +62,14 @@ const dataSalesDiffSlice = createSlice({
     builder
       .addCase(getDataSalesDiff.fulfilled, (state, action) => {
         state.status = "success";
-        state.data = [...state.data, ...action.payload];
+
+        state.dataSalesDiff = [
+          ...state.dataSalesDiff,
+          ...action.payload,
+        ].filter(
+          (value, index, array) =>
+            array.map((v) => v.sku).indexOf(value.sku) === index
+        );
         // state.nextPage = action.payload.next;
         // state.previousPage = action.payload.previous;
 

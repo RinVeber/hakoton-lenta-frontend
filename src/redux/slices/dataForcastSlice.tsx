@@ -18,7 +18,7 @@ export type DataState = {
 };
 
 type DataTypeState = {
-  data: DataState[];
+  dataForcast: DataState[];
   searchData: DataState[];
   total: number;
   page: number;
@@ -32,7 +32,7 @@ type DataTypeState = {
 };
 
 const initialState: DataTypeState = {
-  data: [],
+  dataForcast: [],
   searchData: [
     {
       category: "initial",
@@ -151,18 +151,21 @@ const dataForcastSlice = createSlice({
       .addCase(getDataForcast.fulfilled, (state, action) => {
         state.status = "success";
         // TODO
-        state.data = [
-          ...state.data,
+        state.dataForcast = [
+          ...state.dataForcast,
           ...action.payload.results,
-          {
-            category: "string " + new Date().toLocaleTimeString(),
-            forecast: action.payload.results[0].forecast,
-            group: "string " + new Date().toLocaleTimeString(),
-            sku: "string " + new Date().toLocaleTimeString(),
-            store: "string " + new Date().toLocaleTimeString(),
-            subcategory: "string " + new Date().toLocaleTimeString(),
-          },
-        ];
+          // {
+          //   category: "string " + new Date().toLocaleTimeString(),
+          //   forecast: action.payload.results[0].forecast,
+          //   group: "string " + new Date().toLocaleTimeString(),
+          //   sku: "string " + new Date().toLocaleTimeString(),
+          //   store: "string " + new Date().toLocaleTimeString(),
+          //   subcategory: "string " + new Date().toLocaleTimeString(),
+          // },
+        ].filter(
+          (value: DataState, index: number, array: DataState[]) =>
+            array.map((v) => v.sku).indexOf(value.sku) === index
+        );
 
         state.total = action.payload.count;
         state.page = action.payload.page;

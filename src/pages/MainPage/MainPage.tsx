@@ -16,7 +16,7 @@ export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const { status, data: tableSales, nextPage } = useAppSelector(
+  const { status, dataSalesDiff: tableSales, nextPage } = useAppSelector(
     (state) => state.salesDiff
   );
 
@@ -37,6 +37,7 @@ export default function MainPage() {
   }
 
   function getNextPage() {
+    debugger;
     dispatch(getDataSalesDiff(nextPage));
   }
 
