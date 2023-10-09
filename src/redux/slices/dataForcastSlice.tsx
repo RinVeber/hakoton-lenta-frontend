@@ -97,7 +97,7 @@ export const getDataForcastSearch = createAsyncThunk(
         //`${urlForcast}?city=${data.city}&store=${data.store}&${data.sku.map((v)=>'sku=' + v).join('&')}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
         //
         // `${urlForcast}?city=${data.city}&store=${data.store}`,
-        `${urlNewForcast}?${query}`,
+        `${urlForcast}?${query}`,
         {
           method: "GET",
           headers: {
@@ -133,9 +133,12 @@ const dataForcastSlice = createSlice({
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       })
-      .addCase(getDataForcast.pending, (state) => {
+      .addCase(getDataForcastSearch.pending, (state) => {
         state.status = "loading";
-        state.error = "loading";
+      })
+      .addCase(getDataForcastSearch.rejected, (state) => {
+        state.status = "error";
+        state.error = "error";
       })
       .addCase(getDataForcast.rejected, (state) => {
         state.status = "error";

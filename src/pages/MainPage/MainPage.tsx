@@ -13,6 +13,7 @@ import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
+import { Spin } from "antd";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -25,7 +26,9 @@ export default function MainPage() {
     //dispatch(getCategory());
   }, [dispatch]);
 
-  const tableSales = useAppSelector((state) => state.salesDiff.data);
+  const { status, data: tableSales } = useAppSelector(
+    (state) => state.salesDiff
+  );
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -43,14 +46,27 @@ export default function MainPage() {
         onClick={() => closeModal()}
       ></div>
       <section className={styles.MainPage}>
-      <Header />
+        <Header />
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
         />
         <Tabs handleOpenModal={handleOpenModal} />
-        <TableSales columns={mokColumnsStatic} tableSales={tableSales} />
-        <ButtonExcel />
+
+        {status != "success" ? (
+          <section className={styles.loader}>
+            <Spin size={"large"} />
+            <div>Идет загрузка</div>
+             <div>Пожалуйста подождите...</div>
+          </section>
+        ) : (
+          <>
+        
+          <TableSales columns={mokColumnsStatic} tableSales={tableSales} />
+          <ButtonExcel />
+          </>
+        )}
+
       </section>
     </>
   );
