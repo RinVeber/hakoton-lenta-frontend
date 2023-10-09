@@ -105,7 +105,11 @@ export const getDataSalesDiffSearch = createAsyncThunk(
 const dataSalesDiffSlice = createSlice({
   name: "salesDiff",
   initialState,
-  reducers: {},
+  reducers: {
+    handleChangeIsExistSearchSalesDiff: (state, action) => {
+      state.isExistSearchSalesDiff = action.payload;
+    },
+  },
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
       .addCase(getDataSalesDiff.fulfilled, (state, action) => {
@@ -138,7 +142,7 @@ const dataSalesDiffSlice = createSlice({
         );
         state.total = action.payload.count;
         state.isExistSearchSalesDiff = true;
-        
+
            // state.nextPage = action.payload.next;
         // state.previousPage = action.payload.previous;
         // state.page = action.payload.page;
@@ -157,3 +161,5 @@ const dataSalesDiffSlice = createSlice({
 
 export const { reducer: dataSalesDiffReducer, actions: dataSalesDiffActions } =
   dataSalesDiffSlice;
+
+  export const { handleChangeIsExistSearchSalesDiff } = dataSalesDiffSlice.actions;
