@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from "react";
+import React from "react";
 import styles from "./MainPage.module.css";
 import Tabs from "../../components/Tabs/Tabs";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
@@ -12,10 +12,12 @@ import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
+import { Header } from "../../components";
+import { Spin } from "antd";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
-  const [currentTarget, setCurrentTarget] = useState("");
+  const [currentTarget, setCurrentTarget] = React.useState("");
 
   const dispatch = useAppDispatch();
 
@@ -27,11 +29,12 @@ export default function MainPage() {
 
   const tableSales = useAppSelector((state) => state.salesDiff.data);
 
-  const handleOpenModal = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ): void => {
-    let target = event.target.innerHTML;
-    setCurrentTarget(target);
+  const handleOpenModal = (event: any): void => {
+    if (event == undefined) {
+      return;
+    }
+    let target = event.currentTarget.dataset;
+    setCurrentTarget(target.set);
     dispatch(getCategory());
     dispatch(getShops());
     setIsActive(!isActive);

@@ -7,6 +7,7 @@ import { shopReducer } from "./slices/shopSlice";
 import { categoryReducer } from "./slices/dataCategorySlice";
 import { dataSalesDiffReducer } from "./slices/dataSalesDiffSlice";
 import userSlice from "./slices/userSlice";
+import dateSlice from "./slices/dateSlice";
 
 const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
     shop: shopReducer,
     category: categoryReducer,
     user: userSlice,
+    date: dateSlice,
   },
 });
 

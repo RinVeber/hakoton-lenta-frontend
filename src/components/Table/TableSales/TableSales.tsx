@@ -1,6 +1,6 @@
 import React from "react";
-import styles from './TableSales.module.css';
-import up from "../../../assets/filter-up.svg"
+import styles from "./TableSales.module.css";
+import up from "../../../assets/filter-up.svg";
 import down from "../../../assets/filter-down.svg";
 import downActive from "../../../assets/filter-down-active.svg";
 import upActive from "../../../assets/filter-up-active.svg";
@@ -59,7 +59,9 @@ export default function TableSales({ columns, tableSales }: TableProps) {
     } else if (sortType === "Категория") {
       setSortList([...Array.from(sortList).sort(customSort("category", type))]);
     } else if (sortType === "Подкатегория") {
-      setSortList([...Array.from(sortList).sort(customSort("subcategory", type))]);
+      setSortList([
+        ...Array.from(sortList).sort(customSort("subcategory", type)),
+      ]);
     } else if (sortType === "SKU") {
       setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
@@ -145,9 +147,7 @@ export default function TableSales({ columns, tableSales }: TableProps) {
                 </div>
               </div>
               <div className={styles.table__rowCell}>
-                <div className={styles.table__rowCellText}>
-                  {item.date}
-                </div>
+                <div className={styles.table__rowCellText}>{item.date}</div>
               </div>
               <div className={styles.table__rowCell}>
                 <div className={styles.table__rowCellText}>
@@ -160,20 +160,17 @@ export default function TableSales({ columns, tableSales }: TableProps) {
                 </div>
               </div>
               <div className={styles.table__rowCell}>
-              <div className={styles.table__rowCellDiff}>
-                <div className={styles.table__rowCellTextDiff}>
-                  {item.diff_sales_units.split('.')[0]}
+                <div className={styles.table__rowCellDiff}>
+                  <div className={styles.table__rowCellTextDiff}>
+                    {item.diff_sales_units.split(".")[0]}
+                  </div>
                 </div>
-              </div>
               </div>
 
               <div className={styles.table__rowCell}>
-                <div className={styles.table__rowCellText}>
-                  {item.wape}
-                </div>
+                <div className={styles.table__rowCellText}>{item.wape}</div>
               </div>
             </div>
-            
           );
         })}
       </div>

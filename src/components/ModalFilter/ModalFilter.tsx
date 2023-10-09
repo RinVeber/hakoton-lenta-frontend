@@ -4,6 +4,9 @@ import Select from "./Select/Select";
 import up from "../../assets/arrow-up.svg";
 import down from "../../assets/arrow-down.svg";
 import ModalFilterDate from "./ModalFilterDate";
+import { getDate } from "../../redux/slices/dateSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 interface ModalProps {
   isActive: boolean;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ModalFilter.module.css";
 import MultiSelectState from "./Select/MultiSelectState";
 import up from "../../assets/arrow-up.svg";
@@ -11,11 +11,12 @@ import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
 import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
 import { ModalFilterDate } from "../../components/index";
+import { getDate } from "../../redux/slices/dateSlice";
 
 interface ModalProps {
-  isActive: boolean;
-  handleOpenModal: () => void;
-  currentTarget: string;
+  isActive?: boolean;
+  handleOpenModal: (event: any) => void;
+  currentTarget?: string;
 }
 
 export default function ModalFilterState({
@@ -40,6 +41,7 @@ export default function ModalFilterState({
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
   const dispatch = useAppDispatch();
+  const [currentDate, setCurrentDate] = useState<string[]>([]);
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
@@ -51,7 +53,7 @@ export default function ModalFilterState({
   });
 
   useEffect(() => {
-    if (currentTarget == "Период") {
+    if (currentTarget == "period") {
       setTarget(true);
     }
     if (!isActive) {
@@ -161,9 +163,17 @@ export default function ModalFilterState({
 
   const handleSumbit = (event: any) => {
     event.preventDefault();
+    if (currentDate) {
+      dispatch(getDate({ currentDate }));
+    }
     dispatch(getDataForcastSearch(formData));
     handleOpenModal();
   };
+
+  const getDateCurrent = (newDate: string[]) => {
+    setCurrentDate(newDate);
+  };
+
   const handleReset = (event: any) => {
     event.preventDefault();
     setFormData({
@@ -186,7 +196,10 @@ export default function ModalFilterState({
       </div>
       <div className={styles.modal__content}>
         {target ? (
-          <ModalFilterDate isActive={isActive} />
+          <ModalFilterDate
+            isActive={isActive}
+            getDateCurrent={getDateCurrent}
+          />
         ) : (
           <div className={styles.modal__selectContent}>
             <div className={styles.modal__container}>

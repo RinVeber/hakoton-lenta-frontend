@@ -5,6 +5,8 @@ import down from "../../../assets/filter-down.svg";
 import downActive from "../../../assets/filter-down-active.svg";
 import upActive from "../../../assets/filter-up-active.svg";
 import { columnsTable, dataSourceTableSales } from "../../../types/types";
+import { useAppSelector } from "../../../redux/store";
+import { Spin } from "antd";
 
 type forcastTable = {
   store: string;
@@ -26,6 +28,7 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
   const [sortList, setSortList] = React.useState(tableForcast);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
+  const { status } = useAppSelector((state) => state.forcast);
 
   const tableRef = React.useRef<HTMLDivElement>(null);
 

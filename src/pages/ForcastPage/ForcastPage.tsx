@@ -9,10 +9,10 @@ import TableForcast from "../../components/Table/TableForcast/TableForcast";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import { getShops } from "../../redux/slices/shopSlice";
+import { Spin } from "antd";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
-
   const dispatch = useAppDispatch();
   const tableForcast = useAppSelector((state) => state.forcast.data);
   const tableForcastSearch = useAppSelector(
@@ -20,7 +20,7 @@ export default function ForcastPage() {
   );
 
   // временный костыль для отрисовки изначально загруженных данных и после поиска.
-  const { isExistSearch } = useAppSelector((state) => state.forcast);
+  const { status, isExistSearch } = useAppSelector((state) => state.forcast);
 
   console.log("tableFor", tableForcast);
   console.log("searchData", tableForcastSearch);
@@ -35,6 +35,7 @@ export default function ForcastPage() {
     dispatch(getShops());
     setIsActive(!isActive);
   }
+
   function closeModal() {
     setIsActive(false);
   }
@@ -52,16 +53,21 @@ export default function ForcastPage() {
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
-        {isExistSearch == true ? (
-          <TableForcast
-            columns={mokColumnsTable}
-            tableForcast={tableForcastSearch}
-          />
+        {status != "success" ? (
+          <section className={styles.loader}>
+            <Spin size={"large"} />
+            <div>Идет загрузка</div>
+            <div>Пожалуйста подождите...</div>
+          </section>
         ) : (
-          <TableForcast columns={mokColumnsTable} tableForcast={tableForcast} />
+          <>
+            <TableForcast
+              columns={mokColumnsTable}
+              tableForcast={isExistSearch ? tableForcastSearch : tableForcast}
+            />
+            <ButtonExcel />
+          </>
         )}
-        {/* <TableForcast columns={mokColumnsTable} tableForcast={tableForcast} /> */}
-        <ButtonExcel />
       </section>
     </>
   );

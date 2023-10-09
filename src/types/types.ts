@@ -30,3 +30,9 @@ export type userMe = {
   status: 'init' | 'loading' | 'success' | 'error';
   error: string | undefined;
 }
+
+export type DateChange = {
+  changeDate: [] | undefined,
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
+}

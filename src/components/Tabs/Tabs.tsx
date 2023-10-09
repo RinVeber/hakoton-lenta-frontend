@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 import { navLinks } from "../../utils/constant";
 
 interface ITabsProps {
-  handleOpenModal: () => void;
+  handleOpenModal: (event: any) => void;
 }
 
 const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
   const pathname = window.location.pathname;
-
   return (
     <div className={styles.Tabs__menu}>
       <div className={styles.Tabs__container}>
@@ -19,6 +18,7 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
             onClick={(e) => {
               handleOpenModal(e);
             }}
+            data-set="filter"
           >
             <div className={styles.Tabs__buttonIcon} />
             <div className={styles.Tabs_buttonText}>Фильтры</div>
@@ -31,6 +31,7 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
             onClick={(e) => {
               handleOpenModal(e);
             }}
+            data-set="period"
           >
             <div className={styles.Tabs__buttonIconCalendar} />
             <div className={styles.Tabs_buttonText}>Период</div>
