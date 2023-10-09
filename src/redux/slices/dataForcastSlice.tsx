@@ -154,18 +154,19 @@ const dataForcastSlice = createSlice({
         state.dataForcast = [
           ...state.dataForcast,
           ...action.payload.results,
-          // {
-          //   category: "string " + new Date().toLocaleTimeString(),
-          //   forecast: action.payload.results[0].forecast,
-          //   group: "string " + new Date().toLocaleTimeString(),
-          //   sku: "string " + new Date().toLocaleTimeString(),
-          //   store: "string " + new Date().toLocaleTimeString(),
-          //   subcategory: "string " + new Date().toLocaleTimeString(),
-          // },
-        ].filter(
-          (value: DataState, index: number, array: DataState[]) =>
-            array.map((v) => v.sku).indexOf(value.sku) === index
-        );
+          {
+            category: "string " + new Date().toLocaleTimeString(),
+            forecast: action.payload.results[0].forecast,
+            group: "string " + new Date().toLocaleTimeString(),
+            sku: "string " + new Date().toLocaleTimeString(),
+            store: "string " + new Date().toLocaleTimeString(),
+            subcategory: "string " + new Date().toLocaleTimeString(),
+          },
+         ]
+        //.filter(
+        //   (value: DataState, index: number, array: DataState[]) =>
+        //     array.map((v) => v.sku).indexOf(value.sku) === index
+        // );
 
         state.total = action.payload.count;
         state.page = action.payload.page;
