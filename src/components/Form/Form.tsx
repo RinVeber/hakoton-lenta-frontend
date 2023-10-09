@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../redux/store";
 import styles from "../../styles/Form.module.css";
 import {
@@ -12,13 +12,15 @@ import remove from "../../images/close.svg.svg";
 import visual from "../../images/eyeInvisible.svg";
 import { regexp } from "../../utils/constant";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../../redux/store";
+
 
 const Form: FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const email = useSelector((state: RootState) => state.form.email);
-  const password = useSelector((state: RootState) => state.form.password);
-  const visualBtn = useSelector((state: RootState) => state.form.visual);
+  const email = useAppSelector((state: RootState) => state.form.email);
+  const password = useAppSelector((state: RootState) => state.form.password);
+  const visualBtn = useAppSelector((state: RootState) => state.form.visual);
   const [valid, setIsValid] = useState<boolean>(false);
 
   let regex = {
@@ -38,11 +40,11 @@ const Form: FC = () => {
     setIsValid(e.target.closest("form")?.checkValidity()!);
   };
 
-  const hadleSubmit = (e: React.SubmitEvent<HTMLInputElement>) => {
+  const hadleSubmit = (e: any) => {
     e.preventDefault();
 
     dispatch(getToken({ password, email }))
-      .then((token: string) => {
+      .then((token: any) => {
         let jwt: string = token.payload.auth_token;
         if (jwt) {
           localStorage.setItem("jwt", jwt);
@@ -60,7 +62,7 @@ const Form: FC = () => {
         name="form-auth"
         autoComplete="off"
         className={styles.formAuth}
-        onSubmit={hadleSubmit}
+        onSubmit={(e) => hadleSubmit(e)}
         noValidate
       >
         <h2 className={styles.formTitle}>Вход</h2>

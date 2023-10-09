@@ -6,7 +6,6 @@ import formSlice from "./slices/formSlice";
 import { shopReducer } from "./slices/shopSlice";
 import { categoryReducer } from "./slices/dataCategorySlice";
 import { dataSalesDiffReducer } from "./slices/dataSalesDiffSlice";
-import { getDataForcast } from "./slices/dataForcastSlice";
 
 const store = configureStore({
   reducer: {

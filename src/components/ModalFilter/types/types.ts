@@ -14,7 +14,7 @@ export interface ModalProps {
     group: SelectOption | null;
     category: SelectOption | null;
     subcategory: SelectOption | null;
-    sku: SelectOption[] | null;
+    sku: SelectOption | null;
   }
 
   export type categoryType = "city" | "store" | "group" | "category" | "subcategory" | "sku";

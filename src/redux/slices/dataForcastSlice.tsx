@@ -65,8 +65,8 @@ export const getDataForcast = createAsyncThunk(
         return data;
       }
     } catch (error) {
-      // return mockForecast;   // мок из json
-      throw new Error("Ошибка!" + error);
+       return mockForecast;   // мок из json
+      // throw new Error("Ошибка!" + error);
     }
   }
 );

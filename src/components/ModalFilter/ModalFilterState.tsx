@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./ModalFilter.module.css";
-import MultiSelectState from "./Select/MultiSelectState";
+// import MultiSelectState from "./Select/MultiSelectState";
 import up from "../../assets/arrow-up.svg";
 import down from "../../assets/arrow-down.svg";
 import { useAppSelector, useAppDispatch } from "../../redux/store";
 import { getBy } from "../../utils/helperFunction";
 import SelectState from "./Select/SelectState";
 import ChipsState from "./Chips/ChipsState";
-import MultiChipsState from "./Chips/MultiChipsState";
+// import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
 import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
 
@@ -26,8 +26,6 @@ export default function ModalFilterState({
   const [isSelectCategory, setIsSelectCategory] = React.useState(false);
   const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
   const [isSelectSKU, setIsSelectSKU] = React.useState(false);
-  const [isHideTK, setIsHideTK] = React.useState(false);
-  const [isHideGroup, setIsHideGroup] = React.useState(false);
   const [isHideCategory, setIsHideCategory] = React.useState(true);
   const [isHidePodcategory, setIsHidePodcategory] = React.useState(true);
   const [isHideSKU, setIsHideSKU] = React.useState(true);
@@ -196,7 +194,7 @@ export default function ModalFilterState({
               setFormDataByType={setFormDataByType}
             />
           </div>
-          {isHideTK ? null : (
+     
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectTK}>
@@ -224,11 +222,11 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+        
 
           <div className={styles.modal__title}>Выбор товаров</div>
 
-          {isHideGroup ? null : (
+        
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectGroup}>
@@ -254,7 +252,7 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+          
           {isHideCategory ? null : (
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
@@ -327,12 +325,13 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
-                <MultiChipsState
-                  chips={formData.sku}
+                <ChipsState
+                  chip={formData.sku}
+                  type={"sku"}
                   setFormDataByType={setFormDataByType}
                 />
               </div>
-              <MultiSelectState
+              <SelectState
                 openSelect={openSelectSKU}
                 isSelect={isSelectSKU}
                 selectOptions={listSelect.pr_sku_id}
