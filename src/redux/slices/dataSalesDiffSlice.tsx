@@ -4,7 +4,8 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 import { urlSalesDiff } from "../../utils/constant";
-import { DataState } from "./dataForcastSlice";
+
+
 
 type DataTypeState = {
   dataSalesDiff: any[];
@@ -63,13 +64,12 @@ const dataSalesDiffSlice = createSlice({
       .addCase(getDataSalesDiff.fulfilled, (state, action) => {
         state.status = "success";
 
-        state.dataSalesDiff = [
-          ...state.dataSalesDiff,
-          ...action.payload,
-        ].filter(
-          (value, index, array) =>
-            array.map((v) => v.sku).indexOf(value.sku) === index
+
+        state.dataSalesDiff = Array.from(
+          new Set([...state.dataSalesDiff, ...action.payload])
         );
+
+
         // state.nextPage = action.payload.next;
         // state.previousPage = action.payload.previous;
 

@@ -11,14 +11,21 @@ import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
 import { Spin } from "antd";
+import { handleChangeIsExistSearch } from "../../redux/slices/dataForcastSlice";
+// import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
+  const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const { status, dataSalesDiff: tableSales, nextPage } = useAppSelector(
-    (state) => state.salesDiff
-  );
+
+  const {
+    status,
+    dataSalesDiff: tableSales,
+    nextPage,
+  } = useAppSelector((state) => state.salesDiff);
+
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff(null));
@@ -34,6 +41,17 @@ export default function MainPage() {
   }
   function closeModal() {
     setIsActive(false);
+    handleReset();
+  }
+
+  function getNextPage() {
+    debugger;
+    dispatch(getDataSalesDiff(nextPage));
+  }
+
+  function handleReset(){
+    dispatch(handleChangeIsExistSearch(false))
+    setIsNeedToReset(!isNeedToReset);
   }
 
   function getNextPage() {
@@ -52,6 +70,8 @@ export default function MainPage() {
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
+          isNeedToReset = {isNeedToReset}
+
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
@@ -59,18 +79,22 @@ export default function MainPage() {
           <section className={styles.loader}>
             <Spin size={"large"} />
             <div>Идет загрузка</div>
-             <div>Пожалуйста подождите...</div>
+            <div>Пожалуйста подождите...</div>
           </section>
         ) : (
+         
           <>
+            <TableSales
+              columns={mokColumnsStatic}
+              tableSales={tableSales}
+              onNextPage={getNextPage}
+            />
+            <ButtonExcel />
         
 
-          <TableSales columns={mokColumnsStatic} tableSales={tableSales} onNextPage={getNextPage}/>
-          <ButtonExcel />
           </>
         )}
         
-
 
       </section>
     </>

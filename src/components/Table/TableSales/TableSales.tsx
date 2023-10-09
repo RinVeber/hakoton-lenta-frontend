@@ -76,12 +76,15 @@ export default function TableSales({
   function handleWheel(e: any) {
     console.log(tableRef.current?.scrollTop);
 
+    console.log(e);
+
 
     // c бэкенд всегда шлется 2 одинаковых объекта
-    // if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
-    //   onNextPage();
-    // }
-    // setScrollTop(tableRef.current?.scrollTop || 0);
+    if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
+      onNextPage();
+    }
+    setScrollTop(tableRef.current?.scrollTop || 0);
+
   }
 
   return (

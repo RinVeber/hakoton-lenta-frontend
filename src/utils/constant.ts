@@ -1,5 +1,3 @@
-import Item from "antd/es/list/Item";
-
 export let regexp = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
 export const URL = "http://127.0.0.1:8000/v1/auth/token/login/";
@@ -21,7 +19,7 @@ export const navLinks = [
   {
     id: 2,
     name: "Статистика",
-    link: "/",
+    link: "/hakoton-lenta-frontend",
     isActive: true,
   },
 ];
@@ -43,7 +41,7 @@ export const mokColumnsMain = [
     key: "category",
   },
   {
-    title: "Подкатеогрия",
+    title: "Подкатегория",
     dataIndex: "podcategory",
     key: "podcategory",
   },

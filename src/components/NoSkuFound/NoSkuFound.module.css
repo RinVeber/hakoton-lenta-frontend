@@ -1,0 +1,78 @@
+.noSkuFound {
+  border-radius: 36px;
+  margin-top: 30px;
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.titleContainer {
+  width: 384px;
+  height: 86px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 35px;
+  color: #4d4d4d;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.buttonFilter {
+  box-sizing: border-box;
+  width: 300px;
+  height: 56px;
+  border-radius: 52px;
+  padding: 14px 32px 15px 32px;
+  background-color: #003c96;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+.buttonFilter:hover {
+  background-color: #0261f0;
+}
+
+.buttonReset {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 184px;
+  height: 56px;
+  border-radius: 52px;
+  background-color: transparent;
+  border: 1px solid #003c96;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+
+.buttonReset:hover {
+  border:1px solid #0261f0;
+}

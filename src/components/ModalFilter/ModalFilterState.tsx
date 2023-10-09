@@ -14,11 +14,13 @@ import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
 interface ModalProps {
   isActive: boolean;
   handleOpenModal: () => void;
+  isNeedToReset: boolean;
 }
 
 export default function ModalFilterState({
   isActive,
   handleOpenModal,
+  isNeedToReset,
 }: ModalProps) {
   const [isSelectCity, setIsSelectCity] = React.useState(false);
   const [isSelectTK, setIsSelectTK] = React.useState(false);
@@ -26,8 +28,6 @@ export default function ModalFilterState({
   const [isSelectCategory, setIsSelectCategory] = React.useState(false);
   const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
   const [isSelectSKU, setIsSelectSKU] = React.useState(false);
-  const [isHideTK, setIsHideTK] = React.useState(false);
-  const [isHideGroup, setIsHideGroup] = React.useState(false);
   const [isHideCategory, setIsHideCategory] = React.useState(true);
   const [isHidePodcategory, setIsHidePodcategory] = React.useState(true);
   const [isHideSKU, setIsHideSKU] = React.useState(true);
@@ -36,7 +36,6 @@ export default function ModalFilterState({
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
   const dispatch = useAppDispatch();
-
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
@@ -56,6 +55,22 @@ export default function ModalFilterState({
 
     setFormData({ ...formData, [type]: searchData });
   }
+
+  const handleReset = (event: any) => {
+    event?.preventDefault();
+    setFormData({
+      city: null,
+      store: null,
+      group: null,
+      category: null,
+      subcategory: null,
+      sku: null,
+    });
+  };
+
+  React.useEffect(() => {
+    handleReset(null);
+  }, [isNeedToReset]);
 
   React.useEffect(() => {
     // city
@@ -148,24 +163,13 @@ export default function ModalFilterState({
   }
 
   const handleSumbit = (event: any) => {
-    event.preventDefault();
+    event?.preventDefault();
     dispatch(getDataForcastSearch(formData));
     handleOpenModal();
   };
-  const handleReset = (event: any) => {
-    event.preventDefault();
-    setFormData({
-      city: null,
-      store: null,
-      group: null,
-      category: null,
-      subcategory: null,
-      sku: null,
-    });
-  };
+
   return (
     <form className={isActive ? styles.modal_active : styles.modal}>
-
       <div className={styles.modal__header}>
         <div className={styles.modal__title}>Выбор торгового комплекса</div>
         <div className={styles.modal__close} onClick={handleOpenModal} />
@@ -197,7 +201,7 @@ export default function ModalFilterState({
               setFormDataByType={setFormDataByType}
             />
           </div>
-          {isHideTK ? null : (
+       
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectTK}>
@@ -225,11 +229,11 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+      
 
           <div className={styles.modal__title}>Выбор товаров</div>
 
-          {isHideGroup ? null : (
+      
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectGroup}>
@@ -255,7 +259,7 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+        
           {isHideCategory ? null : (
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>

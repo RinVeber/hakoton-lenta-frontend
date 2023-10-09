@@ -4,9 +4,8 @@ import up from "../../../assets/filter-up.svg";
 import down from "../../../assets/filter-down.svg";
 import downActive from "../../../assets/filter-down-active.svg";
 import upActive from "../../../assets/filter-up-active.svg";
-import { columnsTable, dataSourceTableSales } from "../../../types/types";
-import { useAppSelector } from "../../../redux/store";
-import { Spin } from "antd";
+import { columnsTable } from "../../../types/types";
+
 
 type forcastTable = {
   store: string;
@@ -35,9 +34,6 @@ export default function TableForcast({
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
   const [scrollTop, setScrollTop] = React.useState<number>(0);
-  const { status } = useAppSelector((state) => state.forcast);
-
-
   const tableRef = React.useRef<HTMLDivElement>(null);
 
   const customSort = (sortField: string, type: string) => {
@@ -80,6 +76,9 @@ export default function TableForcast({
 
   function handleWheel(e: any) {
     console.log(tableRef.current?.scrollTop);
+
+    console.log(e);
+
 
     if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
       onNextPage();
