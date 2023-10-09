@@ -1,4 +1,4 @@
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import styles from "./MainPage.module.css";
 import Tabs from "../../components/Tabs/Tabs";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
@@ -15,17 +15,9 @@ import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
+  const [currentTarget, setCurrentTarget] = useState("");
 
-  function handleOpenModal() {
-    dispatch(getCategory());
-    dispatch(getShops());
-    setIsActive(!isActive);
-  }
   const dispatch = useAppDispatch();
-
-  function closeModal() {
-    setIsActive(false);
-  }
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff());
@@ -34,7 +26,20 @@ export default function MainPage() {
   }, [dispatch]);
 
   const tableSales = useAppSelector((state) => state.salesDiff.data);
-  console.log("tablesales", tableSales);
+
+  const handleOpenModal = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ): void => {
+    let target = event.target.innerHTML;
+    setCurrentTarget(target);
+    dispatch(getCategory());
+    dispatch(getShops());
+    setIsActive(!isActive);
+  };
+
+  function closeModal() {
+    setIsActive(false);
+  }
 
   return (
     <>
@@ -46,6 +51,7 @@ export default function MainPage() {
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
+          currentTarget={currentTarget}
         />
         <Tabs handleOpenModal={handleOpenModal} />
         <TableSales columns={mokColumnsStatic} tableSales={tableSales} />

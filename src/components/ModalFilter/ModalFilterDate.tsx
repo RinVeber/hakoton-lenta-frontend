@@ -4,7 +4,7 @@ import { RangePickerProps } from "antd/es/date-picker";
 import React, { useState, useEffect, FC } from "react";
 
 interface IPropModal {
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 const { RangePicker } = DatePicker;
@@ -24,6 +24,8 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
   const style: React.CSSProperties = {
     borderRadius: "16px",
   };
+
+  console.log(isActive);
 
   useEffect(() => {
     if (isActive) {
@@ -64,7 +66,6 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
   }, [dateValue]);
 
   const onChangeRadio = (e: RadioChangeEvent) => {
-    console.log("radio checked", e.target.value);
     setValue(e.target.value);
     switch (e.target.value) {
       case "day":
@@ -89,7 +90,6 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
   };
 
   const onChange: RangePickerProps["onChange"] = (date, dateString) => {
-    console.log(date, dateString);
     setDateValue(dateString);
   };
 

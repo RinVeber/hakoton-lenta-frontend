@@ -2,7 +2,9 @@ export type FormType = {
   email: string;
   password: string;
   visual: boolean;
-  token: string
+  token: string;
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
 };
 
 export type columnsTable = {

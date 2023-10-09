@@ -16,14 +16,15 @@
     gap: 10px;
     width: 450px;
 }
+
 .Tabs__tabs {
     height: 56px;
     display: flex;
     flex-direction: row;
     align-items: center;
-   justify-content: center;
-   align-self: center;
-   justify-self: center;
+    justify-content: center;
+    align-self: center;
+    justify-self: center;
     border-radius: 52px;
     /* background-color: var(--COLOR_LIGHT_BLUE); */
     background-color: rgba(236, 243, 255, 1);
@@ -40,11 +41,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
+
 .Tabs__tabLink:hover {
     opacity: 0.6;
 }
+
 .Tabs__tabLink_noActive {
     margin: 0 5px;
     width: 230px;
@@ -56,6 +59,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .Tabs__tabLink_noActive:hover {
     opacity: 0.6;
 }
@@ -70,13 +74,23 @@
     background-color: #FFFFFF;
     transition: all ease 0.3s;
 }
+
 .Tabs__button:hover {
     opacity: 0.5;
 }
+
 .Tabs__buttonIcon {
     width: 20px;
     height: 20px;
     background-image: url('../../assets/filter.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Tabs__buttonIconCalendar {
+    width: 20px;
+    height: 20px;
+    background-image: url('../../assets/calendar.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }

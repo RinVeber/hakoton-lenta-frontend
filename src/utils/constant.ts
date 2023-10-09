@@ -6,26 +6,20 @@ export const URL = "http://127.0.0.1:8000/v1/auth/token/login/";
 export const baseURL = 'http://95.163.233.5/v1/';
 export const urlSales = baseURL + 'api/sales/';
 export const urlForcast = baseURL + 'api/forecast/';
+export const urlNewForcast = baseURL + 'api/newforecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
 export const urlSalesDiff = baseURL + 'api/salesdiff/';
 
 export const navLinks = [
+
   {
-
-
     id: 1,
-    name: "Обзор",
-    link: "/review",
-    isActive: true,
-  },
-  {
-    id: 2,
     name: "Прогноз спроса",
     link: "/forcast",
     isActive: true,
   },
   {
-    id: 3,
+    id: 2,
     name: "Статистика",
     link: "/",
     isActive: true,

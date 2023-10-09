@@ -9,14 +9,15 @@ interface ITabsProps {
 
 const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
   const pathname = window.location.pathname;
+
   return (
     <div className={styles.Tabs__menu}>
       <div className={styles.Tabs__container}>
         <div className={styles.Tabs__buttons}>
           <button
             className={styles.Tabs__button}
-            onClick={() => {
-              handleOpenModal();
+            onClick={(e) => {
+              handleOpenModal(e);
             }}
           >
             <div className={styles.Tabs__buttonIcon} />
@@ -25,16 +26,14 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
 
           <button
             className={
-              pathname == "/obzor"
-                ? styles.Tabs__button
-                : styles.Tabs__button_hide
+              pathname == "/" ? styles.Tabs__button : styles.Tabs__button_hide
             }
-            onClick={() => {
-              handleOpenModal();
+            onClick={(e) => {
+              handleOpenModal(e);
             }}
           >
-            <div className={styles.Tabs__buttonIcon} />
-            <div className={styles.Tabs_buttonText}>Прогнозы</div>
+            <div className={styles.Tabs__buttonIconCalendar} />
+            <div className={styles.Tabs_buttonText}>Период</div>
           </button>
         </div>
         <div className={styles.Tabs__tabs}>

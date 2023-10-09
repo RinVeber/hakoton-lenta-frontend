@@ -1,38 +1,66 @@
-import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlForcast } from '../../utils/constant';
-import mockForecast from '../../utils/mokForecast.json';
+import {
+  ActionReducerMapBuilder,
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+import { urlForcast, urlNewForcast } from "../../utils/constant";
+import mockForecast from "../../utils/mokForecast.json";
+import { SearchForm } from "../../components/ModalFilter/types/types";
+import { toQuery } from "../../utils/helperFunction";
+
+type SearcDataState = {
+  category: string;
+  forecast: [];
+  group: string;
+  sku: string;
+  store: string;
+  subcategory: string;
+};
 
 type DataTypeState = {
-  data: [],
+  data: [];
+  searchData: SearcDataState[];
   total: number;
   page: number;
   size: number;
   pages: number;
-  status: 'init' | 'loading' | 'success' | 'error';
+  isExistSearch: boolean;
+  status: "init" | "loading" | "success" | "error";
   error: string | undefined;
 };
 
 const initialState: DataTypeState = {
   data: [],
+  searchData: [
+    {
+      category: "initial",
+      forecast: [],
+      group: "string",
+      sku: "string",
+      store: "string",
+      subcategory: "string",
+    },
+  ],
   total: 0,
+  isExistSearch: false,
   page: 1,
   size: 1,
   pages: 0,
-  status: 'init',
-  error: '',
+  status: "init",
+  error: "",
 };
 
-const token = localStorage.getItem('jwt') as string;
+const token = localStorage.getItem("jwt") as string;
 
 export const getDataForcast = createAsyncThunk(
-  "dataSales/getDataForcast",
+  "dataForcast/getDataForcast",
   async () => {
     try {
       const response = await fetch(urlForcast, {
         method: "GET",
         headers: {
-          Authorization: 'Token ' + token,
-          'Content-Type': 'application/json',
+          Authorization: "Token " + token,
+          "Content-Type": "application/json",
         },
       });
       if (response.ok) {
@@ -46,30 +74,82 @@ export const getDataForcast = createAsyncThunk(
   }
 );
 
+export const getDataForcastSearch = createAsyncThunk(
+  "dataForcast/getDataForcastSearch",
+  async (formData: SearchForm) => {
+    try {
+      const data = {
+        city: formData.city?.title == null ? "" : formData.city?.title,
+        store: formData.store?.title == null ? "" : formData.store?.title,
+        sku: formData?.sku == null ? [] : formData.sku.map((v) => v.title),
+        group: formData.group?.title == null ? "" : formData.group?.title,
+        category:
+          formData.category?.title == null ? "" : formData.category?.title,
+        subcategory:
+          formData.subcategory?.title == null
+            ? ""
+            : formData.subcategory?.title,
+      };
+      const query = toQuery(data);
+
+      const response = await fetch(
+        //`${urlForcast}?city=${data.city}&store=${data.store}&${data.sku.map((v)=>'sku=' + v).join('&')}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
+        //
+        // `${urlForcast}?city=${data.city}&store=${data.store}`,
+        `${urlNewForcast}?${query}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Token " + token,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      debugger;
+      if (response.ok) {
+        const data = response.json();
+        return data;
+      }
+    } catch (error) {
+      throw new Error("Ошибка!" + error);
+    }
+  }
+);
+
 const dataForcastSlice = createSlice({
-  name: 'forcast',
+  name: "forcast",
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
-      .addCase(getDataForcast.fulfilled, (state, action) => {
-        state.status = 'success';
-        state.data = action.payload.results;
-        state.total = action.payload.total;
+      .addCase(getDataForcastSearch.fulfilled, (state, action) => {
+        state.status = "success";
+        debugger;
+        state.searchData = action.payload.results;
+        state.total = action.payload.count;
+        state.isExistSearch = true;
         state.page = action.payload.page;
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       })
       .addCase(getDataForcast.pending, (state) => {
-        state.status = 'loading';
-        state.error = 'loading';
+        state.status = "loading";
+        state.error = "loading";
       })
       .addCase(getDataForcast.rejected, (state) => {
-        state.status = 'error';
-        state.error = 'error'
+        state.status = "error";
+        state.error = "error";
+      })
+      .addCase(getDataForcast.fulfilled, (state, action) => {
+        state.status = "success";
+        state.data = action.payload.results;
+        state.total = action.payload.count;
+        state.page = action.payload.page;
+        state.size = action.payload.size;
+        state.pages = action.payload.pages;
       });
   },
 });
 
-export const { reducer: dataForcastReducer, actions: dataForcastActions } = dataForcastSlice;
-
+export const { reducer: dataForcastReducer, actions: dataForcastActions } =
+  dataForcastSlice;

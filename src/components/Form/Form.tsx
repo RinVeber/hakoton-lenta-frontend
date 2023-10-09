@@ -75,7 +75,7 @@ const Form: FC = () => {
             onChange={(e) => {
               changeEmail(e);
             }}
-            // value="с"
+            // value="frontend@lenta.com"
             value={email}
             minLength={1}
             pattern={regex.reg.source}

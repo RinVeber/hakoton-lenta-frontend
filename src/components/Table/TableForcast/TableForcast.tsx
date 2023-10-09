@@ -58,13 +58,13 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
     } else if (sortType === "Категория") {
       setSortList([...Array.from(sortList).sort(customSort("category", type))]);
     } else if (sortType === "Подкатегория") {
-      setSortList([...Array.from(sortList).sort(customSort("subcategory", type))]);
+      setSortList([
+        ...Array.from(sortList).sort(customSort("subcategory", type)),
+      ]);
     } else if (sortType === "SKU") {
       setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
   };
-
-  console.log("tableForcast", tableForcast);
 
   return (
     <section className={styles.table} ref={tableRef}>
@@ -148,13 +148,12 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
               {item.forecast.slice(0, 14).map((forcast, index) => {
                 return (
                   <div key={index} className={styles.table__rowCell}>
-                  <div className={styles.table__rowCellText}>
-                    {forcast.sales_units}
+                    <div className={styles.table__rowCellText}>
+                      {forcast.sales_units}
+                    </div>
                   </div>
-                </div>
-                )
+                );
               })}
-            
             </div>
           );
         })}

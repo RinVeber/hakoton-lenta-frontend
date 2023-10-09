@@ -14,6 +14,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  top: 0;
   left: 0;
   transition: all ease 0.5s;
   width: 713px;
@@ -42,7 +43,6 @@
   align-items: center;
   padding: 10px 32px;
   background-color: rgba(236, 243, 255, 1);
-  width: 500px;
 }
 
 .modal__title {
@@ -54,7 +54,6 @@
 .modal__content {
   padding: 15px 32px;
   background-color: rgba(236, 243, 255, 1);
-  width: 500px;
   height: 100vh;
   display: flex;
   flex-flow: column;
