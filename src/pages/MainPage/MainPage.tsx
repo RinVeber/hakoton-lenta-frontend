@@ -12,6 +12,7 @@ import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
+import { Header } from "../../components";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -42,6 +43,7 @@ export default function MainPage() {
         onClick={() => closeModal()}
       ></div>
       <section className={styles.MainPage}>
+      <Header />
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}

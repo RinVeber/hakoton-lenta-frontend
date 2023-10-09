@@ -3,7 +3,7 @@ import {
   createSlice,
   createAsyncThunk,
 } from "@reduxjs/toolkit";
-import { urlForcast } from "../../utils/constant";
+import { urlForcast, urlNewForcast } from "../../utils/constant";
 import mockForecast from "../../utils/mokForecast.json";
 import { SearchForm } from "../../components/ModalFilter/types/types";
 import { toQuery } from "../../utils/helperFunction";
@@ -97,7 +97,7 @@ export const getDataForcastSearch = createAsyncThunk(
         //`${urlForcast}?city=${data.city}&store=${data.store}&${data.sku.map((v)=>'sku=' + v).join('&')}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
         //
         // `${urlForcast}?city=${data.city}&store=${data.store}`,
-        `${urlForcast}?${query}`,
+        `${urlNewForcast}?${query}`,
         {
           method: "GET",
           headers: {

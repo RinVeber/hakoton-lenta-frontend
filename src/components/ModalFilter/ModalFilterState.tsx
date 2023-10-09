@@ -10,7 +10,6 @@ import ChipsState from "./Chips/ChipsState";
 import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
 import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
-import {useSearchParams } from "react-router-dom";
 
 interface ModalProps {
   isActive: boolean;
@@ -38,8 +37,6 @@ export default function ModalFilterState({
   let listSelectShop = getBy(shops);
   const dispatch = useAppDispatch();
 
-  const [searchParams] = useSearchParams();
-  console.log('search', searchParams);
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,

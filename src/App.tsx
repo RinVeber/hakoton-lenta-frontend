@@ -15,7 +15,6 @@ const App = () => {
           path="/"
           element={
             <>
-              <Header />
               <ProtectedRoute component={MainPage} />
             </>
           }
