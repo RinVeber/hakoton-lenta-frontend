@@ -4,7 +4,6 @@ import {
   createAsyncThunk,
 } from "@reduxjs/toolkit";
 import { urlSalesDiff } from "../../utils/constant";
-import { DataState } from "./dataForcastSlice";
 
 type DataTypeState = {
   dataSalesDiff: any[];

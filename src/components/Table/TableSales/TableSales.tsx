@@ -27,12 +27,12 @@ interface TableProps {
 export default function TableSales({
   columns,
   tableSales,
-  onNextPage,
+  // onNextPage,
 }: TableProps) {
   const [sortList, setSortList] = React.useState(tableSales);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
-  const [scrollTop, setScrollTop] = React.useState<number>(0);
+  //const [scrollTop, setScrollTop] = React.useState<number>(0);
 
   const tableRef = React.useRef<HTMLDivElement>(null);
 
@@ -74,7 +74,7 @@ export default function TableSales({
   };
 
   function handleWheel(e: any) {
-    console.log(tableRef.current?.scrollTop);
+    console.log(e);
 
 
     // c бэкенд всегда шлется 2 одинаковых объекта

@@ -23,7 +23,7 @@ export default function ForcastPage() {
 
 
 
-  const { status, isExistSearch, nextPage, previousPage } = useAppSelector(
+  const { status, isExistSearch, nextPage } = useAppSelector(
     (state) => state.forcast
   );
 
@@ -48,10 +48,6 @@ export default function ForcastPage() {
 
   function getNextPage() {
     dispatch(getDataForcast(nextPage));
-  }
-
-  function getPreviousPage() {
-    dispatch(getDataForcast(previousPage));
   }
 
 
