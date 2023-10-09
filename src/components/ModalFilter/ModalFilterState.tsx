@@ -14,11 +14,13 @@ import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
 interface ModalProps {
   isActive: boolean;
   handleOpenModal: () => void;
+  isNeedToReset: boolean;
 }
 
 export default function ModalFilterState({
   isActive,
   handleOpenModal,
+  isNeedToReset,
 }: ModalProps) {
   const [isSelectCity, setIsSelectCity] = React.useState(false);
   const [isSelectTK, setIsSelectTK] = React.useState(false);
@@ -36,7 +38,6 @@ export default function ModalFilterState({
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
   const dispatch = useAppDispatch();
-
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
@@ -56,6 +57,22 @@ export default function ModalFilterState({
 
     setFormData({ ...formData, [type]: searchData });
   }
+
+  const handleReset = (event: any) => {
+    event?.preventDefault();
+    setFormData({
+      city: null,
+      store: null,
+      group: null,
+      category: null,
+      subcategory: null,
+      sku: null,
+    });
+  };
+
+  React.useEffect(() => {
+    handleReset(null);
+  }, [isNeedToReset]);
 
   React.useEffect(() => {
     // city
@@ -148,24 +165,13 @@ export default function ModalFilterState({
   }
 
   const handleSumbit = (event: any) => {
-    event.preventDefault();
+    event?.preventDefault();
     dispatch(getDataForcastSearch(formData));
     handleOpenModal();
   };
-  const handleReset = (event: any) => {
-    event.preventDefault();
-    setFormData({
-      city: null,
-      store: null,
-      group: null,
-      category: null,
-      subcategory: null,
-      sku: null,
-    });
-  };
+
   return (
     <form className={isActive ? styles.modal_active : styles.modal}>
-
       <div className={styles.modal__header}>
         <div className={styles.modal__title}>Выбор торгового комплекса</div>
         <div className={styles.modal__close} onClick={handleOpenModal} />

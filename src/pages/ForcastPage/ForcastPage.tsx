@@ -11,29 +11,26 @@ import { getCategory } from "../../redux/slices/dataCategorySlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { Header } from "../../components";
 import { Spin } from "antd";
+import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
+import { handleChangeIsExistSearch } from "../../redux/slices/dataForcastSlice";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
+  const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const { dataForcast: tableForcast } = useAppSelector((state) => state.forcast);
+  const { dataForcast: tableForcast } = useAppSelector(
+    (state) => state.forcast
+  );
   const tableForcastSearch = useAppSelector(
     (state) => state.forcast.searchData
   );
-
-
-
-  const { status, isExistSearch, nextPage, previousPage } = useAppSelector(
+  const { status, isExistSearch, nextPage } = useAppSelector(
     (state) => state.forcast
   );
 
-
-  console.log("tableFor", tableForcast);
-  console.log("searchData", tableForcastSearch);
-
   React.useEffect(() => {
     dispatch(getDataForcast(null));
-    //dispatch(getShops());
   }, []);
 
   function handleOpenModal() {
@@ -50,10 +47,10 @@ export default function ForcastPage() {
     dispatch(getDataForcast(nextPage));
   }
 
-  function getPreviousPage() {
-    dispatch(getDataForcast(previousPage));
+  function handleReset(){
+    dispatch(handleChangeIsExistSearch(false))
+    setIsNeedToReset(!isNeedToReset);
   }
-
 
   return (
     <>
@@ -66,6 +63,7 @@ export default function ForcastPage() {
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
+          isNeedToReset = {isNeedToReset}
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
@@ -78,15 +76,25 @@ export default function ForcastPage() {
           </section>
         ) : (
           <>
-            <TableForcast
-              columns={mokColumnsTable}
-              tableForcast={isExistSearch ? tableForcastSearch : tableForcast}
-              onNextPage={getNextPage}
-            />
-            <ButtonExcel />
+            {isExistSearch && tableForcastSearch.length == 0 ? (
+              <NoSkuFound
+                handleReset={handleReset}
+                handleOpenModal={handleOpenModal}
+              />
+            ) : (
+              <>
+                <TableForcast
+                  columns={mokColumnsTable}
+                  tableForcast={
+                    isExistSearch ? tableForcastSearch : tableForcast
+                  }
+                  onNextPage={getNextPage}
+                />
+                <ButtonExcel />
+              </>
+            )}
           </>
         )}
-
       </section>
     </>
   );

@@ -14,18 +14,20 @@ import { Spin } from "antd";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
+  const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const { status, dataSalesDiff: tableSales, nextPage } = useAppSelector(
-    (state) => state.salesDiff
-  );
+  const {
+    status,
+    dataSalesDiff: tableSales,
+    nextPage,
+  } = useAppSelector((state) => state.salesDiff);
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff(null));
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
-
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -52,6 +54,8 @@ export default function MainPage() {
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
+          isNeedToReset = {isNeedToReset}
+
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
@@ -59,19 +63,18 @@ export default function MainPage() {
           <section className={styles.loader}>
             <Spin size={"large"} />
             <div>Идет загрузка</div>
-             <div>Пожалуйста подождите...</div>
+            <div>Пожалуйста подождите...</div>
           </section>
         ) : (
           <>
-        
-
-          <TableSales columns={mokColumnsStatic} tableSales={tableSales} onNextPage={getNextPage}/>
-          <ButtonExcel />
+            <TableSales
+              columns={mokColumnsStatic}
+              tableSales={tableSales}
+              onNextPage={getNextPage}
+            />
+            <ButtonExcel />
           </>
         )}
-        
-
-
       </section>
     </>
   );
