@@ -11,7 +11,7 @@ import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
 import { Spin } from "antd";
-import { handleChangeIsExistSearch } from "../../redux/slices/dataForcastSlice";
+import { handleChangeIsExistSearchSalesDiff } from "../../redux/slices/dataSalesDiffSlice";
 import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
@@ -45,7 +45,7 @@ export default function MainPage() {
   }
 
   function handleReset() {
-    dispatch(handleChangeIsExistSearch(false));
+    dispatch(handleChangeIsExistSearchSalesDiff(false));
     setIsNeedToReset(!isNeedToReset);
   }
 
@@ -77,7 +77,7 @@ export default function MainPage() {
           </section>
         ) : (
           <>
-            {isExistSearchSalesDiff && dataSalesDiffSearch.length == 0 ? (
+            {isExistSearchSalesDiff ? (
               <NoSkuFound
                 handleReset={handleReset}
                 handleOpenModal={handleOpenModal}
