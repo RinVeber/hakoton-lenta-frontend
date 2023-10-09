@@ -36,6 +36,8 @@ export default function ModalFilterState({
   const shops = useAppSelector((state) => state.shop.data);
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
+  console.log(listSelect);
+  console.log(listSelectShop);
   const dispatch = useAppDispatch();
 
   const [formData, setFormData] = React.useState<SearchForm>({
@@ -225,7 +227,7 @@ export default function ModalFilterState({
               <SelectState
                 openSelect={openSelectTK}
                 isSelect={isSelectTK}
-                selectOptions={listSelectShop.st_division_code}
+                selectOptions={listSelectShop.st_id}
                 selectedOptions={formData.store}
                 type={"store"}
                 setFormDataByType={setFormDataByType}
