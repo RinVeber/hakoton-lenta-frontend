@@ -11,6 +11,8 @@ import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
 import { Spin } from "antd";
+import { handleChangeIsExistSearch } from "../../redux/slices/dataForcastSlice";
+// import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -36,11 +38,17 @@ export default function MainPage() {
   }
   function closeModal() {
     setIsActive(false);
+    handleReset();
   }
 
   function getNextPage() {
     debugger;
     dispatch(getDataSalesDiff(nextPage));
+  }
+
+  function handleReset(){
+    dispatch(handleChangeIsExistSearch(false))
+    setIsNeedToReset(!isNeedToReset);
   }
 
   return (
@@ -66,6 +74,7 @@ export default function MainPage() {
             <div>Пожалуйста подождите...</div>
           </section>
         ) : (
+         
           <>
             <TableSales
               columns={mokColumnsStatic}
@@ -73,8 +82,10 @@ export default function MainPage() {
               onNextPage={getNextPage}
             />
             <ButtonExcel />
+        
           </>
         )}
+        
       </section>
     </>
   );

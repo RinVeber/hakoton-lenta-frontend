@@ -3,7 +3,7 @@ import styles from "./Select.module.css";
 import { SelectOption, categoryType } from "../types/types";
 
 interface SelectProps {
-  openSelect: () => void;
+  openSelect?: () => void;
   isSelect: boolean;
   type: categoryType;
   selectOptions: SelectOption[];
@@ -12,7 +12,6 @@ interface SelectProps {
 }
 
 export default function SelectState({
-  openSelect,
   isSelect,
   selectOptions,
   type,

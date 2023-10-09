@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./NoSkuFound.module.css";
 
 interface NoSkuFoundProps {

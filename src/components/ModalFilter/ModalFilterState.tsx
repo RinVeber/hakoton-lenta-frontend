@@ -28,8 +28,6 @@ export default function ModalFilterState({
   const [isSelectCategory, setIsSelectCategory] = React.useState(false);
   const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
   const [isSelectSKU, setIsSelectSKU] = React.useState(false);
-  const [isHideTK, setIsHideTK] = React.useState(false);
-  const [isHideGroup, setIsHideGroup] = React.useState(false);
   const [isHideCategory, setIsHideCategory] = React.useState(true);
   const [isHidePodcategory, setIsHidePodcategory] = React.useState(true);
   const [isHideSKU, setIsHideSKU] = React.useState(true);
@@ -203,7 +201,7 @@ export default function ModalFilterState({
               setFormDataByType={setFormDataByType}
             />
           </div>
-          {isHideTK ? null : (
+       
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectTK}>
@@ -231,11 +229,11 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+      
 
           <div className={styles.modal__title}>Выбор товаров</div>
 
-          {isHideGroup ? null : (
+      
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectGroup}>
@@ -261,7 +259,7 @@ export default function ModalFilterState({
                 setFormDataByType={setFormDataByType}
               />
             </div>
-          )}
+        
           {isHideCategory ? null : (
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>

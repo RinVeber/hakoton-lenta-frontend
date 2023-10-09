@@ -1,5 +1,4 @@
 import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlSales } from '../../utils/constant';
 
 type DataTypeState = {
   data: [],

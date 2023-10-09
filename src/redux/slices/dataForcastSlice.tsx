@@ -3,7 +3,7 @@ import {
   createSlice,
   createAsyncThunk,
 } from "@reduxjs/toolkit";
-import { urlForcast, urlNewForcast } from "../../utils/constant";
+import { urlForcast } from "../../utils/constant";
 // import mockForecast from "../../utils/mokForecast.json";
 import { SearchForm } from "../../components/ModalFilter/types/types";
 import { toQuery } from "../../utils/helperFunction";
