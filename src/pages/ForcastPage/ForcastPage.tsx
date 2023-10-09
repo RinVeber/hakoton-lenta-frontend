@@ -12,6 +12,12 @@ import { getShops } from "../../redux/slices/shopSlice";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
+
+  function handleOpenModal() {
+    setIsActive(!isActive);
+
+  }
+
   const dispatch = useAppDispatch();
   const tableForcast = useAppSelector((state) => state.forcast.data);
   const tableForcastSearch = useAppSelector(

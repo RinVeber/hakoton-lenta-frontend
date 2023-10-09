@@ -1,5 +1,3 @@
-
-
 .modal {
   display: flex;
   flex-direction: column;
@@ -10,6 +8,7 @@
   opacity: 0.5;
   transition: all ease 0.5s;
 }
+
 .modal_active {
   opacity: 1;
   position: fixed;
@@ -31,6 +30,7 @@
   transition: all ease 0.3s;
   cursor: pointer;
 }
+
 .modal__close:hover {
   opacity: 0.7;
 }
@@ -44,11 +44,13 @@
   background-color: rgba(236, 243, 255, 1);
   width: 500px;
 }
+
 .modal__title {
   font-size: 24px;
   font-weight: 700;
   line-height: 24px;
 }
+
 .modal__content {
   padding: 15px 32px;
   background-color: rgba(236, 243, 255, 1);
@@ -58,6 +60,7 @@
   flex-flow: column;
   justify-content: space-between;
 }
+
 .modal__selectContent {
   display: flex;
   flex-flow: column;
@@ -70,6 +73,7 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .modal__containerHide {
   display: flex;
   position: relative;
@@ -83,6 +87,7 @@
   flex-direction: row;
   gap: 10px;
 }
+
 .modal__select {
   display: flex;
   flex-direction: row;
@@ -90,6 +95,7 @@
   align-items: center;
   cursor: pointer;
 }
+
 .modal__selectName {
   max-width: 250px;
   font-size: 20px;

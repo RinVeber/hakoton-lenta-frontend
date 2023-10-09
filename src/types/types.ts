@@ -1,16 +1,14 @@
-type FormType = {
+export type FormType = {
   email: string;
   password: string;
   visual: boolean;
   token: string
 };
 
-export default FormType
-
 export type columnsTable = {
-key: string,
-dataIndex: string,
-title: string
+  key: string,
+  dataIndex: string,
+  title: string
 }
 
 export type dataSourceTableSales = {
@@ -20,4 +18,13 @@ export type dataSourceTableSales = {
   category: string,
   podcategory: string,
   sku: string,
+}
+
+export type userMe = {
+  user: {
+    first_name: "",
+    last_name: "",
+  },
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
 }

@@ -407,3 +407,10 @@ html {
     scrollbar-color: #6969dd #e0e0e0;
     scrollbar-width: thin;
 }
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}

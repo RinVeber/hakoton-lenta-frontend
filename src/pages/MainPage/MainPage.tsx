@@ -37,8 +37,11 @@ export default function MainPage() {
 
   return (
     <>
-      <div className={isActive ? styles.noBlur + ' '+ styles.blur : styles.noBlur} onClick={() => closeModal()}></div>
-      <section className={styles.MainPage} >
+      <div
+        className={isActive ? styles.noBlur + " " + styles.blur : styles.noBlur}
+        onClick={() => closeModal()}
+      ></div>
+      <section className={styles.MainPage}>
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}

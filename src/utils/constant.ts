@@ -154,7 +154,7 @@ export const mokColumnsStatic = [
     dataIndex: "forecast quality",
     key: "forecast quality",
   },
-  
+
 ];
 
 export const mokDataSource = [

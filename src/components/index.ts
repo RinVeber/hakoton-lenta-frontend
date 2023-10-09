@@ -1,4 +1,6 @@
-import Auth from './Auth/Auth'
-import Form from './Form/Form'
+import Auth from './Auth/Auth';
+import Form from './Form/Form';
+import ProtectedRoute from './ProtectedRoute/ProtectedRoute';
+import Header from './Header/Header'
 
-export default { Auth, Form }
+export { Auth, Form, ProtectedRoute, Header };
