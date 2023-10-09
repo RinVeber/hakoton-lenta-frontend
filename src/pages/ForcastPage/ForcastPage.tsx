@@ -16,19 +16,21 @@ export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   const dispatch = useAppDispatch();
-  const tableForcast = useAppSelector((state) => state.forcast.data);
+  const { data: tableForcast } = useAppSelector((state) => state.forcast);
   const tableForcastSearch = useAppSelector(
     (state) => state.forcast.searchData
   );
 
-  // временный костыль для отрисовки изначально загруженных данных и после поиска.
-  const { status, isExistSearch } = useAppSelector((state) => state.forcast);
+
+  const { status, isExistSearch, nextPage, previousPage } = useAppSelector(
+    (state) => state.forcast
+  );
 
   console.log("tableFor", tableForcast);
   console.log("searchData", tableForcastSearch);
 
   React.useEffect(() => {
-    dispatch(getDataForcast());
+    dispatch(getDataForcast(null));
     //dispatch(getShops());
   }, []);
 
@@ -41,6 +43,14 @@ export default function ForcastPage() {
     setIsActive(false);
   }
   console.log(status);
+
+  function getNextPage() {
+    dispatch(getDataForcast(nextPage));
+  }
+
+  function getPreviousPage() {
+    dispatch(getDataForcast(previousPage));
+  }
 
   return (
     <>
@@ -56,22 +66,29 @@ export default function ForcastPage() {
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
+        <div style={{ outline: "2px solid red" }}>
+          <div>{nextPage}</div>
+          <button onClick={() => getNextPage()}>NEXT</button>
+          <div>{previousPage}</div>
+          <button onClick={() => getPreviousPage()}>PREVIOUS</button>
+        </div>
+
         {status != "success" ? (
           <section className={styles.loader}>
             <Spin size={"large"} />
             <div>Идет загрузка</div>
-             <div>Пожалуйста подождите...</div>
+            <div>Пожалуйста подождите...</div>
           </section>
         ) : (
           <>
-          <TableForcast
-            columns={mokColumnsTable}
-            tableForcast={isExistSearch ? tableForcastSearch : tableForcast}
-          />
-          <ButtonExcel />
+            <TableForcast
+              columns={mokColumnsTable}
+              tableForcast={isExistSearch ? tableForcastSearch : tableForcast}
+              onNextPage={getNextPage}
+            />
+            <ButtonExcel />
           </>
         )}
-
       </section>
     </>
   );

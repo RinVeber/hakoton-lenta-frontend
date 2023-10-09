@@ -8,7 +8,7 @@ import mockForecast from "../../utils/mokForecast.json";
 import { SearchForm } from "../../components/ModalFilter/types/types";
 import { toQuery } from "../../utils/helperFunction";
 
-type SearcDataState = {
+export type DataState = {
   category: string;
   forecast: [];
   group: string;
@@ -18,10 +18,12 @@ type SearcDataState = {
 };
 
 type DataTypeState = {
-  data: [];
-  searchData: SearcDataState[];
+  data: DataState[];
+  searchData: DataState[];
   total: number;
   page: number;
+  nextPage: string;
+  previousPage: string;
   size: number;
   pages: number;
   isExistSearch: boolean;
@@ -45,6 +47,8 @@ const initialState: DataTypeState = {
   isExistSearch: false,
   page: 1,
   size: 1,
+  nextPage: "",
+  previousPage: "",
   pages: 0,
   status: "init",
   error: "",
@@ -54,9 +58,9 @@ const token = localStorage.getItem("jwt") as string;
 
 export const getDataForcast = createAsyncThunk(
   "dataForcast/getDataForcast",
-  async () => {
+  async (urlNextOrPrevious: string | null) => {
     try {
-      const response = await fetch(urlForcast, {
+      const response = await fetch(urlNextOrPrevious || urlForcast, {
         method: "GET",
         headers: {
           Authorization: "Token " + token,
@@ -78,7 +82,6 @@ export const getDataForcastSearch = createAsyncThunk(
   "dataForcast/getDataForcastSearch",
   async (formData: SearchForm) => {
     try {
-      debugger;
       const data = {
         city: formData.city?.title == null ? "" : formData.city?.title,
         store: formData.store?.title == null ? "" : formData.store?.title,
@@ -106,7 +109,6 @@ export const getDataForcastSearch = createAsyncThunk(
           },
         }
       );
-      debugger;
       if (response.ok) {
         const data = response.json();
         return data;
@@ -125,7 +127,6 @@ const dataForcastSlice = createSlice({
     builder
       .addCase(getDataForcastSearch.fulfilled, (state, action) => {
         state.status = "success";
-        debugger;
         state.searchData = action.payload.results;
         state.total = action.payload.count;
         state.isExistSearch = true;
@@ -144,11 +145,29 @@ const dataForcastSlice = createSlice({
         state.status = "error";
         state.error = "error";
       })
+      .addCase(getDataForcast.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(getDataForcast.fulfilled, (state, action) => {
         state.status = "success";
-        state.data = action.payload.results;
+        // TODO
+        state.data = [
+          ...state.data,
+          ...action.payload.results,
+          {
+            category: "string " + new Date().toLocaleTimeString(),
+            forecast: action.payload.results[0].forecast,
+            group: "string " + new Date().toLocaleTimeString(),
+            sku: "string " + new Date().toLocaleTimeString(),
+            store: "string " + new Date().toLocaleTimeString(),
+            subcategory: "string " + new Date().toLocaleTimeString(),
+          },
+        ];
+
         state.total = action.payload.count;
         state.page = action.payload.page;
+        state.nextPage = action.payload.next;
+        state.previousPage = action.payload.previous;
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       });

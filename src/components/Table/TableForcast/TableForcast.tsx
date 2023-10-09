@@ -23,12 +23,18 @@ type forcastTable = {
 interface TableProps {
   columns: columnsTable[];
   tableForcast: forcastTable[];
+  onNextPage: () => void;
 }
-export default function TableForcast({ columns, tableForcast }: TableProps) {
+export default function TableForcast({
+  columns,
+  tableForcast,
+  onNextPage,
+}: TableProps) {
   const [sortList, setSortList] = React.useState(tableForcast);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
-  const {status} = useAppSelector((state) => state.forcast)
+  const [scrollTop, setScrollTop] = React.useState<number>(0);
+  const { status } = useAppSelector((state) => state.forcast);
 
   const tableRef = React.useRef<HTMLDivElement>(null);
 
@@ -61,14 +67,29 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
     } else if (sortType === "Категория") {
       setSortList([...Array.from(sortList).sort(customSort("category", type))]);
     } else if (sortType === "Подкатегория") {
-      setSortList([...Array.from(sortList).sort(customSort("subcategory", type))]);
+      setSortList([
+        ...Array.from(sortList).sort(customSort("subcategory", type)),
+      ]);
     } else if (sortType === "SKU") {
       setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
   };
 
+  function handleWheel(e: any) {
+    console.log(tableRef.current?.scrollTop);
+
+    if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
+      onNextPage();
+    }
+    setScrollTop(tableRef.current?.scrollTop || 0);
+  }
+
   return (
-    <section className={styles.table} ref={tableRef}>
+    <section
+      className={styles.table}
+      ref={tableRef}
+      onWheel={(e) => handleWheel(e)}
+    >
       <div className={styles.table__content}>
         <div className={styles.table__head}>
           <div className={styles.table__rowHead}>
@@ -149,18 +170,16 @@ export default function TableForcast({ columns, tableForcast }: TableProps) {
               {item.forecast.slice(0, 14).map((forcast, index) => {
                 return (
                   <div key={index} className={styles.table__rowCell}>
-                  <div className={styles.table__rowCellText}>
-                    {forcast.sales_units}
+                    <div className={styles.table__rowCellText}>
+                      {forcast.sales_units}
+                    </div>
                   </div>
-                </div>
-                )
+                );
               })}
-            
             </div>
           );
         })}
       </div>
     </section>
   );
-
 }

@@ -1,13 +1,20 @@
-import { ActionReducerMapBuilder, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { urlSalesDiff } from '../../utils/constant';
+import {
+  ActionReducerMapBuilder,
+  createSlice,
+  createAsyncThunk,
+} from "@reduxjs/toolkit";
+import { urlSalesDiff } from "../../utils/constant";
+import { DataState } from "./dataForcastSlice";
 
 type DataTypeState = {
-  data: [],
+  data: any[];
   total: number;
   page: number;
   size: number;
+  nextPage: string;
+  previousPage: string;
   pages: number;
-  status: 'init' | 'loading' | 'success' | 'error';
+  status: "init" | "loading" | "success" | "error";
   error: string | undefined;
 };
 
@@ -16,22 +23,24 @@ const initialState: DataTypeState = {
   total: 0,
   page: 1,
   size: 1,
+  nextPage: '',
+  previousPage: '',
   pages: 0,
-  status: 'init',
+  status: "init",
   error: undefined,
 };
 
- const token = localStorage.getItem('jwt') as string;
+const token = localStorage.getItem("jwt") as string;
 
 export const getDataSalesDiff = createAsyncThunk(
   "dataSales/getDataSalesDiff",
-  async () => {
+  async (urlNextOrPrevious: string | null) => {
     try {
-      const response = await fetch(urlSalesDiff, {
-        method: 'GET',
+      const response = await fetch(urlNextOrPrevious || urlSalesDiff, {
+        method: "GET",
         headers: {
-          Authorization: 'Token ' + token,
-            'Content-Type': 'application/json',
+          Authorization: "Token " + token,
+          "Content-Type": "application/json",
         },
       });
 
@@ -45,31 +54,33 @@ export const getDataSalesDiff = createAsyncThunk(
   }
 );
 
-
 const dataSalesDiffSlice = createSlice({
-  name: 'salesDiff',
+  name: "salesDiff",
   initialState,
   reducers: {},
   extraReducers: (builder: ActionReducerMapBuilder<DataTypeState>) => {
     builder
       .addCase(getDataSalesDiff.fulfilled, (state, action) => {
-        state.status = 'success';
-        state.data = action.payload;
-        // state.total = action.payload.total;
-        // state.page = action.payload.page;
-        // state.size = action.payload.size;
-        // state.pages = action.payload.pages;
+        state.status = "success";
+        state.data = [...state.data, ...action.payload];
+        // state.nextPage = action.payload.next;
+        // state.previousPage = action.payload.previous;
+
+        state.total = action.payload.total;
+        state.page = action.payload.page;
+        state.size = action.payload.size;
+        state.pages = action.payload.pages;
       })
       .addCase(getDataSalesDiff.pending, (state) => {
-        state.status = 'loading';
-        state.error = 'loading';
+        state.status = "loading";
+        state.error = "loading";
       })
       .addCase(getDataSalesDiff.rejected, (state) => {
-        state.status = 'error';
-        state.error = 'error'
+        state.status = "error";
+        state.error = "error";
       });
   },
 });
 
-export const { reducer: dataSalesDiffReducer, actions: dataSalesDiffActions } = dataSalesDiffSlice;
-
+export const { reducer: dataSalesDiffReducer, actions: dataSalesDiffActions } =
+  dataSalesDiffSlice;

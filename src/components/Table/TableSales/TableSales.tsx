@@ -1,6 +1,6 @@
 import React from "react";
-import styles from './TableSales.module.css';
-import up from "../../../assets/filter-up.svg"
+import styles from "./TableSales.module.css";
+import up from "../../../assets/filter-up.svg";
 import down from "../../../assets/filter-down.svg";
 import downActive from "../../../assets/filter-down-active.svg";
 import upActive from "../../../assets/filter-up-active.svg";
@@ -22,11 +22,17 @@ type TableSales = {
 interface TableProps {
   columns: columnsTable[];
   tableSales: TableSales[];
+  onNextPage: () => void;
 }
-export default function TableSales({ columns, tableSales }: TableProps) {
+export default function TableSales({
+  columns,
+  tableSales,
+  onNextPage,
+}: TableProps) {
   const [sortList, setSortList] = React.useState(tableSales);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
+  const [scrollTop, setScrollTop] = React.useState<number>(0);
 
   const tableRef = React.useRef<HTMLDivElement>(null);
 
@@ -59,14 +65,29 @@ export default function TableSales({ columns, tableSales }: TableProps) {
     } else if (sortType === "Категория") {
       setSortList([...Array.from(sortList).sort(customSort("category", type))]);
     } else if (sortType === "Подкатегория") {
-      setSortList([...Array.from(sortList).sort(customSort("subcategory", type))]);
+      setSortList([
+        ...Array.from(sortList).sort(customSort("subcategory", type)),
+      ]);
     } else if (sortType === "SKU") {
       setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
   };
 
+  function handleWheel(e: any) {
+    console.log(tableRef.current?.scrollTop);
+
+    if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
+      onNextPage();
+    }
+    setScrollTop(tableRef.current?.scrollTop || 0);
+  }
+
   return (
-    <section className={styles.tableSales} ref={tableRef}>
+    <section
+      className={styles.tableSales}
+      ref={tableRef}
+      onWheel={(e) => handleWheel(e)}
+    >
       <div className={styles.table__content}>
         <div className={styles.table__head}>
           <div className={styles.table__rowHead}>
@@ -145,9 +166,7 @@ export default function TableSales({ columns, tableSales }: TableProps) {
                 </div>
               </div>
               <div className={styles.table__rowCell}>
-                <div className={styles.table__rowCellText}>
-                  {item.date}
-                </div>
+                <div className={styles.table__rowCellText}>{item.date}</div>
               </div>
               <div className={styles.table__rowCell}>
                 <div className={styles.table__rowCellText}>
@@ -160,20 +179,17 @@ export default function TableSales({ columns, tableSales }: TableProps) {
                 </div>
               </div>
               <div className={styles.table__rowCell}>
-              <div className={styles.table__rowCellDiff}>
-                <div className={styles.table__rowCellTextDiff}>
-                  {item.diff_sales_units.split('.')[0]}
+                <div className={styles.table__rowCellDiff}>
+                  <div className={styles.table__rowCellTextDiff}>
+                    {item.diff_sales_units.split(".")[0]}
+                  </div>
                 </div>
-              </div>
               </div>
 
               <div className={styles.table__rowCell}>
-                <div className={styles.table__rowCellText}>
-                  {item.wape}
-                </div>
+                <div className={styles.table__rowCellText}>{item.wape}</div>
               </div>
             </div>
-            
           );
         })}
       </div>

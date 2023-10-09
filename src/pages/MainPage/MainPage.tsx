@@ -2,13 +2,10 @@ import React from "react";
 import styles from "./MainPage.module.css";
 import Tabs from "../../components/Tabs/Tabs";
 import ButtonExcel from "../../components/ButtonExcel/ButtonExcel";
-import { mokColumnsTable, mokColumnsStatic } from "../../utils/constant";
+import { mokColumnsStatic } from "../../utils/constant";
 import { useAppDispatch, useAppSelector } from "../../redux/store";
-import { getDataSales } from "../../redux/slices/dataSalesSlice";
 import { getDataSalesDiff } from "../../redux/slices/dataSalesDiffSlice";
-import { mokDataSource } from "../../utils/constant";
 import TableSales from "../../components/Table/TableSales/TableSales";
-import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
@@ -19,16 +16,16 @@ export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
 
   const dispatch = useAppDispatch();
+  const { status, data: tableSales, nextPage } = useAppSelector(
+    (state) => state.salesDiff
+  );
 
   React.useEffect(() => {
-    dispatch(getDataSalesDiff());
+    dispatch(getDataSalesDiff(null));
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
 
-  const { status, data: tableSales } = useAppSelector(
-    (state) => state.salesDiff
-  );
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -37,6 +34,10 @@ export default function MainPage() {
   }
   function closeModal() {
     setIsActive(false);
+  }
+
+  function getNextPage() {
+    dispatch(getDataSalesDiff(nextPage));
   }
 
   return (
@@ -62,10 +63,11 @@ export default function MainPage() {
         ) : (
           <>
         
-          <TableSales columns={mokColumnsStatic} tableSales={tableSales} />
+          <TableSales columns={mokColumnsStatic} tableSales={tableSales} onNextPage={getNextPage}/>
           <ButtonExcel />
           </>
         )}
+        
 
       </section>
     </>
