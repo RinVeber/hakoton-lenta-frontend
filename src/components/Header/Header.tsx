@@ -48,7 +48,7 @@ const Header: FC<IPropHeader> = () => {
 
   return (
     <header className={styles.header}>
-      <Link to={"/"} className={styles.linkHeader}>
+      <Link to={"/hakoton-lenta-frontend"} className={styles.linkHeader}>
         <img src={logo} alt="логотип" className={styles.logo} />
       </Link>
       <div className={styles.infoContainer}>
