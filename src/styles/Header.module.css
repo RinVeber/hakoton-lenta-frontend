@@ -1,4 +1,5 @@
 .header {
+
   display: flex;
   flex-direction: row;
   /* padding: 10px 32px; */
@@ -88,3 +89,4 @@
 .logoutSpan:focus {
   color: #001e64;
 }
+

@@ -1,4 +1,5 @@
 .Tabs__menu {
+
   margin-top: 30px;
   display: flex;
 }
@@ -107,3 +108,4 @@
 .Tabs__button_hide {
   display: none;
 }
+
