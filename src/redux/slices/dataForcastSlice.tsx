@@ -6,24 +6,25 @@ import {
 import { urlForcast } from "../../utils/constant";
 import mockForecast from "../../utils/mokForecast.json";
 import { SearchForm } from "../../components/ModalFilter/types/types";
+import { toQuery } from "../../utils/helperFunction";
 
 type SearcDataState = {
-category: string,
-forecast: []
-group: string
-sku: string
-store: string
-subcategory: string
-}
+  category: string;
+  forecast: [];
+  group: string;
+  sku: string;
+  store: string;
+  subcategory: string;
+};
 
 type DataTypeState = {
   data: [];
-  searchData: SearcDataState[],
+  searchData: SearcDataState[];
   total: number;
   page: number;
   size: number;
   pages: number;
-  isExistSearch: boolean,
+  isExistSearch: boolean;
   status: "init" | "loading" | "success" | "error";
   error: string | undefined;
 };
@@ -31,12 +32,14 @@ type DataTypeState = {
 const initialState: DataTypeState = {
   data: [],
   searchData: [
-{    category: 'initial',
-    forecast: [],
-    group: 'string',
-    sku: 'string',
-    store: 'string',
-    subcategory: 'string',}
+    {
+      category: "initial",
+      forecast: [],
+      group: "string",
+      sku: "string",
+      store: "string",
+      subcategory: "string",
+    },
   ],
   total: 0,
   isExistSearch: false,
@@ -75,16 +78,26 @@ export const getDataForcastSearch = createAsyncThunk(
   "dataForcast/getDataForcastSearch",
   async (formData: SearchForm) => {
     try {
+      debugger;
       const data = {
-        city: formData.city?.title == null ? '' : formData.city?.title ,
-        store: formData.store?.title == null ? '' : formData.store?.title ,
-        sku: '',
-        group: formData.group?.title == null ? '' : formData.group?.title ,
-        category: formData.category?.title == null ? '' : formData.category?.title ,
-        subcategory: formData.subcategory?.title == null ? '' : formData.subcategory?.title ,
+        city: formData.city?.title == null ? "" : formData.city?.title,
+        store: formData.store?.title == null ? "" : formData.store?.title,
+        sku: formData?.sku == null ? [] : formData.sku.map((v) => v.title),
+        group: formData.group?.title == null ? "" : formData.group?.title,
+        category:
+          formData.category?.title == null ? "" : formData.category?.title,
+        subcategory:
+          formData.subcategory?.title == null
+            ? ""
+            : formData.subcategory?.title,
       };
+      const query = toQuery(data);
+
       const response = await fetch(
-        `${urlForcast}?city=${data.city}&store=${data.store}&sku=${data.sku}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
+        //`${urlForcast}?city=${data.city}&store=${data.store}&${data.sku.map((v)=>'sku=' + v).join('&')}&group=${data.group}&category=${data.category}&subcategory=${data.subcategory}`,
+        //
+        // `${urlForcast}?city=${data.city}&store=${data.store}`,
+        `${urlForcast}?${query}`,
         {
           method: "GET",
           headers: {
@@ -127,7 +140,6 @@ const dataForcastSlice = createSlice({
       .addCase(getDataForcast.rejected, (state) => {
         state.status = "error";
         state.error = "error";
-        
       })
       .addCase(getDataForcast.fulfilled, (state, action) => {
         state.status = "success";
@@ -137,7 +149,6 @@ const dataForcastSlice = createSlice({
         state.size = action.payload.size;
         state.pages = action.payload.pages;
       });
-      
   },
 });
 
