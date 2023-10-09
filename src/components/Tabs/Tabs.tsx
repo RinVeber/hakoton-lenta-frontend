@@ -27,7 +27,6 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
             className={
 
               pathname == "/" ? styles.Tabs__button : styles.Tabs__button_hide
-
             }
             onClick={() => {
               handleOpenModal();
