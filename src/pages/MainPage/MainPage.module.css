@@ -1,6 +1,8 @@
 .MainPage {
   padding: 0 32px;
   height: 100vh;
+  padding: 0 32px;
+  height: 100vh;
   position: relative;
 }
 
@@ -10,10 +12,12 @@
   top: 0;
   left: 0;
   position: fixed;
+  position: fixed;
   z-index: -1;
   background-color: black;
   opacity: 0;
   overflow: hidden;
+  transition: all ease 0.5s;
   transition: all ease 0.5s;
 }
 

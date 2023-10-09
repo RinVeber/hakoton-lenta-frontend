@@ -7,12 +7,19 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .Tabs__buttons {
   display: flex;
   flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
+
 .Tabs__tabs {
   height: 56px;
   display: flex;
@@ -40,6 +47,7 @@
   justify-content: center;
   font-weight: 700;
 }
+
 .Tabs__tabLink:hover {
  color: #0261F0
 }
@@ -48,6 +56,7 @@
     font-weight: 700;
     background-color: #FFFFFF;
 }
+
 .Tabs__tabLink_noActive {
   margin: 0 5px;
   width: 230px;
@@ -58,7 +67,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 5px;
+  width: 230px;
+  height: 48px;
+  color: #2C2A29;
+  transition: all ease 0.5s;
+  border-radius: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .Tabs__tabLink_noActive:hover {
     color: #0261F0
 }
@@ -82,7 +101,21 @@
 
   visibility: visible;
 
+  width: 156px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #2c2a29;
+  background-color: #ffffff;
+  transition: all ease 0.3s;
+
+  visibility: visible;
+
 }
+
 .Tabs__button:hover {
   color: #0261F0;
   background-color: #ecf3ff;

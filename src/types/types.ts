@@ -2,7 +2,9 @@ export type FormType = {
   email: string;
   password: string;
   visual: boolean;
-  token: string
+  token: string;
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
 };
 
 export type columnsTable = {
@@ -25,6 +27,12 @@ export type userMe = {
     first_name: "",
     last_name: "",
   },
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
+}
+
+export type DateChange = {
+  changeDate: [] | undefined,
   status: 'init' | 'loading' | 'success' | 'error';
   error: string | undefined;
 }

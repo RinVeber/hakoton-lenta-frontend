@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ModalFilter.module.css";
 import MultiSelectState from "./Select/MultiSelectState";
 import up from "../../assets/arrow-up.svg";
 import down from "../../assets/arrow-down.svg";
+import { useAppSelector, useAppDispatch } from "../../redux/store";
 import { useAppSelector, useAppDispatch } from "../../redux/store";
 import { getBy } from "../../utils/helperFunction";
 import SelectState from "./Select/SelectState";
@@ -10,19 +11,25 @@ import ChipsState from "./Chips/ChipsState";
 import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
 import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
+import { ModalFilterDate } from "../../components/index";
+import { getDate } from "../../redux/slices/dateSlice";
 import { getDataSalesDiffSearch } from "../../redux/slices/dataSalesDiffSlice";
 
 interface ModalProps {
   isActive: boolean;
-  handleOpenModal: () => void;
+  // handleOpenModal: () => void;
+  handleOpenModal: (event: any) => void;
   isNeedToReset: boolean;
+  currentTarget?: string;
 }
 
 export default function ModalFilterState({
   isActive,
   handleOpenModal,
   isNeedToReset,
+  currentTarget,
 }: ModalProps) {
+  const [target, setTarget] = React.useState(false);
   const [isSelectCity, setIsSelectCity] = React.useState(false);
   const [isSelectTK, setIsSelectTK] = React.useState(false);
   const [isSelectGroup, setIsSelectGroup] = React.useState(false);
@@ -36,9 +43,8 @@ export default function ModalFilterState({
   const shops = useAppSelector((state) => state.shop.data);
   let listSelect = getBy(category);
   let listSelectShop = getBy(shops);
-  console.log(listSelect);
-  console.log(listSelectShop);
   const dispatch = useAppDispatch();
+  const [currentDate, setCurrentDate] = useState<string[]>([]);
 
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
@@ -48,6 +54,15 @@ export default function ModalFilterState({
     subcategory: null,
     sku: null,
   });
+
+  useEffect(() => {
+    if (currentTarget == "period") {
+      setTarget(true);
+    }
+    if (!isActive) {
+      setTarget(false);
+    }
+  }, [isActive]);
 
   function setFormDataByType(
     type: string,
@@ -166,76 +181,104 @@ export default function ModalFilterState({
   }
 
   const handleSumbit = (event: any) => {
-    event?.preventDefault();
+    event.preventDefault();
+    if (currentDate) {
+      dispatch(getDate({ currentDate }));
+    }
     dispatch(getDataForcastSearch(formData));
-    dispatch(getDataSalesDiffSearch(formData))
     handleOpenModal();
+  };
+  // dispatch(getDataForcastSearch(formData));
+  // dispatch(getDataSalesDiffSearch(formData))
+  // handleOpenModal();
+
+  const getDateCurrent = (newDate: string[]) => {
+    setCurrentDate(newDate);
+  };
+  const handleReset = (event: any) => {
+    event.preventDefault();
+    setFormData({
+      city: null,
+      store: null,
+      group: null,
+      category: null,
+      subcategory: null,
+      sku: null,
+    });
   };
 
   return (
     <form className={isActive ? styles.modal_active : styles.modal}>
       <div className={styles.modal__header}>
-        <div className={styles.modal__title}>Выбор торгового комплекса</div>
+        <div className={styles.modal__title}>
+          {target ? "Выбор периода" : "Выбор торгового комплекса"}
+        </div>
         <div className={styles.modal__close} onClick={handleOpenModal} />
       </div>
       <div className={styles.modal__content}>
-        <div className={styles.modal__selectContent}>
-          <div className={styles.modal__container}>
-            <div className={styles.modal__wrap}>
-              <div className={styles.modal__select} onClick={openSelectCity}>
-                <div className={styles.modal__selectName}>Город</div>
-                <img
-                  src={isSelectCity ? up : down}
-                  className={styles.iconSelect}
-                  alt="иконка"
-                />
-              </div>
-              <ChipsState
-                type={"city"}
-                setFormDataByType={setFormDataByType}
-                chip={formData.city}
-              />
-            </div>
-            <SelectState
-              openSelect={openSelectCity}
-              isSelect={isSelectCity}
-              selectOptions={listSelectShop.st_city_id}
-              selectedOptions={formData.city}
-              type={"city"}
-              setFormDataByType={setFormDataByType}
-            />
-          </div>
-       
+        {target ? (
+          <ModalFilterDate
+            isActive={isActive}
+            getDateCurrent={getDateCurrent}
+          />
+        ) : (
+          <div className={styles.modal__selectContent}>
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
-                <div className={styles.modal__select} onClick={openSelectTK}>
-                  <div className={styles.modal__selectName}>
-                    Торговый комплекс
-                  </div>
+                <div className={styles.modal__select} onClick={openSelectCity}>
+                  <div className={styles.modal__selectName}>Город</div>
                   <img
-                    src={isSelectTK ? up : down}
+                    src={isSelectCity ? up : down}
                     className={styles.iconSelect}
                     alt="иконка"
                   />
                 </div>
                 <ChipsState
-                  type={"store"}
+                  type={"city"}
                   setFormDataByType={setFormDataByType}
-                  chip={formData.store}
+                  chip={formData.city}
                 />
               </div>
               <SelectState
-                openSelect={openSelectTK}
-                isSelect={isSelectTK}
-                selectOptions={listSelectShop.st_id}
-                selectedOptions={formData.store}
-                type={"store"}
+                openSelect={openSelectCity}
+                isSelect={isSelectCity}
+                selectOptions={listSelectShop.st_city_id}
+                selectedOptions={formData.city}
+                type={"city"}
                 setFormDataByType={setFormDataByType}
               />
             </div>
-      
+            {isHideTK ? null : (
+              <div className={styles.modal__container}>
+                <div className={styles.modal__wrap}>
+                  <div className={styles.modal__select} onClick={openSelectTK}>
+                    <div className={styles.modal__selectName}>
+                      Торговый комплекс
+                    </div>
+                    <img
+                      src={isSelectTK ? up : down}
+                      className={styles.iconSelect}
+                      alt="иконка"
+                    />
+                  </div>
+                  <ChipsState
+                    type={"store"}
+                    setFormDataByType={setFormDataByType}
+                    chip={formData.store}
+                  />
+                </div>
+                <SelectState
+                  openSelect={openSelectTK}
+                  isSelect={isSelectTK}
+                  selectOptions={listSelectShop.st_division_code}
+                  selectedOptions={formData.store}
+                  type={"store"}
+                  setFormDataByType={setFormDataByType}
+                />
+              </div>
+            )}
 
-          <div className={styles.modal__title}>Выбор товаров</div>
+            <div className={styles.modal__title}>Выбор товаров</div>
 
       
             <div className={styles.modal__container}>
@@ -324,38 +367,127 @@ export default function ModalFilterState({
               />
             </div>
           )}
-
-          {isHideSKU ? null : ( <>
-       
-            <div className={styles.modal__container}>
-              <div className={styles.modal__wrap}>
-                <div className={styles.modal__select} onClick={openSelectSKU}>
-                  <div className={styles.modal__selectName}>SKU</div>
-                  <img
-                    src={isSelectSKU ? up : down}
-                    className={styles.iconSelect}
-                    alt="иконка"
+            {isHideGroup ? null : (
+              <div className={styles.modal__container}>
+                <div className={styles.modal__wrap}>
+                  <div
+                    className={styles.modal__select}
+                    onClick={openSelectGroup}
+                  >
+                    <div className={styles.modal__selectName}>
+                      Группа товаров
+                    </div>
+                    <img
+                      src={isSelectGroup ? up : down}
+                      className={styles.iconSelect}
+                      alt="иконка"
+                    />
+                  </div>
+                  <ChipsState
+                    type={"group"}
+                    setFormDataByType={setFormDataByType}
+                    chip={formData.group}
                   />
                 </div>
-             
-                <MultiChipsState
-                  chips={formData.sku}
+                <SelectState
+                  openSelect={openSelectGroup}
+                  isSelect={isSelectGroup}
+                  selectOptions={listSelect.pr_group_id}
+                  selectedOptions={formData.group}
+                  type={"group"}
                   setFormDataByType={setFormDataByType}
                 />
               </div>
-          
-            </div>
-            <MultiSelectState
-                openSelect={openSelectSKU}
-                isSelect={isSelectSKU}
-                selectOptions={listSelect.pr_sku_id}
-                selectedOptions={formData.sku}
-                type={"sku"}
-                setFormDataByType={setFormDataByType}
-              />
-            </>
-          )}
-        </div>
+            )}
+            {isHideCategory ? null : (
+              <div className={styles.modal__container}>
+                <div className={styles.modal__wrap}>
+                  <div
+                    className={styles.modal__select}
+                    onClick={openSelectCategory}
+                  >
+                    <div className={styles.modal__selectName}>Категория</div>
+                    <img
+                      src={isSelectCategory ? up : down}
+                      className={styles.iconSelect}
+                      alt="иконка"
+                    />
+                  </div>
+                  <ChipsState
+                    type={"category"}
+                    setFormDataByType={setFormDataByType}
+                    chip={formData.category}
+                  />
+                </div>
+                <SelectState
+                  openSelect={openSelectCategory}
+                  isSelect={isSelectCategory}
+                  selectOptions={listSelect.pr_cat_id}
+                  selectedOptions={formData.category}
+                  type={"category"}
+                  setFormDataByType={setFormDataByType}
+                />
+              </div>
+            )}
+            {isHidePodcategory ? null : (
+              <div className={styles.modal__container}>
+                <div className={styles.modal__wrap}>
+                  <div
+                    className={styles.modal__select}
+                    onClick={openSelectPodcategory}
+                  >
+                    <div className={styles.modal__selectName}>Подкатегория</div>
+                    <img
+                      src={isSelectPodcategory ? up : down}
+                      className={styles.iconSelect}
+                      alt="иконка"
+                    />
+                  </div>
+                  <ChipsState
+                    type={"subcategory"}
+                    setFormDataByType={setFormDataByType}
+                    chip={formData.subcategory}
+                  />
+                </div>
+                <SelectState
+                  openSelect={openSelectPodcategory}
+                  isSelect={isSelectPodcategory}
+                  selectOptions={listSelect.pr_subcat_id}
+                  selectedOptions={formData.subcategory}
+                  type={"subcategory"}
+                  setFormDataByType={setFormDataByType}
+                />
+              </div>
+            )}
+
+            {isHideSKU ? null : (
+              <div className={styles.modal__container}>
+                <div className={styles.modal__wrap}>
+                  <div className={styles.modal__select} onClick={openSelectSKU}>
+                    <div className={styles.modal__selectName}>SKU</div>
+                    <img
+                      src={isSelectSKU ? up : down}
+                      className={styles.iconSelect}
+                      alt="иконка"
+                    />
+                  </div>
+                  <MultiChipsState
+                    chips={formData.sku}
+                    setFormDataByType={setFormDataByType}
+                  />
+                </div>
+                <MultiSelectState
+                  openSelect={openSelectSKU}
+                  isSelect={isSelectSKU}
+                  selectOptions={listSelect.pr_sku_id}
+                  selectedOptions={formData.sku}
+                  type={"sku"}
+                  setFormDataByType={setFormDataByType}
+                />
+              </div>
+            )}
+          </div>
+        )}
         <div className={styles.modal__btnСontainer}>
           <button
             type="submit"

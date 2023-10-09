@@ -1,4 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  ActionReducerMapBuilder,
+  createAsyncThunk,
+  createSlice,
+} from "@reduxjs/toolkit";
 import { FormType } from "../../types/types";
 import { baseURL } from "../../utils/constant";
 
@@ -12,6 +16,8 @@ const initialState: FormType = {
   password: "",
   visual: false,
   token: "",
+  error: undefined,
+  status: "init",
 };
 
 export const getToken = createAsyncThunk(
@@ -49,13 +55,17 @@ const formSlice = createSlice({
       state.visual = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(
-      getToken.fulfilled,
-      (state, action: PayloadAction<string>) => {
+  extraReducers: (builder: ActionReducerMapBuilder<FormType>) => {
+    builder
+      .addCase(getToken.fulfilled, (state, action) => {
         state.token = action.payload;
-      }
-    );
+      })
+      .addCase(getToken.rejected, (state) => {
+        state.error = "error";
+      })
+      .addCase(getToken.pending, (state) => {
+        state.status = "loading";
+      });
   },
 });
 

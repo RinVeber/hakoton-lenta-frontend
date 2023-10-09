@@ -11,7 +11,6 @@ const ProtectedRoute: FC<IPropProtected> = ({
 }) => {
   const token = localStorage.getItem("jwt");
   if (!Component) return null;
-  console.log(token);
 
   return token ? <Component {...props} /> : <Navigate to="/auth" />;
 };

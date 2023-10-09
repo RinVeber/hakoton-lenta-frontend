@@ -1,36 +1,37 @@
+.tableSales {
+  display: flex;
+  flex-direction: column;
+  height: 768px;
+  overflow: scroll;
+  scrollbar-width: thin;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+}
 
-  .tableSales {
-    display: flex;
-    flex-direction: column;
-    height: 768px;
-    overflow: scroll;
-    scrollbar-width: thin;
-    margin-bottom: 30px;
-    overflow-x: hidden;
-  }
-  
-  @media screen and (max-width: 1900px) {
+@media screen and (max-width: 1900px) {
   .tableSales {
     overflow-x: scroll;
   }
-  }
-  .tableSales::-webkit-scrollbar {
-    width: 8px;
-  }
-  .tableSales::-webkit-scrollbar:horizontal {
-    height: 8px;
-  }
-  
-  .tableSales::-webkit-scrollbar-thumb {
-    background-color: #c1c1c1;
-    width: 8px;
-    border-radius: 10px;
-  }
-  
-  .tableSales::-webkit-scrollbar-track {
-    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-    background-color: #ececec;
-  }
+}
+
+.tableSales::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tableSales::-webkit-scrollbar:horizontal {
+  height: 8px;
+}
+
+.tableSales::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  width: 8px;
+  border-radius: 10px;
+}
+
+.tableSales::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #ececec;
+}
 
   
   .table__content {

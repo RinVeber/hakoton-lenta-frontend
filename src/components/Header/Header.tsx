@@ -29,8 +29,11 @@ const Header: FC<IPropHeader> = () => {
 
   useEffect(() => {
     dispatch(getUser());
-    setFirstLatter(first_name.slice(0, 1));
   }, []);
+
+  useEffect(() => {
+    setFirstLatter(first_name.slice(0, 1));
+  }, [user]);
 
   const handleLogout = async () => {
     await dispatch(logOut())

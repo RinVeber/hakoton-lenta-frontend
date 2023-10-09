@@ -4,12 +4,15 @@ import { RangePickerProps } from "antd/es/date-picker";
 import React, { useState, useEffect, FC } from "react";
 
 interface IPropModal {
-  isActive: boolean;
+  isActive?: boolean;
+  getDateCurrent: () => {
+    rengerDate: [];
+  };
 }
 
 const { RangePicker } = DatePicker;
 
-const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
+const ModalFilterDate: FC<IPropModal> = ({ isActive, getDateCurrent }) => {
   const [value, setValue] = useState<string>("day");
   const [activeDate, setIsActiveDate] = useState<boolean>(false);
   const [activeWeek, setIsActiveWeek] = useState<boolean>(false);
@@ -64,7 +67,6 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
   }, [dateValue]);
 
   const onChangeRadio = (e: RadioChangeEvent) => {
-    console.log("radio checked", e.target.value);
     setValue(e.target.value);
     switch (e.target.value) {
       case "day":
@@ -88,13 +90,14 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
     }
   };
 
-  const onChange: RangePickerProps["onChange"] = (date, dateString) => {
-    console.log(date, dateString);
-    setDateValue(dateString);
+  const onChange: RangePickerProps["onChange"] = (date, rengerDate) => {
+    const newDate = Object.assign({}, rengerDate);
+    getDateCurrent(newDate);
+    setDateValue(rengerDate);
   };
 
   return (
-    <form className={styles.filterDate}>
+    <section className={styles.filterDate}>
       <Radio.Group
         onChange={onChangeRadio}
         value={value}
@@ -148,7 +151,7 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive }) => {
           popupStyle={style}
         />
       </Radio.Group>
-    </form>
+    </section>
   );
 };
 

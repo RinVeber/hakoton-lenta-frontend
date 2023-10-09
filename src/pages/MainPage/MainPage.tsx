@@ -18,6 +18,7 @@ import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
+  const [currentTarget, setCurrentTarget] = React.useState("");
   const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
@@ -70,6 +71,7 @@ export default function MainPage() {
           isActive={isActive}
           handleOpenModal={handleOpenModal}
           isNeedToReset={isNeedToReset}
+          currentTarget={currentTarget}
         />
         <Tabs handleOpenModal={handleOpenModal} />
 

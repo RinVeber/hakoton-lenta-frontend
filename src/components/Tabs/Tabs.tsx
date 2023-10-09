@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { navLinks } from "../../utils/constant";
 
 interface ITabsProps {
-  handleOpenModal: () => void;
+  handleOpenModal: (event: any) => void;
 }
 
 const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
@@ -15,9 +15,10 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
         <div className={styles.Tabs__buttons}>
           <button
             className={styles.Tabs__button}
-            onClick={() => {
-              handleOpenModal();
+            onClick={(e) => {
+              handleOpenModal(e);
             }}
+            data-set="filter"
           >
             <div className={styles.Tabs__buttonIcon} />
             <div className={styles.Tabs_buttonText}>Фильтры</div>
@@ -28,9 +29,10 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
 
               pathname == "/" ? styles.Tabs__button : styles.Tabs__button_hide
             }
-            onClick={() => {
-              handleOpenModal();
+            onClick={(e) => {
+              handleOpenModal(e);
             }}
+            data-set="period"
           >
 
             <div className={styles.Tabs__buttonIconForcast} />

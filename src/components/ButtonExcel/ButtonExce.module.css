@@ -10,6 +10,7 @@
     position: fixed;
     bottom: 40px;
     right: 50px;
+    right: 50px;
     gap: 16px;
     transition: all ease .4s;
 }
@@ -20,6 +21,7 @@
 .buttonExcel:focus {
     background-color: #001E64;
 }
+
 .icon {
     width: 24px;
     height: 24px;
