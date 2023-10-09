@@ -34,13 +34,14 @@
   height: 48px;
   border-radius: 52px;
   transition: all ease 0.5s;
+
   color: #2C2A29;
+
   background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-
 }
 .Tabs__tabLink:hover {
   opacity: 0.6;
@@ -71,7 +72,9 @@
   color: #2c2a29;
   background-color: #ffffff;
   transition: all ease 0.3s;
+
   visibility: visible;
+
 }
 .Tabs__button:hover {
   color: #0261F0;
@@ -109,6 +112,7 @@
 }
 
 .Tabs__button_hide {
+
     width: 156px;
     height: 56px;
     display: flex;
@@ -120,5 +124,6 @@
     background-color: #ffffff;
     transition: all ease 0.3s;
   visibility: hidden;
+
 }
 
