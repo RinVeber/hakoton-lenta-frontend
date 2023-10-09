@@ -323,7 +323,8 @@ export default function ModalFilterState({
             </div>
           )}
 
-          {isHideSKU ? null : (
+          {isHideSKU ? null : ( <>
+       
             <div className={styles.modal__container}>
               <div className={styles.modal__wrap}>
                 <div className={styles.modal__select} onClick={openSelectSKU}>
@@ -334,12 +335,15 @@ export default function ModalFilterState({
                     alt="иконка"
                   />
                 </div>
+             
                 <MultiChipsState
                   chips={formData.sku}
                   setFormDataByType={setFormDataByType}
                 />
               </div>
-              <MultiSelectState
+          
+            </div>
+            <MultiSelectState
                 openSelect={openSelectSKU}
                 isSelect={isSelectSKU}
                 selectOptions={listSelect.pr_sku_id}
@@ -347,7 +351,7 @@ export default function ModalFilterState({
                 type={"sku"}
                 setFormDataByType={setFormDataByType}
               />
-            </div>
+            </>
           )}
         </div>
         <div className={styles.modal__btnСontainer}>

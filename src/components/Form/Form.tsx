@@ -46,7 +46,7 @@ const Form: FC = () => {
         let jwt = token.payload.auth_token;
         if (jwt) {
           localStorage.setItem("jwt", jwt);
-          navigate("/hakoton-lenta-frontend");
+          navigate("/");
         }
       })
       .catch((err: string) => {

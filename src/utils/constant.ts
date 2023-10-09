@@ -19,7 +19,8 @@ export const navLinks = [
   {
     id: 2,
     name: "Статистика",
-    link: "/hakoton-lenta-frontend",
+    // link: "/hakoton-lenta-frontend",
+    link: "/",
     isActive: true,
   },
 ];
