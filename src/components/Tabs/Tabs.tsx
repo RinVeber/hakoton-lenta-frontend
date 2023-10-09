@@ -25,16 +25,18 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
 
           <button
             className={
-              pathname == "/"
-                ? styles.Tabs__button
-                : styles.Tabs__button_hide
+
+              pathname == "/" ? styles.Tabs__button : styles.Tabs__button_hide
+
             }
             onClick={() => {
               handleOpenModal();
             }}
           >
-            <div className={styles.Tabs__buttonIcon} />
-            <div className={styles.Tabs_buttonText}>Прогнозы</div>
+
+            <div className={styles.Tabs__buttonIconForcast} />
+            <div className={styles.Tabs_buttonText}>Период</div>
+
           </button>
         </div>
         <div className={styles.Tabs__tabs}>
@@ -54,6 +56,9 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
             );
           })}
         </div>
+
+        <div style={{ display: "flex" }}></div>
+
       </div>
     </div>
   );
