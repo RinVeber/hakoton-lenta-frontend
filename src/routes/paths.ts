@@ -1,5 +1,5 @@
 export const paths = {
-    main: '/',
+    main: '/hakoton-lenta-frontend',
     forcast: '/forcast',
     auth: '/auth',
     rewiev: '/review',

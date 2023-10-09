@@ -25,7 +25,7 @@ export const navLinks = [
   {
     id: 3,
     name: "Статистика",
-    link: "/",
+    link: "/hakoton-lenta-frontend",
     isActive: true,
   },
 ];
