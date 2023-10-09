@@ -10,6 +10,7 @@ import ChipsState from "./Chips/ChipsState";
 import MultiChipsState from "./Chips/MultiChipsState";
 import { SearchForm, SelectOption } from "./types/types";
 import { getDataForcastSearch } from "../../redux/slices/dataForcastSlice";
+import { getDataSalesDiffSearch } from "../../redux/slices/dataSalesDiffSlice";
 
 interface ModalProps {
   isActive: boolean;
@@ -165,6 +166,7 @@ export default function ModalFilterState({
   const handleSumbit = (event: any) => {
     event?.preventDefault();
     dispatch(getDataForcastSearch(formData));
+    dispatch(getDataSalesDiffSearch(formData))
     handleOpenModal();
   };
 
