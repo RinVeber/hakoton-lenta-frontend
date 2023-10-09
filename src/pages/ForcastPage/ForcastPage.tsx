@@ -10,6 +10,7 @@ import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import { getShops } from "../../redux/slices/shopSlice";
 import { Header } from "../../components";
+import { Spin } from "antd";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -20,8 +21,8 @@ export default function ForcastPage() {
     (state) => state.forcast.searchData
   );
 
-  // временный костыль для отрисовки изначально загруженных данных и после поиска. 
-  const { isExistSearch } = useAppSelector((state) => state.forcast);
+  // временный костыль для отрисовки изначально загруженных данных и после поиска.
+  const { status, isExistSearch } = useAppSelector((state) => state.forcast);
 
   console.log("tableFor", tableForcast);
   console.log("searchData", tableForcastSearch);
@@ -39,6 +40,7 @@ export default function ForcastPage() {
   function closeModal() {
     setIsActive(false);
   }
+  console.log(status);
 
   return (
     <>
@@ -47,24 +49,29 @@ export default function ForcastPage() {
         onClick={() => closeModal()}
       ></div>
       <section className={styles.forcastPage}>
-      <Header />
+        <Header />
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
-
-        {isExistSearch == true ? (
+        {status != "success" ? (
+          <section className={styles.loader}>
+            <Spin size={"large"} />
+            <div>Идет загрузка</div>
+             <div>Пожалуйста подождите...</div>
+          </section>
+        ) : (
+          <>
           <TableForcast
             columns={mokColumnsTable}
-            tableForcast={tableForcastSearch}
+            tableForcast={isExistSearch ? tableForcastSearch : tableForcast}
           />
-        ) : (
-          <TableForcast columns={mokColumnsTable} tableForcast={tableForcast} />
+          <ButtonExcel />
+          </>
         )}
-        {/* <TableForcast columns={mokColumnsTable} tableForcast={tableForcast} /> */}
-        <ButtonExcel />
+
       </section>
     </>
   );

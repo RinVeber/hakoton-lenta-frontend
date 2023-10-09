@@ -127,3 +127,8 @@
 
 }
 
+.Tabs__hideDiv {
+    width: 156px;
+    height: 56px;
+    display: flex;
+}

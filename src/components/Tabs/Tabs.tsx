@@ -56,7 +56,7 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
           })}
         </div>
 
-        <div style={{ display: "flex" }}></div>
+        <div className={styles.Tabs__hideDiv}></div>
 
       </div>
     </div>
