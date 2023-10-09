@@ -132,9 +132,11 @@
 .table__row:nth-child(odd) {
 
   background-color: #ECF3FF;
+}
 
 .table__row:nth-child(even) {
   background-color: white;
+
 }
 .table__row:last-child {
   margin-bottom: 60px;
