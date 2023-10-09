@@ -19,6 +19,7 @@ export default function ForcastPage() {
   const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
+
   const { dataForcast: tableForcast } = useAppSelector(
     (state) => state.forcast
   );
@@ -31,6 +32,7 @@ export default function ForcastPage() {
 
   React.useEffect(() => {
     dispatch(getDataForcast(null));
+
   }, []);
 
   function handleOpenModal() {
@@ -47,10 +49,12 @@ export default function ForcastPage() {
     dispatch(getDataForcast(nextPage));
   }
 
+
   function handleReset(){
     dispatch(handleChangeIsExistSearch(false))
     setIsNeedToReset(!isNeedToReset);
   }
+
 
   return (
     <>
@@ -76,6 +80,7 @@ export default function ForcastPage() {
           </section>
         ) : (
           <>
+
             {isExistSearch && tableForcastSearch.length == 0 ? (
               <NoSkuFound
                 handleReset={handleReset}
@@ -93,6 +98,7 @@ export default function ForcastPage() {
                 <ButtonExcel />
               </>
             )}
+
           </>
         )}
       </section>

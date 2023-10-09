@@ -155,6 +155,7 @@ const dataForcastSlice = createSlice({
       .addCase(getDataForcast.fulfilled, (state, action) => {
         state.status = "success";
         // TODO
+
         state.dataForcast = Array.from(
           new Set([
             ...state.dataForcast,
@@ -168,6 +169,7 @@ const dataForcastSlice = createSlice({
             //   subcategory: "string " + new Date().toLocaleTimeString(),
             // },
           ])
+
         );
 
         state.total = action.payload.count;

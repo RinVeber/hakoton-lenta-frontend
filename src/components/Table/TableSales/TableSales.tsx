@@ -75,6 +75,7 @@ export default function TableSales({
 
   function handleWheel(e: any) {
     console.log(tableRef.current?.scrollTop);
+
     console.log(e);
 
 
@@ -83,6 +84,7 @@ export default function TableSales({
       onNextPage();
     }
     setScrollTop(tableRef.current?.scrollTop || 0);
+
   }
 
   return (

@@ -5,6 +5,8 @@ import {
 } from "@reduxjs/toolkit";
 import { urlSalesDiff } from "../../utils/constant";
 
+
+
 type DataTypeState = {
   dataSalesDiff: any[];
   total: number;
@@ -62,9 +64,11 @@ const dataSalesDiffSlice = createSlice({
       .addCase(getDataSalesDiff.fulfilled, (state, action) => {
         state.status = "success";
 
+
         state.dataSalesDiff = Array.from(
           new Set([...state.dataSalesDiff, ...action.payload])
         );
+
 
         // state.nextPage = action.payload.next;
         // state.previousPage = action.payload.previous;

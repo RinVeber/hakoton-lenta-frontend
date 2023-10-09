@@ -19,17 +19,20 @@ export default function MainPage() {
   const [isNeedToReset, setIsNeedToReset] = React.useState(false);
 
   const dispatch = useAppDispatch();
+
   const {
     status,
     dataSalesDiff: tableSales,
     nextPage,
   } = useAppSelector((state) => state.salesDiff);
 
+
   React.useEffect(() => {
     dispatch(getDataSalesDiff(null));
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
+
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -49,6 +52,11 @@ export default function MainPage() {
   function handleReset(){
     dispatch(handleChangeIsExistSearch(false))
     setIsNeedToReset(!isNeedToReset);
+  }
+
+  function getNextPage() {
+    debugger;
+    dispatch(getDataSalesDiff(nextPage));
   }
 
   return (
@@ -83,9 +91,11 @@ export default function MainPage() {
             />
             <ButtonExcel />
         
+
           </>
         )}
         
+
       </section>
     </>
   );

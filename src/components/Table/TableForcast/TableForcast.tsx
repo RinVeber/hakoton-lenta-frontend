@@ -34,7 +34,6 @@ export default function TableForcast({
   const [lastSortTitle, setlastSortTitle] = React.useState("");
 
   const [scrollTop, setScrollTop] = React.useState<number>(0);
-
   const tableRef = React.useRef<HTMLDivElement>(null);
 
   const customSort = (sortField: string, type: string) => {
@@ -77,7 +76,9 @@ export default function TableForcast({
 
   function handleWheel(e: any) {
     console.log(tableRef.current?.scrollTop);
+
     console.log(e);
+
 
     if (scrollTop != 0 && scrollTop == tableRef.current?.scrollTop) {
       onNextPage();
