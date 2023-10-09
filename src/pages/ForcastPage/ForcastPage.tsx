@@ -22,9 +22,11 @@ export default function ForcastPage() {
   );
 
 
+
   const { status, isExistSearch, nextPage, previousPage } = useAppSelector(
     (state) => state.forcast
   );
+
 
   console.log("tableFor", tableForcast);
   console.log("searchData", tableForcastSearch);
@@ -52,6 +54,7 @@ export default function ForcastPage() {
     dispatch(getDataForcast(previousPage));
   }
 
+
   return (
     <>
       <div
@@ -70,6 +73,7 @@ export default function ForcastPage() {
           <section className={styles.loader}>
             <Spin size={"large"} />
             <div>Идет загрузка</div>
+
             <div>Пожалуйста подождите...</div>
           </section>
         ) : (
@@ -82,6 +86,7 @@ export default function ForcastPage() {
             <ButtonExcel />
           </>
         )}
+
       </section>
     </>
   );

@@ -64,11 +64,13 @@ export default function MainPage() {
         ) : (
           <>
         
+
           <TableSales columns={mokColumnsStatic} tableSales={tableSales} onNextPage={getNextPage}/>
           <ButtonExcel />
           </>
         )}
         
+
 
       </section>
     </>

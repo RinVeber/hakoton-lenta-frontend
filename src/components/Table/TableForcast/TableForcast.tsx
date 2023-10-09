@@ -33,8 +33,10 @@ export default function TableForcast({
   const [sortList, setSortList] = React.useState(tableForcast);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
+
   const [scrollTop, setScrollTop] = React.useState<number>(0);
   const { status } = useAppSelector((state) => state.forcast);
+
 
   const tableRef = React.useRef<HTMLDivElement>(null);
 
@@ -74,6 +76,7 @@ export default function TableForcast({
       setSortList([...Array.from(sortList).sort(customSort("sku", type))]);
     }
   };
+
 
   function handleWheel(e: any) {
     console.log(tableRef.current?.scrollTop);
@@ -182,4 +185,5 @@ export default function TableForcast({
       </div>
     </section>
   );
+
 }
