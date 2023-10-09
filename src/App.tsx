@@ -4,7 +4,7 @@ import Auth from "./components/Auth/Auth";
 import styles from "./styles/App.module.css";
 import ForcastPage from "./pages/ForcastPage/ForcastPage";
 import MainPage from "./pages/MainPage/MainPage";
-import { Header, ProtectedRoute } from "./components/index";
+import { ErrorPath, Header, ProtectedRoute } from "./components/index";
 
 const App = () => {
   return (
@@ -26,6 +26,15 @@ const App = () => {
             <>
               <Header />
               <ProtectedRoute component={ForcastPage} />
+            </>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <>
+              <Header />
+              <ProtectedRoute component={ErrorPath} />
             </>
           }
         />

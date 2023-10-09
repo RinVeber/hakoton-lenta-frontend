@@ -11,6 +11,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../redux/store";
 import { getDataForcast } from "../../redux/slices/dataForcastSlice";
 import TableForcast from "../../components/Table/TableForcast/TableForcast";
+import { ErrorPath } from "../../components/index";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -30,6 +31,7 @@ export default function ForcastPage() {
 
   return (
     <section className={styles.forcastPage}>
+      {/* <ErrorPath /> */}
       <Tabs handleOpenModal={handleOpenModal} />
       <TableForcast columns={mokColumnsTable} tableForcast={tableForcast} />
       <ButtonExcel />

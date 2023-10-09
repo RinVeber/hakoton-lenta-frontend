@@ -1,0 +1,71 @@
+.errorPath {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 900px;
+    border-radius: 36px;
+    background: var(--COLOR_BUTTON_DISABLED);
+    margin-top: 48px;
+}
+
+.numberBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    color: var(--COLOR_BLUE);
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 3.84px;
+}
+
+.zeroNumber {
+    width: 207px;
+    height: 70px;
+}
+
+.errorDescription {
+    color: var(--COLOR_DARK);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 135%;
+    padding: 32px 0 56px;
+}
+
+.button {
+    display: flex;
+    height: 56px;
+    padding: 0px 32px;
+    align-items: center;
+    gap: 16px;
+    border-radius: 52px;
+    background: var(--COLOR_BLUE);
+}
+
+.button:hover {
+    background: var(--COLOR_BUTTON_HOVER);
+    transition: 0.2s;
+}
+
+.button:focus {
+    background: var(--COLOR_BUTTON_FOCUS);
+}
+
+.image {
+    width: 24px;
+    height: 24px;
+}
+
+.span {
+    color: var(--COLOR_WHITE);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 135%;
+}

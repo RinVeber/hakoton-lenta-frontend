@@ -1,7 +1,7 @@
 import { FC } from "react";
 import styles from "../../styles/Auth.module.css";
 import logo from "../../images/logo-auth.svg.svg";
-import background from "../../images/background_logo.svg.svg";
+import background from "../../images/background_logo.svg";
 import Form from "../Form/Form";
 
 const Auth: FC = () => {
