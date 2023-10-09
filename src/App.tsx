@@ -12,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/auth" element={<Auth />} />
         <Route
-          path="/"
+          path="/hakoton-lenta-frontend"
           element={
             <>
               <ProtectedRoute component={MainPage} />
