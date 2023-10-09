@@ -1,85 +1,90 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    padding: 10px 32px;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    max-width: 1856px;
-    height: 112px;
-    border-bottom: 1px solid var(--COLOR_BORDER_BOTTOM);
-
+  display: flex;
+  flex-direction: row;
+  /* padding: 10px 32px; */
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  max-width: 1856px;
+  height: 112px;
+  border-bottom: 1px solid var(--COLOR_BORDER_BOTTOM);
 }
 
 .linkHeader {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .logo {
-    width: 176px;
-    height: 40px;
+  width: 176px;
+  height: 40px;
 }
 
 .infoContainer {
-    display: flex;
-    flex-direction: row;
-
+  display: flex;
+  flex-direction: row;
 }
 
 .headerButton {
-    padding-right: 24px;
+  padding-right: 24px;
 }
 
 .imageMessage {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .letterBox {
-    display: flex;
-    width: 48px;
-    height: 48px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    border: 3px solid var(--COLOR_BLUE);
-    background: var(--COLOR_WHITE);
-    margin-right: 16px;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 3px solid var(--COLOR_BLUE);
+  background: var(--COLOR_WHITE);
+  margin-right: 16px;
 }
 
 .letterSpan {
-    color: var(--COLOR_BLUE);
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 135%;
-    letter-spacing: 0.4px;
+  color: var(--COLOR_BLUE);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 135%;
+  letter-spacing: 0.4px;
 }
 
 .yorNameBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
 }
 
 .nameSpan {
-    color: var(--COLOR_DARK);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 135%;
+  color: var(--COLOR_DARK);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
 }
 
 .logout {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .logoutSpan {
-    color: var(--COLOR_BROWN);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 135%;
+  color: var(--COLOR_BROWN);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 135%;
+}
+.logoutSpan:hover {
+  color: #ecf3ff;
+}
+.logoutSpan:focus {
+  color: #001e64;
 }
