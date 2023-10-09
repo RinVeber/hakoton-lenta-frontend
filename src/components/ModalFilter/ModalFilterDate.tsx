@@ -5,14 +5,12 @@ import React, { useState, useEffect, FC } from "react";
 
 interface IPropModal {
   isActive?: boolean;
-  getDateCurrent: () => {
-    rengerDate: [];
-  };
+  setCurrentDate: React.Dispatch<React.SetStateAction<string[]>>
 }
 
 const { RangePicker } = DatePicker;
 
-const ModalFilterDate: FC<IPropModal> = ({ isActive, getDateCurrent }) => {
+const ModalFilterDate: FC<IPropModal> = ({ isActive, setCurrentDate }) => {
   const [value, setValue] = useState<string>("day");
   const [activeDate, setIsActiveDate] = useState<boolean>(false);
   const [activeWeek, setIsActiveWeek] = useState<boolean>(false);
@@ -34,37 +32,37 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive, getDateCurrent }) => {
     }
   }, [isActive]);
 
-  useEffect(() => {
-    if (dateValue.length != 0) {
-      switch (value) {
-        case "day":
-          setIsDisabledDate(false);
-          setIsDisabledWeek(true);
-          setIsDisablesMonths(true);
-          break;
-        case "week":
-          setIsDisabledDate(true);
-          setIsDisabledWeek(false);
-          setIsDisablesMonths(true);
-          break;
-        case "months":
-          setIsDisabledDate(true);
-          setIsDisabledWeek(true);
-          setIsDisablesMonths(false);
-          break;
+  // useEffect(() => {
+  //   if (dateValue.length != 0) {
+  //     switch (value) {
+  //       case "day":
+  //         setIsDisabledDate(false);
+  //         setIsDisabledWeek(true);
+  //         setIsDisablesMonths(true);
+  //         break;
+  //       case "week":
+  //         setIsDisabledDate(true);
+  //         setIsDisabledWeek(false);
+  //         setIsDisablesMonths(true);
+  //         break;
+  //       case "months":
+  //         setIsDisabledDate(true);
+  //         setIsDisabledWeek(true);
+  //         setIsDisablesMonths(false);
+  //         break;
 
-        default:
-          break;
-      }
-    }
-    for (let key of dateValue) {
-      if (key == "") {
-        setIsDisabledDate(false);
-        setIsDisabledWeek(false);
-        setIsDisablesMonths(false);
-      }
-    }
-  }, [dateValue]);
+  //       default:
+  //         break;
+  //     }
+  //   }
+  //   for (let key of dateValue) {
+  //     if (key == "") {
+  //       setIsDisabledDate(false);
+  //       setIsDisabledWeek(false);
+  //       setIsDisablesMonths(false);
+  //     }
+  //   }
+  // }, [dateValue]);
 
   const onChangeRadio = (e: RadioChangeEvent) => {
     setValue(e.target.value);
@@ -92,7 +90,7 @@ const ModalFilterDate: FC<IPropModal> = ({ isActive, getDateCurrent }) => {
 
   const onChange: RangePickerProps["onChange"] = (date, rengerDate) => {
     const newDate = Object.assign({}, rengerDate);
-    getDateCurrent(newDate);
+    setCurrentDate(newDate);
     setDateValue(rengerDate);
   };
 

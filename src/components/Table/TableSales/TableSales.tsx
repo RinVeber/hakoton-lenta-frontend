@@ -132,7 +132,7 @@ export default function TableSales({
           </div>
         </div>
 
-        {sortList.map((item, index) => {
+        {sortList.slice(0, 50).map((item, index) => {
           return (
             <div key={index} className={styles.table__row}>
               <div className={styles.table__rowCell}>

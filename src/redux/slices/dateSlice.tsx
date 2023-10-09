@@ -14,7 +14,7 @@ const initialState: DateChange = {
 
 export const getDate = createAsyncThunk(
   "date/getDate",
-  async ({ currentDate }, thunkAPI) => {
+  async ({ currentDate }:any, thunkAPI) => {
     const { start, end } = currentDate;
     const token = localStorage.getItem("jwt") as string;
     try {

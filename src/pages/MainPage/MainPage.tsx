@@ -11,9 +11,7 @@ import { getCategory } from "../../redux/slices/dataCategorySlice";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
 import { Spin } from "antd";
-
 import { handleChangeIsExistSearchSalesDiff } from "../../redux/slices/dataSalesDiffSlice";
-
 import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
@@ -33,9 +31,7 @@ export default function MainPage() {
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff(null));
-    //dispatch(getShops());
-    //dispatch(getCategory());
-  }, [dispatch]);
+  }, []);
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -48,9 +44,7 @@ export default function MainPage() {
   }
 
   function handleReset() {
-
     dispatch(handleChangeIsExistSearchSalesDiff(false));
-
     setIsNeedToReset(!isNeedToReset);
   }
 
@@ -83,9 +77,7 @@ export default function MainPage() {
           </section>
         ) : (
           <>
-
             {isExistSearchSalesDiff ? (
-
               <NoSkuFound
                 handleReset={handleReset}
                 handleOpenModal={handleOpenModal}

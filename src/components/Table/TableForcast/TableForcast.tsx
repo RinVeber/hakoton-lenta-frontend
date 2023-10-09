@@ -32,7 +32,6 @@ export default function TableForcast({
   const [sortList, setSortList] = React.useState(tableForcast);
   const [sortType, setSortType] = React.useState("");
   const [lastSortTitle, setlastSortTitle] = React.useState("");
-  const { status } = useAppSelector((state) => state.forcast);
 
   const [scrollTop, setScrollTop] = React.useState<number>(0);
   const tableRef = React.useRef<HTMLDivElement>(null);
