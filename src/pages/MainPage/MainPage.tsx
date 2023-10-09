@@ -12,7 +12,7 @@ import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { Header } from "../../components";
 import { Spin } from "antd";
 import { handleChangeIsExistSearch } from "../../redux/slices/dataForcastSlice";
-// import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
+import NoSkuFound from "../../components/NoSkuFound/NoSkuFound";
 
 export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
@@ -24,15 +24,15 @@ export default function MainPage() {
     status,
     dataSalesDiff: tableSales,
     nextPage,
+    isExistSearchSalesDiff,
+    dataSalesDiffSearch,
   } = useAppSelector((state) => state.salesDiff);
-
 
   React.useEffect(() => {
     dispatch(getDataSalesDiff(null));
     //dispatch(getShops());
     //dispatch(getCategory());
   }, [dispatch]);
-
 
   function handleOpenModal() {
     dispatch(getCategory());
@@ -44,13 +44,8 @@ export default function MainPage() {
     handleReset();
   }
 
-  function getNextPage() {
-    debugger;
-    dispatch(getDataSalesDiff(nextPage));
-  }
-
-  function handleReset(){
-    dispatch(handleChangeIsExistSearch(false))
+  function handleReset() {
+    dispatch(handleChangeIsExistSearch(false));
     setIsNeedToReset(!isNeedToReset);
   }
 
@@ -70,8 +65,7 @@ export default function MainPage() {
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
-          isNeedToReset = {isNeedToReset}
-
+          isNeedToReset={isNeedToReset}
         />
         <Tabs handleOpenModal={handleOpenModal} />
 
@@ -82,20 +76,26 @@ export default function MainPage() {
             <div>Пожалуйста подождите...</div>
           </section>
         ) : (
-         
           <>
-            <TableSales
-              columns={mokColumnsStatic}
-              tableSales={tableSales}
-              onNextPage={getNextPage}
-            />
-            <ButtonExcel />
-        
-
+            {isExistSearchSalesDiff && dataSalesDiffSearch.length == 0 ? (
+              <NoSkuFound
+                handleReset={handleReset}
+                handleOpenModal={handleOpenModal}
+              />
+            ) : (
+              <>
+                <TableSales
+                  columns={mokColumnsStatic}
+                  tableSales={
+                    isExistSearchSalesDiff ? dataSalesDiffSearch : tableSales
+                  }
+                  onNextPage={getNextPage}
+                />
+                <ButtonExcel />
+              </>
+            )}
           </>
         )}
-        
-
       </section>
     </>
   );
