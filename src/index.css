@@ -6,6 +6,7 @@ body {
     font-style: normal;
 
     --COLOR_DARK: rgba(44, 42, 41, 1);
+    --COLOR_BROWN: rgba(77, 77, 77, 1);
     --COLOR_GRAY: rgba(182, 182, 182, 1);
     --COLOR_BLUE: rgba(0, 60, 150, 1);
     --COLOR_DISABLED_TEXT: rgba(175, 175, 175, 1);
@@ -17,8 +18,7 @@ body {
     --COLOR_GREEN: rgb(0, 128, 0);
     --COLOR_BUTTON_HOVER: rgba(2, 97, 240, 1);
     --COLOR_LIGHT_BLUE: rgba(236, 243, 255, 1);
-
-    margin: 0;
+    --COLOR_BORDER_BOTTOM: rgb(242, 242, 242) margin: 0;
     padding: 0;
     width: 100%;
     min-height: 100vh;

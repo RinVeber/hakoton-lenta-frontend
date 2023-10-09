@@ -4,17 +4,30 @@ import Auth from "./components/Auth/Auth";
 import styles from "./styles/App.module.css";
 import ForcastPage from "./pages/ForcastPage/ForcastPage";
 import MainPage from "./pages/MainPage/MainPage";
-import { ProtectedRoute } from "./components/index";
+import { Header, ProtectedRoute } from "./components/index";
 
 const App = () => {
   return (
     <div className={styles.app}>
       <Routes>
         <Route path="/auth" element={<Auth />} />
-        <Route path="/" element={<ProtectedRoute component={MainPage} />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <ProtectedRoute component={MainPage} />
+            </>
+          }
+        />
         <Route
           path="/forcast"
-          element={<ProtectedRoute component={ForcastPage} />}
+          element={
+            <>
+              <Header />
+              <ProtectedRoute component={ForcastPage} />
+            </>
+          }
         />
       </Routes>
     </div>

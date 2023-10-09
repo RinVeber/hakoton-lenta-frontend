@@ -1,7 +1,5 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { RootState } from "../../redux/store";
 import { FC } from "react";
+import { Navigate } from "react-router-dom";
 
 interface IPropProtected {
   component: React.ElementType;

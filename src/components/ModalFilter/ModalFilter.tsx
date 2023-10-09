@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./ModalFilter.module.css";
-// import Select from "./Select/Select";
-// import up from "../../assets/arrow-up.svg";
-// import down from "../../assets/arrow-down.svg";
+import Select from "./Select/Select";
+import up from "../../assets/arrow-up.svg";
+import down from "../../assets/arrow-down.svg";
 import ModalFilterDate from "./ModalFilterDate";
 
 interface ModalProps {
@@ -12,31 +12,31 @@ interface ModalProps {
 
 export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
   const path = window.location.pathname;
-  // const [isSelectCity, setIsSelectCity] = React.useState(false);
-  // const [isSelectTK, setIsSelectTK] = React.useState(false);
-  // const [isSelectGroup, setIsSelectGroup] = React.useState(false);
-  // const [isSelectCategory, setIsSelectCategory] = React.useState(false);
-  // const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
-  // const [isSelectSKU, setIsSelectSKU] = React.useState(false);
+  const [isSelectCity, setIsSelectCity] = React.useState(false);
+  const [isSelectTK, setIsSelectTK] = React.useState(false);
+  const [isSelectGroup, setIsSelectGroup] = React.useState(false);
+  const [isSelectCategory, setIsSelectCategory] = React.useState(false);
+  const [isSelectPodcategory, setIsSelectPodcategory] = React.useState(false);
+  const [isSelectSKU, setIsSelectSKU] = React.useState(false);
 
-  // function openSelectCity() {
-  //   setIsSelectCity(!isSelectCity);
-  // }
-  // function openSelectTK() {
-  //   setIsSelectTK(!isSelectTK);
-  // }
-  // function openSelectGroup() {
-  //   setIsSelectGroup(!isSelectGroup);
-  // }
-  // function openSelectCategory() {
-  //   setIsSelectCategory(!isSelectCategory);
-  // }
-  // function openSelectPodcategory() {
-  //   setIsSelectPodcategory(!isSelectPodcategory);
-  // }
-  // function openSelectSKU() {
-  //   setIsSelectSKU(!isSelectSKU);
-  // }
+  function openSelectCity() {
+    setIsSelectCity(!isSelectCity);
+  }
+  function openSelectTK() {
+    setIsSelectTK(!isSelectTK);
+  }
+  function openSelectGroup() {
+    setIsSelectGroup(!isSelectGroup);
+  }
+  function openSelectCategory() {
+    setIsSelectCategory(!isSelectCategory);
+  }
+  function openSelectPodcategory() {
+    setIsSelectPodcategory(!isSelectPodcategory);
+  }
+  function openSelectSKU() {
+    setIsSelectSKU(!isSelectSKU);
+  }
   const city = [
     {
       id: 1,
@@ -76,7 +76,7 @@ export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
       </div>
 
       <div className={styles.modal__content}>
-        {/* <div className={styles.modal__selectContent}>
+        <div className={styles.modal__selectContent}>
           <div className={styles.modal__container}>
             <div className={styles.modal__wrap}>
               <div className={styles.modal__select} onClick={openSelectCity}>
@@ -195,7 +195,7 @@ export default function ModalFilter({ isActive, handleOpenModal }: ModalProps) {
               selectOptions={city}
             />
           </div>
-        </div> */}
+        </div>
         <div className={styles.modal__btnСontainer}>
           <button type="submit" className={styles.modal__submit}>
             Показать

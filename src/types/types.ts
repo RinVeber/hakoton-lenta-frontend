@@ -19,3 +19,12 @@ export type dataSourceTableSales = {
   podcategory: string,
   sku: string,
 }
+
+export type userMe = {
+  user: {
+    first_name: "",
+    last_name: "",
+  },
+  status: 'init' | 'loading' | 'success' | 'error';
+  error: string | undefined;
+}

@@ -5,14 +5,18 @@ import { dataForcastReducer } from "./slices/dataForcastSlice";
 import formSlice from "./slices/formSlice";
 import { shopReducer } from "./slices/shopSlice";
 import { categoryReducer } from "./slices/dataCategorySlice";
+import { dataSalesDiffReducer } from "./slices/dataSalesDiffSlice";
+import userSlice from "./slices/userSlice";
 
 const store = configureStore({
   reducer: {
     sales: dataSalesReducer,
+    salesDiff: dataSalesDiffReducer,
     form: formSlice,
     forcast: dataForcastReducer,
     shop: shopReducer,
-    category: categoryReducer
+    category: categoryReducer,
+    user: userSlice,
   },
 });
 

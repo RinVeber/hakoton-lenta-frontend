@@ -7,6 +7,7 @@ export const baseURL = 'http://95.163.233.5/v1/';
 export const urlSales = baseURL + 'api/sales/';
 export const urlForcast = baseURL + 'api/forecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
+export const urlSalesDiff = baseURL + 'api/salesdiff/';
 
 export const navLinks = [
   {
@@ -20,13 +21,13 @@ export const navLinks = [
   {
     id: 2,
     name: "Прогноз спроса",
-    link: "/",
+    link: "/forcast",
     isActive: true,
   },
   {
     id: 3,
     name: "Статистика",
-    link: "/forcast",
+    link: "/",
     isActive: true,
   },
 ];
@@ -101,7 +102,7 @@ export const mokColumnsTable = [
 });
 
 
-export const mokColumnsForcast = [
+export const mokColumnsStatic = [
   {
     title: "TK",
     dataIndex: "tk",
