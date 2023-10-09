@@ -23,7 +23,6 @@ const App = () => {
           path="/forcast"
           element={
             <>
-              <Header />
               <ProtectedRoute component={ForcastPage} />
             </>
           }

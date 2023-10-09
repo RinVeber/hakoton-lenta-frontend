@@ -9,14 +9,10 @@ import TableForcast from "../../components/Table/TableForcast/TableForcast";
 import ModalFilterState from "../../components/ModalFilter/ModalFilterState";
 import { getCategory } from "../../redux/slices/dataCategorySlice";
 import { getShops } from "../../redux/slices/shopSlice";
+import { Header } from "../../components";
 
 export default function ForcastPage() {
   const [isActive, setIsActive] = React.useState(false);
-
-  function handleOpenModal() {
-    setIsActive(!isActive);
-
-  }
 
   const dispatch = useAppDispatch();
   const tableForcast = useAppSelector((state) => state.forcast.data);
@@ -51,6 +47,7 @@ export default function ForcastPage() {
         onClick={() => closeModal()}
       ></div>
       <section className={styles.forcastPage}>
+      <Header />
         <ModalFilterState
           isActive={isActive}
           handleOpenModal={handleOpenModal}
