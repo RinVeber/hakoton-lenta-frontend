@@ -25,7 +25,7 @@ const Tabs: FC<ITabsProps> = ({ handleOpenModal }) => {
 
           <button
             className={
-              pathname == "/obzor"
+              pathname == "/"
                 ? styles.Tabs__button
                 : styles.Tabs__button_hide
             }

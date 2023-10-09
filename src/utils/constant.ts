@@ -11,22 +11,15 @@ export const urlToken = baseURL + '/api/auth/token/login/';
 export const urlSalesDiff = baseURL + 'api/salesdiff/';
 
 export const navLinks = [
+
   {
-
-
     id: 1,
-    name: "Обзор",
-    link: "/review",
-    isActive: true,
-  },
-  {
-    id: 2,
     name: "Прогноз спроса",
     link: "/forcast",
     isActive: true,
   },
   {
-    id: 3,
+    id: 2,
     name: "Статистика",
     link: "/",
     isActive: true,
