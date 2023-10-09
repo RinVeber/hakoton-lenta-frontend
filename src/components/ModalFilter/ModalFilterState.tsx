@@ -20,6 +20,7 @@ interface ModalProps {
   handleOpenModal: () => void;
   isNeedToReset: boolean;
   currentTarget?: string;
+  isActiveModalSale?: boolean
 }
 
 export default function ModalFilterState({
@@ -27,6 +28,7 @@ export default function ModalFilterState({
   handleOpenModal,
   isNeedToReset,
   currentTarget,
+  isActiveModalSale
 }: ModalProps) {
   const [target, setTarget] = React.useState(false);
   const [isSelectCity, setIsSelectCity] = React.useState(false);
@@ -45,7 +47,6 @@ export default function ModalFilterState({
   const dispatch = useAppDispatch();
   
   const [currentDate, setCurrentDate] = useState<string[]>([]);
-
   const [formData, setFormData] = React.useState<SearchForm>({
     city: null,
     store: null,
@@ -59,10 +60,10 @@ export default function ModalFilterState({
     if (currentTarget == "period") {
       setTarget(true);
     }
-    if (!isActive) {
+    if (!isActiveModalSale) {
       setTarget(false);
     }
-  }, [isActive]);
+  }, [isActiveModalSale]);
 
   function setFormDataByType(
     type: string,
@@ -212,7 +213,7 @@ export default function ModalFilterState({
       <div className={styles.modal__content}>
         {target ? (
           <ModalFilterDate
-            isActive={isActive}
+            isActive={isActiveModalSale}
             // getDateCurrent={getDateCurrent}
             setCurrentDate={setCurrentDate}
           />

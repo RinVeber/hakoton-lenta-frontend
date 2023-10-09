@@ -18,6 +18,7 @@ export default function MainPage() {
   const [isActive, setIsActive] = React.useState(false);
   const [currentTarget, setCurrentTarget] = React.useState("");
   const [isNeedToReset, setIsNeedToReset] = React.useState(false);
+  const [isActiveModalSale, setIsActiveModalSales] = React.useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -63,6 +64,7 @@ export default function MainPage() {
         <Header />
         <ModalFilterState
           isActive={isActive}
+          isActiveModalSale={isActiveModalSale}
           handleOpenModal={handleOpenModal}
           isNeedToReset={isNeedToReset}
           currentTarget={currentTarget}
