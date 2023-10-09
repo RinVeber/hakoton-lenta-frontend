@@ -1,10 +1,22 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import { dataReducer } from './slices/dataSlice';
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import { configureStore } from "@reduxjs/toolkit";
+import { dataSalesReducer } from "./slices/dataSalesSlice";
+import { dataForcastReducer } from "./slices/dataForcastSlice";
+import formSlice from "./slices/formSlice";
+import { shopReducer } from "./slices/shopSlice";
+import { categoryReducer } from "./slices/dataCategorySlice";
+import { dataSalesDiffReducer } from "./slices/dataSalesDiffSlice";
+import userSlice from "./slices/userSlice";
 
 const store = configureStore({
   reducer: {
-    data: dataReducer,
+    sales: dataSalesReducer,
+    salesDiff: dataSalesDiffReducer,
+    form: formSlice,
+    forcast: dataForcastReducer,
+    shop: shopReducer,
+    category: categoryReducer,
+    user: userSlice,
   },
 });
 

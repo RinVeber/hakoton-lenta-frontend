@@ -1,0 +1,139 @@
+.formAuth {
+    width: 424px;
+    height: 394px;
+    position: relative;
+}
+
+.formTitle {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: 1.28px;
+    color: var(--COLOR_DARK);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 48px 0;
+}
+
+.email {
+    padding: 21px 24px;
+    border-radius: 52px;
+    border: 2px solid var(--COLOR_INPUT_BORDER);
+    position: relative;
+}
+
+.email::placeholder {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 135%;
+    color: var(--COLOR_GRAY);
+}
+
+.email:invalid:not(:placeholder-shown) {
+    border: 2px solid var(--COLOR_NOT-VALID);
+}
+
+.email:valid:not(:placeholder-shown) {
+    border: 2px solid var(--COLOR_GREEN);
+}
+
+.password {
+    padding: 21px 24px;
+    border-radius: 52px;
+    border: 2px solid var(--COLOR_INPUT_BORDER);
+}
+
+.password:invalid:not(:placeholder-shown) {
+    border: 2px solid var(--COLOR_NOT-VALID);
+}
+
+.password:valid:not(:placeholder-shown) {
+    border: 2px solid var(--COLOR_GREEN);
+}
+
+.password::placeholder {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 135%;
+    color: var(--COLOR_GRAY);
+}
+
+.forget {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 135%;
+    color: var(--COLOR_BLUE);
+}
+
+.buttonAuth_valid {
+    display: flex;
+    padding: 19px 177px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 52px;
+    background: var(--COLOR_BLUE);
+}
+
+.buttonAuth_valid:hover {
+    background: var(--COLOR_BUTTON_HOVER);
+    transition: 0.2s;
+}
+
+.buttonAuth_valid:focus {
+    background: var(--COLOR_BUTTON_FOCUS);
+}
+
+.buttonSpan_valid {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 135%;
+    color: var(--COLOR_WHITE);
+}
+
+.buttonAuth_disabled {
+    display: flex;
+    padding: 19px 177px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 52px;
+    cursor: not-allowed;
+    background: var(--COLOR_BUTTON_DISABLED)
+}
+
+.buttonSpan_disabled {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 135%;
+    color: var(--COLOR_DISABLED_TEXT)
+}
+
+.remove {
+    position: absolute;
+    top: 102px;
+    left: 370px;
+    background: none;
+}
+
+.removeBtn {
+    width: 24px;
+    height: 24px;
+
+}
+
+.visual {
+    position: absolute;
+    top: 190px;
+    left: 369px;
+    background: none;
+}
+
+.visualBtn {
+    width: 24px;
+    height: 24px;
+}

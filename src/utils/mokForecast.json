@@ -1,0 +1,2088 @@
+{
+    "count": 109463,
+    "next": "http://95.163.233.5/v1/api/forecast/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "store": "c81e728d9d4c2f636f067f89cc14862c",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "faafda66202d234463057972460c04f5",
+            "subcategory": "58c9ac72725ab1211b35821c610dcd6b",
+            "sku": "1a0f36f6e92560bcae205b6c32cc033f",
+            "forecast": [
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "28.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "42.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "26.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "26.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "34.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "54.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "25.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "41.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "4.0"
+                }
+            ]
+        },
+        {
+            "store": "f7e6c85504ce6e82442c770f7c8606f0",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "e95b9bb287e5571345c0e94f3118d667",
+            "forecast": [
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "23.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "2.0"
+                }
+            ]
+        },
+        {
+            "store": "c81e728d9d4c2f636f067f89cc14862c",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "ced0c1a84924c982a6403870c54b99ca",
+            "forecast": [
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "40.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "34.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "58.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "31.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "55.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "31.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "26.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "43.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "32.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "21.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "12.0"
+                }
+            ]
+        },
+        {
+            "store": "c81e728d9d4c2f636f067f89cc14862c",
+            "group": "aab3238922bcc25a6f606eb525ffdc56",
+            "category": "28fc2782ea7ef51c1104ccf7b9bea13d",
+            "subcategory": "b9d194b4fcd411b02eea6fe9f66bf427",
+            "sku": "2e463fcb1369be4d5dfbe87e04f60df2",
+            "forecast": [
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "10.0"
+                }
+            ]
+        },
+        {
+            "store": "f7e6c85504ce6e82442c770f7c8606f0",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "130d817d8b3f616e97c555ec57946aec",
+            "sku": "cf91eca9321c9c272fb4e7cf4bcc6a43",
+            "forecast": [
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "30.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "23.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "8.0"
+                }
+            ]
+        },
+        {
+            "store": "f7e6c85504ce6e82442c770f7c8606f0",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "ced0c1a84924c982a6403870c54b99ca",
+            "forecast": [
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "28.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "20.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "45.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "49.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "49.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "54.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "76.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "28.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "21.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "50.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "41.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "30.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "82.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "50.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "37.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "41.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "49.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "46.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "58.0"
+                }
+            ]
+        },
+        {
+            "store": "1ecfb463472ec9115b10c292ef8bc986",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "3a74a370c8eb032acb11ad9119242b8f",
+            "forecast": [
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "0.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "5.0"
+                }
+            ]
+        },
+        {
+            "store": "c81e728d9d4c2f636f067f89cc14862c",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "ced0c1a84924c982a6403870c54b99ca",
+            "forecast": [
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "40.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "34.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "58.0"
+                },
+                {
+                    "date": "2023-05-05",
+                    "sales_units": "31.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "55.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "7.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-03-11",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-03-07",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "31.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-14",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "26.0"
+                },
+                {
+                    "date": "2023-02-13",
+                    "sales_units": "12.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "19.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "43.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "32.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2022-10-17",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "21.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "12.0"
+                }
+            ]
+        },
+        {
+            "store": "c81e728d9d4c2f636f067f89cc14862c",
+            "group": "c74d97b01eae257e44aa9d5bade97baf",
+            "category": "c559da2ba967eb820766939a658022c8",
+            "subcategory": "e06f5ed77191826c212c30722f2cc5a2",
+            "sku": "e95b9bb287e5571345c0e94f3118d667",
+            "forecast": [
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-01-08",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-09-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2023-06-22",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2022-09-18",
+                    "sales_units": "29.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "6.0"
+                },
+                {
+                    "date": "2022-10-02",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "22.0"
+                },
+                {
+                    "date": "2023-03-12",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-06-15",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-02-10",
+                    "sales_units": "8.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-05-07",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2023-05-14",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-02-22",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-06-21",
+                    "sales_units": "21.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2022-11-04",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-08-03",
+                    "sales_units": "14.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-02-21",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "11.0"
+                },
+                {
+                    "date": "2022-08-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "15.0"
+                },
+                {
+                    "date": "2023-07-13",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-09-29",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "2.0"
+                },
+                {
+                    "date": "2023-05-23",
+                    "sales_units": "9.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "5.0"
+                },
+                {
+                    "date": "2023-04-29",
+                    "sales_units": "30.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "1.0"
+                },
+                {
+                    "date": "2023-03-15",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "18.0"
+                },
+                {
+                    "date": "2022-09-27",
+                    "sales_units": "4.0"
+                },
+                {
+                    "date": "2023-07-04",
+                    "sales_units": "10.0"
+                },
+                {
+                    "date": "2023-01-27",
+                    "sales_units": "21.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-03-13",
+                    "sales_units": "13.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2022-09-15",
+                    "sales_units": "16.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "17.0"
+                },
+                {
+                    "date": "2023-06-18",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "3.0"
+                },
+                {
+                    "date": "2023-06-20",
+                    "sales_units": "26.0"
+                }
+            ]
+        }
+    ]
+}

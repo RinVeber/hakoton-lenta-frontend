@@ -1,0 +1,31 @@
+.filterDate {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.radio {
+    color: var(--COLOR_BUTTON_FOCUS);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 135%;
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dateRangerUnvisible {
+    display: none;
+}
+
+.dateRangerActive {
+    display: flex;
+    width: 649px;
+}
+
+.popupWeek {
+    border-radius: 16px;
+}
