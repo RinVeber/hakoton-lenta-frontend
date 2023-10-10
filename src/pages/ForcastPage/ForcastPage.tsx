@@ -81,7 +81,7 @@ export default function ForcastPage() {
         ) : (
           <>
 
-            {isExistSearch ? (
+            {isExistSearch && tableForcastSearch.length == 0 ? (
               <NoSkuFound
                 handleReset={handleReset}
                 handleOpenModal={handleOpenModal}
