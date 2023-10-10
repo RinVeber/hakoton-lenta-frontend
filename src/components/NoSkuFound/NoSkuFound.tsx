@@ -10,7 +10,7 @@ export default function NoSkuFound({handleOpenModal, handleReset}: NoSkuFoundPro
     <section className={styles.noSkuFound}>
       <div className={styles.titleContainer}>
         <div className={styles.title}>SKU не найдены</div>
-        <div className={styles.subtitle}>Попробоуйте изменить фильтры</div>
+        <div className={styles.subtitle}>Попробуйте изменить фильтры</div>
       </div>
       <div className={styles.buttonContainer}>
         <div className={styles.buttonFilter} onClick={handleOpenModal}>Изменить фильтры</div>
