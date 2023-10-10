@@ -82,7 +82,9 @@ export default function MainPage() {
         ) : (
           <>
 
+
             {isExistSearchSalesDiff  ? (
+
 
               <NoSkuFound
                 handleReset={handleReset}
