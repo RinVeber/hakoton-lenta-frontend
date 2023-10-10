@@ -8,6 +8,14 @@ export const urlNewForcast = baseURL + 'api/newforecast/';
 export const urlToken = baseURL + '/api/auth/token/login/';
 export const urlSalesDiff = baseURL + 'api/salesdiff/';
 
+export const mokUser = {
+  username: "front@lenta.com",
+  first_name: "front",
+  last_name: "dev",
+  email: "front@lenta.com",
+  password: "392750YBST"
+}
+
 export const navLinks = [
 
   {

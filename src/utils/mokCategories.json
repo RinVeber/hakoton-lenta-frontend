@@ -1,0 +1,70 @@
+{
+    "count": 2051,
+    "next": "http://95.163.233.5/v1/api/categories/?page=2",
+    "previous": null,
+    "results": [
+      {
+        "pr_sku_id": "002c3a40ac50dc870f1ff386f11f5b88",
+        "pr_group_id": "6512bd43d9caa6e02c990b0a82652dca",
+        "pr_cat_id": "c9f95a0a5af052bffce5c89917335f67",
+        "pr_subcat_id": "507c9dcd6538b05090d22c4b73c535a7",
+        "pr_uom_id": 0
+      },
+      {
+        "pr_sku_id": "002c3a40ac50dc870f1ff386f11f5bae",
+        "pr_group_id": "6512bd43d9caa6e02c990b0a82652dca",
+        "pr_cat_id": "c9f95a0a5af052bffce5c89917335f67",
+        "pr_subcat_id": "507c9dcd6538b05090d22c4b73c535a7",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "0045ebdb1069ff4b3dd3efe628c39cd3",
+        "pr_group_id": "c74d97b01eae257e44aa9d5bade97baf",
+        "pr_cat_id": "c559da2ba967eb820766939a658022c8",
+        "pr_subcat_id": "130d817d8b3f616e97c555ec57946aec",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "005c52de11abaf8e0a9714b24415ce34",
+        "pr_group_id": "c20ad4d76fe97759aa27a0c99bff6710",
+        "pr_cat_id": "fb2fcd534b0ff3bbed73cc51df620323",
+        "pr_subcat_id": "572494dd9d43f96629bddcbd4102f35f",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "0063fbd948a3d7368ba9d97739bfe2cc",
+        "pr_group_id": "aab3238922bcc25a6f606eb525ffdc56",
+        "pr_cat_id": "46771d1f432b42343f56f791422a4991",
+        "pr_subcat_id": "38cc804f2e8d4b18785b84c68517eadf",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "00661699f543753ec7e911a64b9fd2f6",
+        "pr_group_id": "aab3238922bcc25a6f606eb525ffdc56",
+        "pr_cat_id": "9701a1c165dd9420816bfec5edd6c2b1",
+        "pr_subcat_id": "8afe22eeb3f3f68de994a3c60388858c",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "0094042bfeae507dc7f62acc8e5ed03a",
+        "pr_group_id": "6512bd43d9caa6e02c990b0a82652dca",
+        "pr_cat_id": "e58cc5ca94270acaceed13bc82dfedf7",
+        "pr_subcat_id": "c93c26cd49ea08e6b8984351d4164575",
+        "pr_uom_id": 1
+      },
+      {
+        "pr_sku_id": "00a631286fff2536dfc128e9cf03e92c",
+        "pr_group_id": "c74d97b01eae257e44aa9d5bade97baf",
+        "pr_cat_id": "1bc0249a6412ef49b07fe6f62e6dc8de",
+        "pr_subcat_id": "83b5bd3157dca7df5e5e337a7f3143bc",
+        "pr_uom_id": 17
+      },
+      {
+        "pr_sku_id": "00b72c2f01a1512cbb1d3f33319bac93",
+        "pr_group_id": "c74d97b01eae257e44aa9d5bade97baf",
+        "pr_cat_id": "1bc0249a6412ef49b07fe6f62e6dc8de",
+        "pr_subcat_id": "d407a3ebb4ab9b0d68b224486f8b8dad",
+        "pr_uom_id": 17
+      }
+    ]
+  }
